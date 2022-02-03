@@ -1,6 +1,7 @@
 # Ignore artifacts:
 prod
 dist
+src
 node_modules
 src/assets/scripts/gulp-modules/ts
 src/assets/scripts/libs
