@@ -29,14 +29,13 @@ body {
   overflow-x: hidden;
   font-size: 14px;
   background-color: #f9f8fc;
+  padding: 0 $lr-paddings;
 }
 
 a {
   @include resetLinkStyles;
-  font-family: 'Mont';
 }
 
 button {
   @include resetBtnStyles;
-  font-family: 'Tenor Sans';
 }
