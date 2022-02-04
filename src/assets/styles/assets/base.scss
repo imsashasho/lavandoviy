@@ -24,8 +24,19 @@ html {
 body {
   margin: 0;
   min-width: 320px;
-  line-height: 1.5em;
-  // font-family: $default-font;
+  font-family: $default-font;
+  font-weight: 600;
   overflow-x: hidden;
   font-size: 14px;
+  background-color: #f9f8fc;
+}
+
+a {
+  @include resetLinkStyles;
+  font-family: 'Mont';
+}
+
+button {
+  @include resetBtnStyles;
+  font-family: 'Tenor Sans';
 }

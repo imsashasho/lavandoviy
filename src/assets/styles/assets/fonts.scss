@@ -1,3 +1,11 @@
-@include font-face("gilroy", "../fonts/gilroyRegular/Gilroy-Regular", 400);
-@include font-face("gilroy", "../fonts/gilroyMedium/Gilroy-Medium", 500);
-@include font-face("gilroy", "../fonts/gilroySemiBold/Gilroy-SemiBold", 600);
+@include font-face('Mont', '../fonts/montSemiBold/Mont-SemiBold', 600);
+//Шрифт с насыщенностью 500 Medium не найден
+@include font-face('Mont', '../fonts/montSemiBold/Mont-SemiBold', 500);
+
+@include font-face(
+  'Cormorant Garamond',
+  '../fonts/cormorantGaramondLight/CormorantGaramond-Light',
+  300
+);
+
+@include font-face('Tenor Sans', '../fonts/tenorSansRegular/TenorSans-Regular', 400);
