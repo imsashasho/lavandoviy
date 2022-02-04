@@ -1,15 +1,25 @@
-// Vars
-/* tb - top-bottom */
+:root {
+  --margin-outer: 90px;
+  --margin-inner: 20px;
+  --header-height: 170px;
+  --tb-padding: 50px; // tb - top-bottom
+}
 
-$tb-padding: 50px;
-$margin-outer: 90px;
-$margin-inner: 20px;
+@include to(1366px) {
+  :root {
+    --margin-outer: 20px;
+    --margin-inner: 10px;
+  }
+}
 
 //////////////
 
 .header {
-  padding: $tb-padding 0;
-  position: relative;
+  padding: var(--tb-padding) var(--lr-paddings);
+
+  position: fixed;
+  width: 100%;
+  height: var(--header-height);
   @include baseFlexStyle(center, space-between);
 
   &-left {
@@ -27,13 +37,13 @@ $margin-inner: 20px;
 
       &::before {
         @include after-before-img('../images/Header/houses-icon.svg', 70px, 70px);
-        margin-right: $margin-inner;
+        margin-right: var(--margin-inner);
       }
     }
 
     &-tel {
       font-size: 18px;
-      margin-left: $margin-outer;
+      margin-left: var(--margin-outer);
     }
   }
 
@@ -63,7 +73,7 @@ $margin-inner: 20px;
 
   &-btn {
     &-call {
-      margin-right: $margin-outer;
+      margin-right: var(--margin-outer);
     }
 
     &-menu {
@@ -72,7 +82,7 @@ $margin-inner: 20px;
 
       &::after {
         @include after-before-img('../images/Header/burger-icon.svg', 70px, 70px);
-        margin-left: $margin-inner;
+        margin-left: var(--margin-inner);
       }
     }
   }
