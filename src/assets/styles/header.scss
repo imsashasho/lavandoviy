@@ -1,23 +1,23 @@
 :root {
-  --margin-outer: 90px;
-  --margin-inner: 20px;
+  --header-margin-outer: 90px;
+  --header-margin-inner: 20px;
   --header-height: 170px;
-  --tb-padding: 50px; // tb - top-bottom
+  --header-tb-padding: 50px; // tb - top-bottom
 }
 
 @include to(1366px) {
   :root {
-    --margin-outer: 20px;
-    --margin-inner: 10px;
+    --header-margin-outer: 20px;
+    --header-margin-inner: 10px;
   }
 }
 
 //////////////
 
 .header {
-  padding: var(--tb-padding) var(--lr-paddings);
-
+  padding: var(--header-tb-padding) var(--lr-paddings);
   position: fixed;
+  background: $light-grey;
   width: 100%;
   height: var(--header-height);
   @include baseFlexStyle(center, space-between);
@@ -36,14 +36,14 @@
       @include baseFlexStyle(center);
 
       &::before {
-        @include after-before-img('../images/Header/houses-icon.svg', 70px, 70px);
-        margin-right: var(--margin-inner);
+        @include after-before-img('../images/header/houses-icon.svg', 70px, 70px);
+        margin-right: var(--header-margin-inner);
       }
     }
 
     &-tel {
       font-size: 18px;
-      margin-left: var(--margin-outer);
+      margin-left: var(--header-margin-outer);
     }
   }
 
@@ -61,19 +61,20 @@
     @include baseFlexStyle(center);
 
     &__btn {
-      font-family: 'Mont';
-      font-weight: 500;
-      font-size: 14px;
-      line-height: 100%;
-      letter-spacing: 0.01em;
-      text-transform: uppercase;
-      color: $dark-grey;
+      // font-family: 'Mont';
+      // font-weight: 500;
+      // font-size: 14px;
+      // line-height: 100%;
+      // letter-spacing: 0.01em;
+      // text-transform: uppercase;
+      // color: $dark-grey;
+      @include setFontStyle('Mont', 14px, 500, $dark-grey, 100%, 0.01em);
     }
   }
 
   &-btn {
     &-call {
-      margin-right: var(--margin-outer);
+      margin-right: var(--header-margin-outer);
     }
 
     &-menu {
@@ -81,8 +82,8 @@
       @include baseFlexStyle(center);
 
       &::after {
-        @include after-before-img('../images/Header/burger-icon.svg', 70px, 70px);
-        margin-left: var(--margin-inner);
+        @include after-before-img('../images/header/burger-icon.svg', 70px, 70px);
+        margin-left: var(--header-margin-inner);
       }
     }
   }

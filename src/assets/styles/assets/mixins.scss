@@ -10,6 +10,32 @@
   }
 }
 
+@mixin font-face-one-type(
+  $font-family,
+  $url,
+  $type,
+  $weight: normal,
+  $style: normal,
+  $asset-pipeline: false
+) {
+  @font-face {
+    font-family: '#{$font-family}';
+    font-weight: #{$weight};
+    font-style: '#{$style}';
+
+    $format: '';
+
+    @if $type == 'ttf' {
+      $format: 'truetype';
+    } @else if $type == 'eot' {
+      $format: 'embedded-opentype';
+    } @else if $type == 'woff' {
+      $format: 'woff';
+    }
+    src: url('#{$url}.#{$type}') format($format);
+  }
+}
+
 // Function for converting a px based font-size to rem.
 @function rem($size) {
   $remSize: $size / 14px;
@@ -55,4 +81,22 @@
   width: $width;
   height: auto;
   object-fit: cover;
+}
+
+@mixin setFontStyle(
+  $font-family,
+  $font-size,
+  $font-weight,
+  $color,
+  $line-height: initial,
+  $letter-spacing: initial,
+  $text-transform: uppercase
+) {
+  font-family: $font-family;
+  font-size: $font-size;
+  font-weight: $font-weight;
+  color: $color;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  text-transform: $text-transform;
 }

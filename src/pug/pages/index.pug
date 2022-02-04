@@ -19,6 +19,20 @@ block scripts
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/home.js')
 block content
+  main.main.main-home 
+    section.start-section
+      .first-column
+        .first-column__header.headers ЖК LAVANDA PARK — Спокій та затишок у дрібницях
+        p.first-column__text.start-section-text Всім з дитинства знайоме почуття, коли хочеться усамітнитися, створити свій милий серцю куточок
+        a.first-column__btn-link(href="#")
+      .second-column 
+        img(src="./assets/images/home/start-sec-1.jpg", alt="Interiere").second-column__img
+        .second-column__link-wrapper
+          a.second-column__link(href="#") Facebook
+          a.second-column__link(href="#") instagram
+      .third-column 
+        p.third-column__text.start-section-text З віком запитів стає набагато більше: вид з вікна, привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі, хімчистки, ресторани, пекарні
+        img(src="./assets/images/home/start-sec-2.jpg", alt="Interiere").third-column__img
 
 block footer
   include ../includes/footer.pug

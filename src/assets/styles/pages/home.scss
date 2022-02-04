@@ -1,0 +1,12 @@
+.main {
+  padding: calc(var(--header-height) + var(--top-padding)) var(--lr-paddings) var(--btm-padding);
+
+  &-home {
+    --top-padding: 0px;
+
+    .start-section {
+      display: grid;
+      grid-template-columns: repeat(12, 60px);
+    }
+  }
+}

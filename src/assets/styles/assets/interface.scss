@@ -1,0 +1,3 @@
+.headers {
+  @include setFontStyle('Cormorant Garamond', 62px, 300, $headers-color, 100%, 0.01em);
+}

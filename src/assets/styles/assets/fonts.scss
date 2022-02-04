@@ -1,11 +1,10 @@
 @include font-face('Mont', '../fonts/montSemiBold/Mont-SemiBold', 600);
-//Шрифт с насыщенностью 500 Medium не найден
+// Шрифт с насыщенностью 500 Medium не найден
 @include font-face('Mont', '../fonts/montSemiBold/Mont-SemiBold', 500);
 
-@include font-face(
+// Шрифт с одним типом
+@include font-face-one-type(
   'Cormorant Garamond',
   '../fonts/cormorantGaramondLight/CormorantGaramond-Light',
-  300
+  'ttf'
 );
-
-@include font-face('Tenor Sans', '../fonts/tenorSansRegular/TenorSans-Regular', 400);
