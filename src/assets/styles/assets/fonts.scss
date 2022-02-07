@@ -9,3 +9,10 @@
   'ttf',
   300
 );
+
+@include font-face-one-type(
+  'Tenor Sans',
+  '../fonts/tenorSansRegular/TenorSans-Regular',
+  'ttf',
+  400
+);

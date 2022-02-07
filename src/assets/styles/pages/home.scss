@@ -1,18 +1,25 @@
-// :root {
-//   --ss-col-gap: 60px;
-// }
+:root {
+  // --ss-col-gap: 60px;
+  --section-margin-bottom: 150px;
+}
 
 .main {
-  padding: calc(var(--header-height) + var(--top-padding)) var(--lr-paddings) var(--btm-padding);
+  // padding: calc(var(--header-height) + var(--top-padding)) var(--lr-paddings) var(--btm-padding);
+  padding: calc(var(--header-height) + var(--top-padding)) 0 var(--btm-padding);
 
   &-home {
     --top-padding: 0px;
+
+    section {
+      padding: 0 var(--lr-paddings);
+    }
 
     .start-section {
       display: grid;
       // grid-template-columns: repeat(3, auto);
       grid-template-columns: repeat(2, auto) 375px;
       grid-template-rows: 125px auto;
+      margin-bottom: var(--section-margin-bottom);
       // --ss-col-gap: 60px;
       // column-gap: var(--ss-col-gap);
 
@@ -83,6 +90,45 @@
 
       img {
         vertical-align: middle;
+      }
+    }
+
+    .lavanda-park {
+      @include baseFlexStyle($justify-content: space-between);
+      --paddins-tb: 270px;
+      padding-top: var(--paddins-tb);
+      padding-bottom: var(--paddins-tb);
+      background: no-repeat url('../images/home/lavanda-park.jpg');
+      background-size: cover;
+
+      .left-side {
+        width: 33%;
+
+        &__header {
+          @include setFontStyle('Cormorant Garamond', 110px, 400, $white-color, 100%, -0.01em);
+        }
+      }
+
+      .right-side {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        grid-template-rows: repeat(2, auto);
+        column-gap: 130px;
+        row-gap: 80px;
+
+        &__cell {
+          white-space: nowrap;
+        }
+
+        &__header {
+          @include setFontStyle('Tenor Sans', 70px, 400, $white-color, 120%, $text-transform: none);
+        }
+
+        &__subheader {
+          font-size: 16px;
+          line-height: 160%;
+          color: $light-grey;
+        }
       }
     }
   }
