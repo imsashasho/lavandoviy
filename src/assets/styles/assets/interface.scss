@@ -2,8 +2,15 @@
   --btn-link-width: 270px;
   --btn-link-height: 70px;
   --btn-link-font-size: 14px;
+  --headers-margin-bottom: 30px;
 }
 
 .headers {
-  @include setFontStyle('Tenor Sans', 62px, 300, $headers-color, 100%, 0.01em);
+  @include setFontStyle('Cormorant Garamond', 62px, 300, $headers-color, 100%, 0.01em);
+}
+
+.section-text {
+  font-size: 16px;
+  line-height: 170%;
+  color: $text-color;
 }

@@ -46,6 +46,10 @@ button {
   @include resetBtnStyles;
 }
 
+img {
+  vertical-align: middle;
+}
+
 ::-webkit-scrollbar {
   display: none;
 }

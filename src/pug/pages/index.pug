@@ -22,8 +22,8 @@ block content
   main.main.main-home 
     section.start-section
       .first-column
-        .first-column__header.headers ЖК LAVANDA PARK — Спокій та затишок у дрібницях
-        p.first-column__text.start-section-text Всім з дитинства знайоме почуття, коли хочеться усамітнитися, створити свій милий серцю куточок
+        p.first-column__header.headers ЖК LAVANDA PARK — Спокій та затишок у дрібницях
+        p.first-column__text.section-text Всім з дитинства знайоме почуття, коли хочеться усамітнитися, створити свій милий серцю куточок
         a.first-column__btn-link(href="#") обрати квартиру
       .second-column 
         img(src="./assets/images/home/start-sec-1.jpg", alt="Interiere").second-column__img
@@ -31,7 +31,7 @@ block content
           a.second-column__link(href="#") Facebook
           a.second-column__link(href="#") instagram
       .third-column 
-        p.third-column__text.start-section-text З віком запитів стає набагато більше: вид з вікна, привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі, хімчистки, ресторани, пекарні
+        p.third-column__text.section-text З віком запитів стає набагато більше: вид з вікна, привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі, хімчистки, ресторани, пекарні
         img(src="./assets/images/home/start-sec-2.jpg", alt="Interiere").third-column__img
     section.lavanda-park 
       .left-side
@@ -55,6 +55,26 @@ block content
         .right-side__cell
           .right-side__header 10
           .right-side__subheader поверхів
+    section.advantages-section 
+      .first-column
+        .first-column__text-wrapper
+          p.first-column__header.headers дворівневий підземний паркінг
+          p.first-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
+        .first-column__btn-wrapper 
+          button.first-column__btn.left-btn
+            img.first-column__btn-img(src="./assets/images/home/left-arrow.svg")
+          span.first-column__slide-num 
+            span.first-column__curr-slide 01
+            span.first-column__divider /
+            span.first-column__all-slides 04
+          button.first-column__btn.right-btn
+           img.first-column__btn-img(src="./assets/images/home/right-arrow.svg")
+      .second-column 
+        img(src="./assets/images/home/parking.jpg", alt="Parking").second-column__img
+        .second-column__nav-wrapper 
+          .second-column__nav-line
+      .third-column
+        img(src="./assets/images/home/developer.jpg", alt="Developer").third-column__img
 block footer
   include ../includes/footer.pug
 

@@ -89,6 +89,11 @@
   object-fit: cover;
 }
 
+@mixin width-heigth($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
 @mixin setFontStyle(
   $font-family,
   $font-size,
@@ -121,4 +126,10 @@
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+@mixin slideBtns($border-color, $background: transparent) {
+  border-radius: 50%;
+  border: 2px solid $border-color;
+  background: $background;
 }
