@@ -83,6 +83,12 @@
   object-fit: cover;
 }
 
+@mixin setImgHeight($height) {
+  width: auto;
+  height: $height;
+  object-fit: cover;
+}
+
 @mixin setFontStyle(
   $font-family,
   $font-size,
@@ -110,7 +116,7 @@
   line-height: 130%;
   text-transform: uppercase;
   color: $white-color;
-  @include baseFlexStyle(center);
+  @include baseFlexStyle(center, center);
   text-decoration: none;
   border: none;
   outline: none;
