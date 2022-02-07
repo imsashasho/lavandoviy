@@ -134,8 +134,9 @@
     }
 
     .advantages-section {
-      --padding-top: 150px;
-      padding-top: var(--padding-top);
+      // --padding-top: 150px;
+      // padding-top: var(--padding-top);
+      padding-top: 150px;
       display: grid;
       // grid-template-columns: repeat(2, auto) 375px;
       grid-template-columns: auto 520px 375px;
@@ -219,6 +220,16 @@
         // &__img {
         //   @include setImgWidth(520px);
         // }
+      }
+    }
+
+    .slider-section {
+      padding-top: 155px;
+
+      &__header {
+        letter-spacing: -0.01em;
+        color: $headers-color-two;
+        margin-bottom: 104px;
       }
     }
   }
