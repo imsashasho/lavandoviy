@@ -1,3 +1,9 @@
+:root {
+  --btn-link-width: 270px;
+  --btn-link-height: 70px;
+  --btn-link-font-size: 14px;
+}
+
 .headers {
   @include setFontStyle('Cormorant Garamond', 62px, 300, $headers-color, 100%, 0.01em);
 }

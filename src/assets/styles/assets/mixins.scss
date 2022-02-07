@@ -100,3 +100,19 @@
   letter-spacing: $letter-spacing;
   text-transform: $text-transform;
 }
+
+@mixin link-btns($width, $height, $bgcolor, $font-size) {
+  width: $width;
+  height: $height;
+  background-color: $bgcolor;
+  font-weight: 600;
+  font-size: $font-size;
+  line-height: 130%;
+  text-transform: uppercase;
+  color: $white-color;
+  @include baseFlexStyle(center);
+  text-decoration: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
