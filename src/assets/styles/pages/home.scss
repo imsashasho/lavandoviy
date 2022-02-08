@@ -367,5 +367,17 @@
         }
       }
     }
+
+    .stocks-section {
+      padding: 150px 0 0;
+      @include baseFlexStyle(center, center);
+      position: relative;
+
+      &__text {
+        position: absolute;
+        @include setFontStyle('Cormorant Garamond', 100px, 300, $stocks-color, 130%, -0.01em);
+        z-index: -1;
+      }
+    }
   }
 }
