@@ -1,26 +1,43 @@
-function init() {
-  // eslint-disable-next-line no-undef
-  const slider = new Swiper('.swiper-container', {
-    loop: true,
-    navigation: {
-      nextEl: document.querySelector('[data-next]'),
-      prevEl: document.querySelector('[data-prev]'),
-    },
-    preloadImages: false,
-    lazy: true,
+document.addEventListener('DOMContentLoaded', () => {
+  // Движение кастомного курсора по слайдеру
+  const $slider = $('.js-slider');
+  $slider.on('mouseover', startMoveInCursor);
+  $slider.on('mouseout', stopMoveInCursor);
+  const $customCursor = $('.js-slider-controller');
+  let slider = null;
+
+  const sliderConfig = {
     speed: 400,
-    watchSlidesVisibility: true,
-    on: {
-      init: (e) => {
-        document.querySelector('[data-total]').innerHTML = document.querySelectorAll('.slide').length - 2;
-        document.querySelector('[data-current]').innerHTML = e.activeIndex + 1;
-      },
-    },
-  });
+    autoHeight: true,
+    slidesPerView: 4,
+    freeMode: true,
+    adaptiveHeight: true,
+    allowTouchMove: true,
+  };
 
-  slider.on('activeIndexChange', (obj) => {
-    document.querySelector('[data-current]').innerHTML = obj.realIndex + 1;
-  });
-}
+  slider = new Swiper($('.js-slider')[0], sliderConfig);
 
-document.addEventListener('DOMContentLoaded', init);
+  function startMoveInCursor(e) {
+    // e.stopPropagation();
+
+    // const maxOffsetTop = $(container)
+    //   .find('.swiper-slide img')[0]
+    //   .getBoundingClientRect().height;
+
+    // customCursor.css({ opacity: 1, display: 'flex', width: '150px', height: '150px' });
+    // $customCursor.css({ left: `${e.offsetX}px`, top: `${e.offsetY}px` });
+    $customCursor.addClass('active');
+
+    document.onmousemove = function(e) {
+      $customCursor.css({ left: `${e.offsetX}px`, top: `${e.offsetY}px` });
+      // $customCursor.addClass('active');
+      // currentCordX = e.clientX;
+    };
+  }
+
+  function stopMoveInCursor(e) {
+    e.stopPropagation();
+    $customCursor.removeClass('active');
+    document.onmousemove = null;
+  }
+});

@@ -133,3 +133,17 @@
   border: 2px solid $border-color;
   background: $background;
 }
+
+@mixin multiple-transitions($duration, $timing-func, $properties...) {
+  $transition-property: '';
+  @for $i from 1 through length($properties) {
+    @if ($i == length($properties)) {
+      $transition-property: #{$transition-property + nth($properties, $i)};
+    } @else {
+      $transition-property: #{$transition-property + nth($properties, $i) + ', '};
+    }
+  }
+  transition-property: $transition-property;
+  transition-duration: $duration;
+  transition-timing-function: $timing-func;
+}

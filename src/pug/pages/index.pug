@@ -77,9 +77,18 @@ block content
         img(src="./assets/images/home/developer.jpg", alt="Developer").third-column__img
     section.slider-section 
       p.slider-section__header.headers справжній простір сили, енергії та процвітання для Вас та Вашої родини!
-      .slider-section__slider 
-        img.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
-        //- img.slider-section__slide(src="./assets/images/home/slider-section/2.jpg", alt="Slide")
+      .slider-section__slider-wrapper.js-slider-wrapper 
+        .slider-section__controller.js-slider-controller
+          span.slider-section__controller-text 
+            span.slider-section__curr-slide 01
+            span.slider-section__divider /
+            span.slider-section__all-slides 13
+          img.slider-section__controller-arrow(src="./assets/images/home/slider-section/arrow.svg" alt="Arrow")
+        .swiper-wrapper.slider-section__slider.js-slider
+          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
 block footer
   include ../includes/footer.pug
 

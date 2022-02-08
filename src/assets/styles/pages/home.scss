@@ -230,6 +230,52 @@
         letter-spacing: -0.01em;
         color: $headers-color-two;
         margin-bottom: 104px;
+        max-width: 70%;
+      }
+
+      &__controller {
+        // @include width-heigth(110px);
+        @include baseFlexStyle(center, center);
+        border-radius: 50%;
+        background-color: $dark-violet;
+        position: absolute;
+        opacity: 0;
+        z-index: 20;
+        @include width-heigth(0);
+        // @include multiple-transitions(0.5s, ease-in-out, opacity, width, height);
+        @include multiple-transitions(0.5s, ease-in-out, width, height);
+        // transform: translate(-50%, -50%);
+
+        &.active {
+          @include width-heigth(110px);
+          opacity: 1;
+        }
+
+        &-text {
+          @include setFontStyle('Mont', 22px, 400, $light-grey, 100%);
+          margin-right: 9px;
+          // opacity: 0;
+
+          // &.active {
+          //   transition: opacity 0.5s ease-in-out;
+          //   opacity: 1;
+          // }
+        }
+
+        &-arrow {
+          @include width-heigth(7px, 14px);
+        }
+      }
+
+      &__slider-wrapper {
+        position: relative;
+        cursor: none;
+      }
+
+      &__slide {
+        &:not(:first-child) {
+          padding-left: 60px;
+        }
       }
     }
   }

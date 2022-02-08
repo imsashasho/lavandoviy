@@ -3,6 +3,8 @@
 @include font-face('Mont', '../fonts/montSemiBold/Mont-SemiBold', 500);
 
 // Шрифт с одним типом
+@include font-face-one-type('Mont', '../fonts/montRegular/Mont-Regular', 'ttf', 400);
+
 @include font-face-one-type(
   'Cormorant Garamond',
   '../fonts/cormorantGaramondLight/CormorantGaramond-Light',
