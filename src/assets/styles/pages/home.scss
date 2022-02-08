@@ -50,7 +50,7 @@
 
         &__btn-link {
           @include link-btns(270px, 70px, $dark-violet, 14px);
-          border-radius: 100px;
+          // border-radius: 100px;
         }
       }
 
@@ -225,6 +225,7 @@
 
     .slider-section {
       padding-top: 155px;
+      padding-bottom: 150px;
 
       &__header {
         letter-spacing: -0.01em;
@@ -275,6 +276,94 @@
       &__slide {
         &:not(:first-child) {
           padding-left: 60px;
+        }
+      }
+    }
+
+    .calm-place {
+      padding: 150px 0;
+      // padding: 0;
+      background-color: $dark-violet;
+      // display: grid;
+      // grid-template: repeat(12, 1fr) / repeat(24, 1fr);
+      // grid-template-areas:
+      //   '. . . . . . . . . . . . . . . . . . . . . . . .'
+      //   '. . . . . . . . . baby baby baby baby baby baby . . . . . . . . .'
+      //   '. . . . . . . . . baby baby baby baby baby baby . . . . . . . . .'
+      //   '. cup cup cup cup . . . . baby baby baby baby baby baby . . flower flower flower . . . .'
+      //   '. cup cup cup cup . . . . . . . . . . . . flower flower flower . . . .'
+      //   '. . . . . . header header header header header header header header header header . . . . . . . .'
+      //   '. . . . . . header header header header header header header header header header . . . . brushes brushes brushes brushes'
+      //   '. . . . . . . . . . . . . . . . . . . . brushes brushes brushes brushes'
+      //   'family family family family family family family family . . book book book book book book book . . . . . . .'
+      //   'family family family family family family family family . . book book book book book book book . . . . . . .'
+      //   'family family family family family family family family . . book book book book book book book . . . . . . .'
+      //   '. . . . . . . . . . . . . . . . . . . . . . . .';
+      height: 1360px;
+      &__content-wrapper {
+        position: relative;
+        @include baseFlexStyle(center, center, column);
+        // display: grid;
+        // grid-template-columns: ;
+        height: 100%;
+      }
+      &__img {
+        position: absolute;
+      }
+
+      &__header {
+        @include setFontStyle('Cormorant Garamond', 100px, 400, $light-grey, 100%);
+        margin-bottom: 30px;
+        max-width: 50%;
+        text-align: center;
+        // grid-area: header;
+      }
+
+      &__link {
+        @include link-btns(270px, 70px, $white-color, 14px, $headers-color-two);
+      }
+
+      .img {
+        &-baby {
+          // grid-area: baby;
+          top: 0;
+          @include setImgWidth(520px);
+        }
+
+        &-flower {
+          // grid-area: flower;
+          top: 200px;
+          right: 265px;
+          @include setImgWidth(230px);
+        }
+
+        &-brushes {
+          right: 0;
+          transform: translateY(120px);
+          // grid-area: brushes;
+          @include setImgWidth(265px);
+        }
+
+        &-book {
+          // grid-area: book;
+          bottom: 0;
+          right: 410px;
+          @include setImgWidth(520px);
+        }
+
+        &-family {
+          left: 0;
+          bottom: 0;
+
+          // grid-area: family;
+          @include setImgWidth(640px);
+        }
+
+        &-cup {
+          // grid-area: cup;
+          top: 200px;
+          left: 120px;
+          @include setImgWidth(375px);
         }
       }
     }
