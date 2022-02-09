@@ -3,19 +3,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const $slider = $('.js-slider');
   $slider.on('mouseover', startMoveInCursor);
   $slider.on('mouseout', stopMoveInCursor);
-  const $customCursor = $('.js-slider-controller');
+  // const $customCursor = $('.js-slider-controller');
   let slider = null;
 
   const sliderConfig = {
     speed: 400,
-    autoHeight: true,
-    slidesPerView: 4,
+    // autoHeight: true,
+    autoHeight: false,
+    slidesPerView: 1.15,
     freeMode: true,
     adaptiveHeight: true,
     allowTouchMove: true,
   };
 
-  slider = new Swiper($('.js-slider')[0], sliderConfig);
+  // slider = new Swiper($('.js-slider')[0], sliderConfig);
+  slider = new Swiper('.swiper', sliderConfig);
 
   function startMoveInCursor(e) {
     // e.stopPropagation();
@@ -26,10 +28,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // customCursor.css({ opacity: 1, display: 'flex', width: '150px', height: '150px' });
     // $customCursor.css({ left: `${e.offsetX}px`, top: `${e.offsetY}px` });
-    $customCursor.addClass('active');
+    // $customCursor.addClass('active');
 
     document.onmousemove = function(e) {
-      $customCursor.css({ left: `${e.offsetX}px`, top: `${e.offsetY}px` });
+      // $customCursor.css({ left: `${e.offsetX}px`, top: `${e.offsetY}px` });
       // $customCursor.addClass('active');
       // currentCordX = e.clientX;
     };
@@ -37,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   function stopMoveInCursor(e) {
     e.stopPropagation();
-    $customCursor.removeClass('active');
+    // $customCursor.removeClass('active');
     document.onmousemove = null;
   }
 });

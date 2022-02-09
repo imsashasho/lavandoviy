@@ -224,8 +224,10 @@
     }
 
     .slider-section {
-      padding-top: 155px;
-      padding-bottom: 150px;
+      // padding-top: 155px;
+      // padding-bottom: 150px;
+      padding: 155px 0 150px;
+      margin: 0 120px;
 
       &__header {
         letter-spacing: -0.01em;
@@ -270,10 +272,15 @@
 
       &__slider-wrapper {
         position: relative;
-        cursor: none;
+        // margin: 0 120px;
+        overflow-x: hidden;
+        // cursor: none;
       }
 
       &__slide {
+        // height: 708px;
+        @include setImgHeight(708px);
+
         &:not(:first-child) {
           padding-left: 60px;
         }

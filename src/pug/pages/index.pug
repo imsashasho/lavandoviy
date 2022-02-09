@@ -78,17 +78,18 @@ block content
     section.slider-section 
       p.slider-section__header.headers справжній простір сили, енергії та процвітання для Вас та Вашої родини!
       .slider-section__slider-wrapper.js-slider-wrapper 
-        .slider-section__controller.js-slider-controller
+        //- .slider-section__controller.js-slider-controller
           span.slider-section__controller-text 
             span.slider-section__curr-slide 01
             span.slider-section__divider /
             span.slider-section__all-slides 13
           img.slider-section__controller-arrow(src="./assets/images/home/slider-section/arrow.svg" alt="Arrow")
-        .swiper-wrapper.slider-section__slider.js-slider
-          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
-          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
-          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
-          img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+        .swiper
+          .swiper-wrapper.slider-section__slider.js-slider
+            img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+            img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+            img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
+            img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
     section.calm-place 
       .calm-place__content-wrapper
         img.calm-place__img.img-baby(src="./assets/images/home/calm-place/baby.jpg", alt="Baby")
