@@ -1,0 +1,55 @@
+.swiper {
+  // padding: 120px;
+  // overflow: hidden;
+
+  &-slide {
+    &:not(:first-child) {
+      // padding: 0 10px;
+    }
+  }
+
+  &-wrapper {
+    // padding: 120px;
+    // max-width: 1680px;
+  }
+}
+
+.swiper-page-wrapper {
+  margin: 120px;
+  overflow-x: hidden;
+}
+
+.slider-section {
+  &__controller {
+    @include baseFlexStyle(center, center);
+    border-radius: 50%;
+    background-color: $dark-violet;
+    position: absolute;
+    opacity: 0;
+    z-index: 20;
+    @include width-heigth(0);
+    // @include multiple-transitions(0.5s, ease-in-out, opacity, width, height);
+    @include multiple-transitions(0.5s, ease-in-out, width, height);
+    // transform: translate(-50%, -50%);
+
+    &.active {
+      @include width-heigth(110px);
+      opacity: 1;
+    }
+
+    &-text {
+      @include setFontStyle('Mont', 22px, 400, $light-grey, 100%);
+      margin-right: 9px;
+      // opacity: 0;
+
+      // &.active {
+      //   transition: opacity 0.5s ease-in-out;
+      //   opacity: 1;
+      // }
+    }
+
+    &-arrow {
+      @include width-heigth(7px, 14px);
+    }
+  }
+}
