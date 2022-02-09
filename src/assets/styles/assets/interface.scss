@@ -14,3 +14,28 @@
   line-height: 170%;
   color: $text-color;
 }
+
+.card {
+  width: 520px;
+
+  &-img {
+    @include setImgWidth(100%);
+  }
+
+  &-bottom {
+    --paddings-lrb: 50px; // lrb- left-right-bottom
+    padding: 40px var(--paddings-lrb) var(--paddings-lrb);
+    background-color: $light-grey;
+    border: 1px solid $border-color;
+    border-top: 0;
+  }
+
+  &-date {
+    margin-bottom: 20px;
+    @include setFontStyle('Mont', 16px, 600, $date-color, 100%);
+  }
+
+  &-text {
+    @include setFontStyle('Mont', 20px, 600, $dark-grey, 170%);
+  }
+}

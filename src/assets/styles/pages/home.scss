@@ -380,12 +380,27 @@
       @include baseFlexStyle(center, center);
       position: relative;
 
-      &__text-wrapper {
+      &_abs {
         position: absolute;
-        @include setFontStyle('Cormorant Garamond', 100px, 300, $stocks-color, 130%, -0.01em);
-        @include baseFlexStyle();
+        // left: 0;
+        // top: 50%;
+        // transform: translateY(-50%);
         width: 100%;
-        white-space: nowrap;
+        // overflow: hidden;
+        // white-space: nowrap;
+      }
+
+      &_abs-inn {
+        // display: flex;
+        @include baseFlexStyle($justify-content: space-between);
+      }
+
+      &__text-wrapper {
+        // position: absolute;
+        @include setFontStyle('Cormorant Garamond', 100px, 300, $stocks-color, 130%, -0.01em);
+        // @include baseFlexStyle();
+        // width: 100%;
+        // white-space: nowrap;
         z-index: -1;
       }
 

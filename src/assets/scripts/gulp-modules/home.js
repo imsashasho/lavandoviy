@@ -44,22 +44,67 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Заполнение повторяющегося текста в секции Акции
-  const stocksTextWrapper = document.querySelector('.js-stocks-text-wrapper');
-  const stocksText = document.querySelector('.js-stocks-text');
-  let insertTimes = parseInt(getWidth(stocksTextWrapper) / getWidth(stocksText));
+  // const stocksTextWrapper = document.querySelector('.js-stocks-text-wrapper');
+  // const stocksText = document.querySelector('.js-stocks-text');
 
-  function getWidth(elem) {
-    return elem.getBoundingClientRect().width;
-  }
+  // stocksTextWrapper.width = getWidth(stocksTextWrapper);
+  // stocksText.width = getWidth(stocksText);
 
-  function insertText() {
-    for (let i = 0; i < insertTimes; i++) {
-      stocksTextWrapper.innerHTML += stocksTextWrapper.innerHTML;
-    }
-  }
+  // // let clear;
 
-  insertText();
+  // function getWidth(elem) {
+  //   return elem.getBoundingClientRect().width;
+  // }
 
-  // ИЗ-ЗА ЭТОЙ СТРОЧКИ ТОРМОЗИТ АДАПТИВ
-  window.addEventListener('resize', insertText);
+  // function insertText() {
+  //   /* FIRST */
+  //   // if (clear) {
+  //   //   clearTimeout(clear);
+  //   //   stocksTextWrapper.innerHTML = '';
+  //   // }
+  //   // clear = setTimeout(() => {
+  //   //   let insertTimes = parseInt(getWidth(stocksTextWrapper) / getWidth(stocksText));
+  //   //   for (let i = 0; i < insertTimes; i++) {
+  //   //     stocksTextWrapper.innerHTML += stocksTextWrapper.innerHTML;
+  //   //   }
+  //   // }, 1);
+  //   /* SECOND */
+  //   // let stocksText = document.querySelector('.js-stocks-text');
+  //   // let insertTimes = getWidth(stocksTextWrapper) / getWidth(stocksText);
+  //   // console.log(getWidth(stocksTextWrapper), getWidth(stocksText));
+  //   // for (let i = 0; i < insertTimes; i++) {
+  //   //   stocksTextWrapper.innerHTML += stocksTextWrapper.innerHTML;
+  //   // }
+  //   /* THIRD */
+  //   // stocksText = document.querySelector('.js-stocks-text');
+  //   // let insertTimes = parseInt(getWidth(stocksTextWrapper) / getWidth(stocksText));
+  //   // for (let i = 0; i < insertTimes; i++) {
+  //   //   stocksTextWrapper.innerHTML += stocksTextWrapper.innerHTML;
+  //   // }
+  // }
+
+  // insertText();
+
+  // // ОСТОРОЖНО! ИЗ-ЗА ЭТОЙ СТРОЧКИ МОЖЕТ ТОРМОЗИТЬ АДАПТИВ
+  // // window.addEventListener('resize', insertText);
+
+  // class WideText {
+  //   constructor(wrapper, text) {
+  //     this.stocksTextWrapper = document.querySelector(wrapper);
+  //     this.stocksTextWrapper.width = this.getWidth(this.stocksTextWrapper);
+  //     this.stocksText = document.querySelector(text);
+  //     this.stocksText.width = this.getWidth(this.stocksText);
+  //   }
+
+  //   getWidth(elem) {
+  //     return elem.getBoundingClientRect().width;
+  //   }
+  // }
+
+  // function insertText() {
+  //   let textObj = new WideText('.js-stocks-text-wrapper', '.js-stocks-text');
+  //   let insertTimes = parseInt(textObj.stocksTextWrapper.width / textObj.stocksText.width);
+  // }
+
+  // insertText();
 });

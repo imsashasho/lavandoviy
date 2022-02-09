@@ -103,10 +103,13 @@ block content
     section.stocks-section 
       +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
       //- p.stocks-section__text акції#[span.stocks-section__ampersand &]новини
-      p.stocks-section__text-wrapper.js-stocks-text-wrapper 
-        //- while true
-        //- | акції#[span.stocks-section__ampersand &]новини
-        span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
+      .stocks-section_abs
+        .stocks-section_abs-inn
+          - let count = 0;
+          while count < 5
+            p.stocks-section__text-wrapper.js-stocks-text-wrapper 
+              span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
+            - count++;
 block footer
   include ../includes/footer.pug
 
