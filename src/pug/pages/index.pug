@@ -102,7 +102,11 @@ block content
         a.calm-place__link(href="#") обрати квартиру
     section.stocks-section 
       +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
-      p.stocks-section__text акції & новини
+      //- p.stocks-section__text акції#[span.stocks-section__ampersand &]новини
+      p.stocks-section__text-wrapper.js-stocks-text-wrapper 
+        //- while true
+        //- | акції#[span.stocks-section__ampersand &]новини
+        span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
 block footer
   include ../includes/footer.pug
 

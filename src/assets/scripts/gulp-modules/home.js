@@ -42,4 +42,24 @@ document.addEventListener('DOMContentLoaded', () => {
     // $customCursor.removeClass('active');
     document.onmousemove = null;
   }
+
+  // Заполнение повторяющегося текста в секции Акции
+  const stocksTextWrapper = document.querySelector('.js-stocks-text-wrapper');
+  const stocksText = document.querySelector('.js-stocks-text');
+  let insertTimes = parseInt(getWidth(stocksTextWrapper) / getWidth(stocksText));
+
+  function getWidth(elem) {
+    return elem.getBoundingClientRect().width;
+  }
+
+  function insertText() {
+    for (let i = 0; i < insertTimes; i++) {
+      stocksTextWrapper.innerHTML += stocksTextWrapper.innerHTML;
+    }
+  }
+
+  insertText();
+
+  // ИЗ-ЗА ЭТОЙ СТРОЧКИ ТОРМОЗИТ АДАПТИВ
+  window.addEventListener('resize', insertText);
 });

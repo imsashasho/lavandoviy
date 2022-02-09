@@ -380,10 +380,21 @@
       @include baseFlexStyle(center, center);
       position: relative;
 
-      &__text {
+      &__text-wrapper {
         position: absolute;
         @include setFontStyle('Cormorant Garamond', 100px, 300, $stocks-color, 130%, -0.01em);
+        @include baseFlexStyle();
+        width: 100%;
+        white-space: nowrap;
         z-index: -1;
+      }
+
+      // &__text {
+      //   padding-right: 60px;
+      // }
+
+      &__ampersand {
+        padding: 0 60px;
       }
     }
   }
