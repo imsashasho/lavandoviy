@@ -5,13 +5,16 @@
   // grid-template-columns: 568px calc(100vw - 568px);
   // @include baseFlexStyle();
   --aside-width: 568px;
+  --footer-min-height: 860px;
   @include baseGridStyle(auto, var(--aside-width) calc(100vw - var(--aside-width)));
+  min-height: var(--footer-min-height);
   // display: grid;
   // grid-template: repeat(10, auto) / repeat(5, auto);
 
   &-menu {
     background-color: $light-lavander;
     padding: 172px 0 48px 120px;
+    @include baseFlexStyle(flex-start, space-between, column);
     // @include baseGridStyle(172px auto 48px, 120px auto);
     // align-self: center;
     // padding-left: 120px;
@@ -49,6 +52,7 @@
     background-color: $dark-violet;
     padding: 172px 120px 48px 0;
     @include baseFlexStyle(flex-end, space-between, column);
+    // display: grid;
     // padding-left: 132px;
   }
 
@@ -105,5 +109,33 @@
     @include slideBtns($background: $grey-link-btn);
     border: none;
     @include width-heigth(70px);
+  }
+
+  &-top-arrow {
+    @include width-heigth(12px, 6px);
+  }
+
+  &-bottom {
+    @include baseFlexStyle(flex-end, space-between);
+
+    &__text {
+      @include setFontStyle('Mont', 13px, 600, $bottom-footer-text, 140%, $text-transform: none);
+    }
+
+    &__img {
+      @include setImgWidth(78px);
+    }
+  }
+
+  .bb-1px {
+    border-bottom: 1px solid rgba(127, 115, 142, 0.5);
+  }
+
+  .pb {
+    padding-bottom: 40px;
+  }
+
+  .pt {
+    padding-top: 60px;
   }
 }
