@@ -141,7 +141,7 @@
   border-radius: $border-radius;
 }
 
-@mixin slideBtns($border-color, $background: transparent) {
+@mixin slideBtns($border-color: transparent, $background: transparent) {
   border-radius: 50%;
   border: 2px solid $border-color;
   background: $background;

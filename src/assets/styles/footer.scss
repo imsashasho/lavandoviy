@@ -48,6 +48,62 @@
   &-content {
     background-color: $dark-violet;
     padding: 172px 120px 48px 0;
-    @include baseFlexStyle($justify-content: flex-end);
+    @include baseFlexStyle(flex-end, space-between, column);
+    // padding-left: 132px;
+  }
+
+  &-table {
+    @include setFontStyle('Mont', 20px, 500, $light-grey, 170%, $text-transform: none);
+  }
+
+  &-row {
+    // @include baseGridStyle(repeat(2, auto), repeat(3, auto));
+    // justify-content: space-between;
+    // column-gap: 98px;
+  }
+
+  &-cell {
+    vertical-align: top;
+
+    &:nth-child(1) {
+      padding-right: 98px;
+    }
+
+    &:nth-child(2) {
+      padding-right: 80px;
+    }
+
+    &:nth-child(3) {
+      padding-right: 75px;
+    }
+
+    &__name {
+      text-transform: uppercase;
+      // padding-right: 98px;
+    }
+
+    &__address {
+      // padding-right: 80px;
+    }
+
+    table p:not(&__name) {
+      font-weight: 600;
+      font-size: 22px;
+      color: $table-p-color;
+    }
+
+    // &__schedule {
+    //   padding-top: 20px;
+    // }
+
+    &__map {
+      @include link-btns(270px, 70px, $grey-link-btn, 14px, $light-grey);
+    }
+  }
+
+  &-to-top {
+    @include slideBtns($background: $grey-link-btn);
+    border: none;
+    @include width-heigth(70px);
   }
 }
