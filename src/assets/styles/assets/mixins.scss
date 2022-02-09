@@ -77,6 +77,11 @@
   flex-direction: $flex-direction;
 }
 
+@mixin baseGridStyle($rows, $columns) {
+  display: grid;
+  grid-template: $rows / $columns;
+}
+
 @mixin setImgWidth($width) {
   width: $width;
   height: auto;
