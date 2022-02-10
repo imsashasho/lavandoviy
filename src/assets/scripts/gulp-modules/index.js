@@ -22,3 +22,5 @@ menuCloseBtn.addEventListener('click', () => {
   menu.classList.remove('active');
   body.classList.remove('disabled-scroll');
 });
+
+// Отправить форму колл-пейджа

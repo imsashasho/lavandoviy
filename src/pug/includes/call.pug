@@ -1,14 +1,21 @@
 .call
-    .call-block 
-       .call-block__header 
-        button.call-block__close-btn.js-call-close
-       .call-block__content 
-        p.call-block__header-text.headers замовити дзвінок
-        form.call-block__form(id="call-form")
-            input.call-block__input(type="text" name="name" placeholder="Ваше ім‘я")
-            input.call-block__input(type="tel" name="phone" placeholder="Телефон")
-            .call-block__checkbox-wrapper
-                input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
-                span.call-block__checkbox-custom
-                label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
-            button.call-block__submit(type="submit" form="call-form")
+    //- .call-block 
+        .call-block__header 
+            button.call-block__close-btn.js-call-close
+        .call-block__content 
+            p.call-block__header-text.headers замовити дзвінок
+            form.call-block__form(id="call-form")
+                input.call-block__input(type="text" name="name" placeholder="Ваше ім‘я")
+                input.call-block__input(type="tel" name="phone" placeholder="Телефон")
+                .call-block__checkbox-wrapper
+                    input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
+                    span.call-block__checkbox-custom
+                    label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
+                button.call-block__submit(type="submit" form="call-form") 
+    .call-thanks-block 
+        .call-thanks-block__header 
+            button.call-thanks-block__close-btn.js-call-thanks-close
+        .call-thanks-block__content
+            p.call-thanks-block__text-header.headers Ваша заявка прийнята!
+            p.call-thanks-block__text Дякуємо за звернення. Очікуйте на дзвінок#[br] наших менеджерів. Бажаємо гарного дня :)
+        img.call-thanks-block__img(src="./assets/images/call/flower.svg", alt="Lavanda")

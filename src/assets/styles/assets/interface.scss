@@ -172,7 +172,8 @@
   //   overflow-y: auto;
   // }
 
-  .call-block {
+  .call-block,
+  .call-thanks-block {
     background-color: $light-grey;
     min-height: 100%;
     flex: 0 0 var(--menu-call-block-max-width);
@@ -198,12 +199,13 @@
     &__content {
       grid-row-start: 2;
       grid-column-start: 2;
+      max-width: 520px;
       @include baseFlexStyle($justify-content: center, $flex-direction: column);
     }
 
     &__header-text {
       margin-bottom: 60px;
-      max-width: 520px;
+      // max-width: 520px;
     }
 
     &__form {
@@ -267,6 +269,39 @@
         @include after-before-img('../images/call/submit.svg', 110px);
       }
       // @include slideBtns($background: );
+    }
+
+    /* THANKS BLOCK */
+    // .call-thanks-header {
+    //   margin-bottom: 40px;
+    // }
+
+    &__text {
+      // &-wrapper {
+      //   margin-bottom: 84px;
+      // }
+
+      &-header {
+        margin-bottom: 40px;
+      }
+
+      & {
+        @include setFontStyle('Mont', 16px, 400, $text-color, 170%, $text-transform: none);
+      }
+    }
+  }
+
+  .call-thanks-block {
+    grid-template: repeat(2, auto) 1fr/1fr repeat(2, auto);
+
+    &__content {
+      margin-top: 96px;
+    }
+
+    &__img {
+      grid-column: 1 / 4;
+      grid-row-start: 4;
+      max-width: 100%;
     }
   }
 }
