@@ -48,10 +48,20 @@
   top: 0;
   z-index: 20;
   @include baseFlexStyle($justify-content: flex-end);
+  visibility: hidden;
+  opacity: 0;
+  // transition: opacity 0.3s ease-in-out;
+  @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    overflow-y: auto;
+  }
 
   .call-block {
     background-color: $light-grey;
-    height: 100%;
+    min-height: 100%;
     // max-width: var(--call-block-max-width);
     // flex-shrink: ;
     flex: 0 0 var(--call-block-max-width);

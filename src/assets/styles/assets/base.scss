@@ -36,6 +36,10 @@ body {
   overflow-x: hidden;
   font-size: 14px;
   background-color: #f9f8fc;
+
+  &.disabled-scroll {
+    overflow: hidden;
+  }
 }
 
 a {
