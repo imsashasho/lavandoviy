@@ -22,6 +22,7 @@
   height: var(--header-height);
   @include baseFlexStyle(center, space-between);
   z-index: 10;
+  font-weight: 400;
 
   &-left {
     @include baseFlexStyle(center);
@@ -35,6 +36,7 @@
   &-link {
     &-houses {
       @include baseFlexStyle(center);
+      font-weight: 600;
 
       &::before {
         @include after-before-img('../images/header/houses-icon.svg', 70px, 70px);
@@ -88,4 +90,8 @@
       }
     }
   }
+
+  // .fw-600 {
+  //   font-weight: 600;
+  // }
 }

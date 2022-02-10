@@ -3,6 +3,7 @@
   --btn-link-height: 70px;
   --btn-link-font-size: 14px;
   --headers-margin-bottom: 30px;
+  --call-block-max-width: 857px;
 }
 
 .headers {
@@ -37,5 +38,88 @@
 
   &-text {
     @include setFontStyle('Mont', 20px, 600, $dark-grey, 170%);
+  }
+}
+
+.call-page {
+  position: fixed;
+  @include width-heigth(100%);
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  z-index: 20;
+  @include baseFlexStyle($justify-content: flex-end);
+
+  .call-block {
+    background-color: $light-grey;
+    height: 100%;
+    // max-width: var(--call-block-max-width);
+    // flex-shrink: ;
+    flex: 0 0 var(--call-block-max-width);
+    padding: var(--header-tb-padding) var(--lr-paddings);
+    padding-left: 0;
+    // @include baseFlexStyle(flex-end, space-between, column);
+    // @include baseGridStyle(repeat(3, auto), auto);
+    // @include baseGridStyle(auto repeat(2, 1fr), auto);
+    @include baseGridStyle(auto 1fr auto, auto);
+    justify-content: flex-end;
+
+    &__header {
+      @include baseFlexStyle(center);
+
+      & * {
+        @include setFontStyle('Mont', 16px, 500, $dark-grey, 100%, 0.01em);
+
+        &:not(:last-child) {
+          margin-right: 117px;
+        }
+      }
+    }
+
+    &__call-btn {
+      font-size: 14px;
+    }
+
+    &__close-btn {
+      &::after {
+        @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
+      }
+    }
+
+    &__content {
+      @include baseFlexStyle(center);
+    }
+
+    &__element {
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+    }
+
+    &__link {
+      @include setFontStyle('Cormorant Garamond', 50px, 400, $headers-color, 100%, 0.01em);
+    }
+
+    &__footer {
+      @include baseFlexStyle(center, space-between);
+      @include setFontStyle('Mont', 14px, 400, $dark-grey, 100%, 0.01em);
+    }
+
+    &__soc-link {
+      // @include setFontStyle('Mont', 14px, 400, $dark-grey, 100%, 0.01em);
+      color: $dark-grey;
+
+      &_insta {
+        margin-left: 60px;
+      }
+    }
+
+    &__lang-btn {
+      // @include link-btns(70px, 70px, transparent, 14px, $headers-color);
+      // border: ;
+      @include slideBtns(rgba(74, 58, 94, 0.25));
+      @include width-heigth(70px);
+      border-width: 1px;
+      text-transform: uppercase;
+    }
   }
 }

@@ -50,9 +50,11 @@
 
   &-content {
     background-color: $dark-violet;
-    padding: 172px 120px 48px 132px;
+    // padding: 172px 120px 48px 132px;
     // @include baseFlexStyle(flex-end, space-between, column);
+    padding: 172px 120px 48px 0;
     display: grid;
+    justify-content: flex-end;
     // padding-left: 132px;
   }
 

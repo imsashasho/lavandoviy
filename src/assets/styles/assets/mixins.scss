@@ -59,6 +59,7 @@
   background: transparent;
   cursor: pointer;
   padding: 0;
+  font: inherit;
 }
 
 @mixin after-before-img($url, $width, $height) {

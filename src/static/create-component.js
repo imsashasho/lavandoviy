@@ -35,50 +35,51 @@ block footer
 
 block header
   include ../includes/header.pug
-`
+
+block call-page
+  include ../includes/call-page.pug
+`;
 }
 const tmplateName = process.argv[2];
 
 if (!!tmplateName === false) {
-    console.warn('You didn`t enter component name');
-    return;
+  console.warn('You didn`t enter component name');
+  return;
 }
 
 const pathesToComponentParts = {
-    pug: 'src/pug/pages/',
-    style: 'src/assets/styles/pages/',
-    script: 'src/assets/scripts/gulp-modules/',
+  pug: 'src/pug/pages/',
+  style: 'src/assets/styles/pages/',
+  script: 'src/assets/scripts/gulp-modules/',
 };
 const formats = {
-    pug: 'pug',
-    style: 'scss',
-    script: 'js',
+  pug: 'pug',
+  style: 'scss',
+  script: 'js',
 };
-
 
 const typesFile = Object.keys(pathesToComponentParts);
 
-typesFile.forEach((type) => {
+typesFile.forEach(type => {
   const pathToFolder = pathesToComponentParts[type];
   console.log(pathesToComponentParts);
   fs.readdir(path.resolve(process.cwd(), pathToFolder), function(err, files) {
     let isFileExistInFolder = false;
     const componentName = `${tmplateName}.${formats[type]}`;
-  
+
     const filesNameWithoutExt = files.map(el => el.replace(/\.(scss|pug|js)/, ''));
     const pathToFile = `${pathToFolder}/${componentName}`;
 
     if (filesNameWithoutExt.includes(tmplateName)) isFileExistInFolder = true;
 
     if (!isFileExistInFolder) {
-      const contentTemplate = (type === 'pug') ? getPugTemplate(tmplateName) : '';
+      const contentTemplate = type === 'pug' ? getPugTemplate(tmplateName) : '';
 
       fs.writeFile(pathToFile, contentTemplate, function(err) {
-          console.log(`\x1b[32m`, `${componentName} создан`);
+        console.log(`\x1b[32m`, `${componentName} создан`);
       });
       return;
     }
     console.log(`\x1b[33m%s\x1b[0m`, `${componentName} уже есть`);
   });
 });
-
