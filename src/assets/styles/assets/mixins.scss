@@ -70,7 +70,7 @@
   font: inherit;
 }
 
-@mixin after-before-img($url, $width, $height) {
+@mixin after-before-img($url, $width, $height: $width) {
   content: '';
   background-image: url($url);
   background-size: $width $height;

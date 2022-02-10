@@ -178,10 +178,12 @@
     flex: 0 0 var(--menu-call-block-max-width);
     padding: var(--header-tb-padding) var(--lr-paddings);
     padding-left: 0;
-    @include baseGridStyle(auto 1fr, auto);
+    // @include baseGridStyle(auto 1fr, auto);
+    @include baseGridStyle(auto 1fr, 1fr repeat(2, auto));
     justify-content: flex-end;
 
     &__header {
+      grid-column-start: 3;
       @include baseFlexStyle($justify-content: flex-end);
     }
 
@@ -194,11 +196,14 @@
     }
 
     &__content {
+      grid-row-start: 2;
+      grid-column-start: 2;
       @include baseFlexStyle($justify-content: center, $flex-direction: column);
     }
 
     &__header-text {
       margin-bottom: 60px;
+      max-width: 520px;
     }
 
     &__form {
@@ -253,6 +258,15 @@
         @include width-heigth(25px);
         pointer-events: none;
       }
+    }
+
+    &__submit {
+      display: flex;
+
+      &::before {
+        @include after-before-img('../images/call/submit.svg', 110px);
+      }
+      // @include slideBtns($background: );
     }
   }
 }
