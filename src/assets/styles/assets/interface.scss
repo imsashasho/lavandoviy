@@ -7,9 +7,9 @@
 }
 
 .page {
-  &__inner {
-    @include baseFlexStyle($flex-direction: column);
-  }
+  // &__inner {
+  //   @include baseFlexStyle($flex-direction: column);
+  // }
 
   &__content {
     min-height: 100vh;
