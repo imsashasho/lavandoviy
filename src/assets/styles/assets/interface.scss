@@ -6,6 +6,25 @@
   --call-block-max-width: 857px;
 }
 
+.page {
+  &__inner {
+    @include baseFlexStyle($flex-direction: column);
+  }
+
+  &__content {
+    min-height: 100vh;
+  }
+}
+
+.main {
+  --top-padding: 50px;
+  padding: calc(var(--header-height) + var(--top-padding)) 0 var(--btm-padding);
+
+  &-home {
+    --top-padding: 0px;
+  }
+}
+
 .headers {
   @include setFontStyle('Cormorant Garamond', 62px, 300, $headers-color, 100%, 0.01em);
 }

@@ -29,7 +29,9 @@ block scripts
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/${scriptName}.js')
 block content
-  h1 ${scriptName}
+  main.main.main-${scriptName}
+    block breadcrumbs
+      include ../includes/breadcrumbs.pug
 block footer
   include ../includes/footer.pug
 
