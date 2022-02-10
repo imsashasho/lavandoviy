@@ -124,19 +124,21 @@
   $bgcolor,
   $font-size,
   $color: $white-color,
+  $font-weight: 600,
+  $border: none,
   $border-radius: 100px
 ) {
   width: $width;
   height: $height;
   background-color: $bgcolor;
-  font-weight: 600;
+  font-weight: $font-weight;
   font-size: $font-size;
   line-height: 100%;
   text-transform: uppercase;
   color: $color;
   @include baseFlexStyle(center, center);
   text-decoration: none;
-  border: none;
+  border: $border;
   outline: none;
   cursor: pointer;
   border-radius: $border-radius;

@@ -26,6 +26,26 @@
 
     &-container {
       li {
+        @include baseFlexStyle(center);
+
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+
+        &:last-child {
+          margin-bottom: 40px;
+        }
+
+        // &:last-child {
+        //   & {
+        //     margin-bottom: 40px;
+        //   }
+
+        //   :not(&) {
+        //     margin-bottom: 10px;
+        //   }
+        // }
+
         &::before {
           @include after-before-img('', 50px, 50px);
           margin-right: var(--header-margin-inner);
@@ -39,6 +59,8 @@
           }
 
           &-schedule {
+            @include baseFlexStyle(flex-start);
+
             &::before {
               background-image: url('../images/contacts/clock.svg');
             }
@@ -70,6 +92,17 @@
         }
       }
 
+      // a,
+      // p {
+      //   text-transform: none;
+      //   color: $dark-grey;
+      // }
+
+      .contacts-text-content {
+        text-transform: none;
+        color: $dark-grey;
+      }
+
       &-headers {
         color: $dark-violet;
         font-size: 20px;
@@ -77,17 +110,32 @@
       }
     }
 
-    // &-list {
-    //   li {
-    //     &::before {
-    //       @include after-before-img('', 50px, 50px);
-    //       margin-right: var(--header-margin-inner);
-    //     }
+    &-sb {
+      margin-bottom: 60px;
 
-    //     &.contacts {
-    //       &-
-    //     }
-    //   }
-    // }
+      &__btn-link {
+        @include link-btns(
+          270px,
+          70px,
+          transparent,
+          14px,
+          $headers-color,
+          400,
+          1px solid $lavander
+        );
+      }
+    }
+
+    &-cb {
+      // &__element {
+      //   &:nth-last-child(-n + 2) {
+      //     display: inline-block;
+      //   }
+      // }
+
+      &__call-btn {
+        @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey, 400);
+      }
+    }
   }
 }
