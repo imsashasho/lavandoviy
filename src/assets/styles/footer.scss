@@ -50,9 +50,9 @@
 
   &-content {
     background-color: $dark-violet;
-    padding: 172px 120px 48px 0;
-    @include baseFlexStyle(flex-end, space-between, column);
-    // display: grid;
+    padding: 172px 120px 48px 132px;
+    // @include baseFlexStyle(flex-end, space-between, column);
+    display: grid;
     // padding-left: 132px;
   }
 
@@ -91,7 +91,8 @@
     }
 
     table p:not(&__name) {
-      font-weight: 600;
+      // font-weight: 600;
+      font-weight: 400;
       font-size: 22px;
       color: $table-p-color;
     }
@@ -102,6 +103,27 @@
 
     &__map {
       @include link-btns(270px, 70px, $grey-link-btn, 14px, $light-grey);
+    }
+
+    &__tel-wrapper {
+      @include baseFlexStyle($flex-direction: column);
+    }
+
+    &__call-btn {
+      @include link-btns(270px, 70px, $light-grey, 14px, $headers-color);
+      font-family: 'Mont';
+    }
+
+    &__contacts {
+      padding-top: 20px;
+    }
+
+    // &__soc-netw {
+    //   @include baseFlexStyle($justify-content: space-between);
+    // }
+
+    &__insta {
+      margin-left: 60px;
     }
   }
 
@@ -124,7 +146,13 @@
 
     &__img {
       @include setImgWidth(78px);
+      position: relative;
+      transform: translateY(48px);
     }
+  }
+
+  &-table-link {
+    @include setFontStyle('Mont', 22px, 400, $table-p-color, 170%, $text-transform: none);
   }
 
   .bb-1px {
