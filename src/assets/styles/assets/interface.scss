@@ -3,7 +3,7 @@
   --btn-link-height: 70px;
   --btn-link-font-size: 14px;
   --headers-margin-bottom: 30px;
-  --call-block-max-width: 857px;
+  --menu-block-max-width: 857px;
 }
 
 .page {
@@ -60,7 +60,7 @@
   }
 }
 
-.call-page {
+.menu {
   position: fixed;
   @include width-heigth(100%);
   background-color: rgba(0, 0, 0, 0.8);
@@ -78,12 +78,12 @@
     overflow-y: auto;
   }
 
-  .call-block {
+  .menu-block {
     background-color: $light-grey;
     min-height: 100%;
-    // max-width: var(--call-block-max-width);
+    // max-width: var(--menu-block-max-width);
     // flex-shrink: ;
-    flex: 0 0 var(--call-block-max-width);
+    flex: 0 0 var(--menu-block-max-width);
     padding: var(--header-tb-padding) var(--lr-paddings);
     padding-left: 0;
     // @include baseFlexStyle(flex-end, space-between, column);

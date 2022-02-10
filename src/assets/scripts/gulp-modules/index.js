@@ -9,16 +9,16 @@ footerToTop.addEventListener('click', () => {
 
 // Вызов меню
 const menuBtn = document.querySelector('.header-btn-menu');
-const callPage = document.querySelector('.call-page');
+const menu = document.querySelector('.menu');
 const body = document.querySelector('body');
-const callPageCloseBtn = document.querySelector('.js-cp-close');
+const menuCloseBtn = document.querySelector('.js-menu-close');
 
 menuBtn.addEventListener('click', () => {
-  callPage.classList.add('active');
+  menu.classList.add('active');
   body.classList.add('disabled-scroll');
 });
 
-callPageCloseBtn.addEventListener('click', () => {
-  callPage.classList.remove('active');
+menuCloseBtn.addEventListener('click', () => {
+  menu.classList.remove('active');
   body.classList.remove('disabled-scroll');
 });

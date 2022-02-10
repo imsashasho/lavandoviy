@@ -38,8 +38,8 @@ block footer
 block header
   include ../includes/header.pug
 
-block call-page
-  include ../includes/call-page.pug
+block menu
+  include ../includes/menu.pug
 `;
 }
 const tmplateName = process.argv[2];
