@@ -1,4 +1,23 @@
 .main {
-  &-contacts {
+  .contacts {
+    &__header {
+      text-align: center;
+      margin-bottom: 50px;
+    }
+
+    &__content {
+      padding: 0 var(--lr-paddings);
+      @include baseFlexStyle(normal, space-between);
+    }
+
+    &-map-wrapper {
+      margin-left: 100px;
+      flex-grow: 1;
+
+      iframe {
+        @include width-heigth(100%);
+        vertical-align: middle;
+      }
+    }
   }
 }
