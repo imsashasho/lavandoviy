@@ -3,7 +3,7 @@
   --btn-link-height: 70px;
   --btn-link-font-size: 14px;
   --headers-margin-bottom: 30px;
-  --menu-block-max-width: 857px;
+  --menu-call-block-max-width: 857px;
 }
 
 .page {
@@ -81,9 +81,9 @@
   .menu-block {
     background-color: $light-grey;
     min-height: 100%;
-    // max-width: var(--menu-block-max-width);
+    // max-width: var(--menu-call-block-max-width);
     // flex-shrink: ;
-    flex: 0 0 var(--menu-block-max-width);
+    flex: 0 0 var(--menu-call-block-max-width);
     padding: var(--header-tb-padding) var(--lr-paddings);
     padding-left: 0;
     // @include baseFlexStyle(flex-end, space-between, column);
@@ -109,6 +109,8 @@
     }
 
     &__close-btn {
+      display: flex;
+
       &::after {
         @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
       }
@@ -149,6 +151,108 @@
       @include width-heigth(70px);
       border-width: 1px;
       text-transform: uppercase;
+    }
+  }
+}
+
+.call {
+  position: fixed;
+  @include width-heigth(100%);
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  z-index: 30;
+  @include baseFlexStyle($justify-content: flex-end);
+  // visibility: hidden;
+  // opacity: 0;
+  @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
+
+  // &.active {
+  //   visibility: visible;
+  //   opacity: 1;
+  //   overflow-y: auto;
+  // }
+
+  .call-block {
+    background-color: $light-grey;
+    min-height: 100%;
+    flex: 0 0 var(--menu-call-block-max-width);
+    padding: var(--header-tb-padding) var(--lr-paddings);
+    padding-left: 0;
+    @include baseGridStyle(auto 1fr, auto);
+    justify-content: flex-end;
+
+    &__header {
+      @include baseFlexStyle($justify-content: flex-end);
+    }
+
+    &__close-btn {
+      display: flex;
+
+      &::after {
+        @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
+      }
+    }
+
+    &__content {
+      @include baseFlexStyle($justify-content: center, $flex-direction: column);
+    }
+
+    &__header-text {
+      margin-bottom: 60px;
+    }
+
+    &__form {
+      @include baseFlexStyle($flex-direction: column);
+      width: 100%;
+    }
+
+    &__input {
+      @include resetInputStyles;
+      padding-bottom: 10px;
+      margin-bottom: 40px;
+      border-bottom: 2px solid rgba(74, 58, 94, 0.15);
+      width: 100%;
+      @include setFontStyle('Mont', 16px, 400, $dark-grey, 170%, $text-transform: none);
+    }
+
+    &__checkbox {
+      &-wrapper {
+        margin-bottom: 60px;
+        @include baseFlexStyle(center);
+        // cursor: pointer;
+      }
+
+      & {
+        @include width-heigth(25px);
+        position: absolute;
+        appearance: none;
+        cursor: pointer;
+        // &:checked + .call-block__checkbox-custom {
+        //   // background: no-repeat center $dark-violet url('../images/call/ok.svg');
+        //   background-color: tomato;
+        // }
+        // &:checked {
+        //   background-color: tomato;
+        // }
+      }
+
+      &:checked + .call-block__checkbox-custom {
+        background: no-repeat center $dark-violet url('../images/call/ok.svg');
+      }
+
+      &-label {
+        padding-left: 15px;
+        @include setFontStyle('Mont', 12px, 500, $dark-grey, 100%, $text-transform: none);
+        cursor: pointer;
+      }
+
+      &-custom {
+        position: relative;
+        // background: no-repeat center $dark-violet url('../images/call/ok.svg');
+        border: 1px solid #4a3a5e;
+        @include width-heigth(25px);
+        pointer-events: none;
+      }
     }
   }
 }
