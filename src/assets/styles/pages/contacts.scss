@@ -1,4 +1,8 @@
 .main {
+  &-contacts {
+    @include setFontStyle('Mont', 22px, 400, $dark-grey, 170%);
+  }
+
   .contacts {
     &__header {
       text-align: center;
@@ -19,5 +23,71 @@
         vertical-align: middle;
       }
     }
+
+    &-container {
+      li {
+        &::before {
+          @include after-before-img('', 50px, 50px);
+          margin-right: var(--header-margin-inner);
+        }
+
+        &.contacts {
+          &-address {
+            &::before {
+              background-image: url('../images/contacts/location.svg');
+            }
+          }
+
+          &-schedule {
+            &::before {
+              background-image: url('../images/contacts/clock.svg');
+            }
+          }
+
+          &-telephone {
+            &::before {
+              background-image: url('../images/contacts/tel.svg');
+            }
+          }
+
+          &-email {
+            &::before {
+              background-image: url('../images/contacts/message.svg');
+            }
+          }
+
+          &-facebook {
+            &::before {
+              background-image: url('../images/contacts/facebook.svg');
+            }
+          }
+
+          &-insta {
+            &::before {
+              background-image: url('../images/contacts/insta.svg');
+            }
+          }
+        }
+      }
+
+      &-headers {
+        color: $dark-violet;
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+    }
+
+    // &-list {
+    //   li {
+    //     &::before {
+    //       @include after-before-img('', 50px, 50px);
+    //       margin-right: var(--header-margin-inner);
+    //     }
+
+    //     &.contacts {
+    //       &-
+    //     }
+    //   }
+    // }
   }
 }
