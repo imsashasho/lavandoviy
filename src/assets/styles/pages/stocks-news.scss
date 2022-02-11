@@ -45,6 +45,17 @@
 
   &__cards-wrapper {
     @include grid-card-content;
+    margin-bottom: 100px;
+  }
+
+  &__load-more {
+    &-wrapper {
+      @include baseFlexStyle($justify-content: center);
+    }
+
+    &-btn {
+      @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey, 400);
+    }
   }
 }
 
