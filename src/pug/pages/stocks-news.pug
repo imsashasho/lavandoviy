@@ -28,6 +28,12 @@ block content
   main.main.main-stocks-news
     block breadcrumbs
       include ../includes/breadcrumbs.pug
+    p.stocks-news__header.headers акції та новини
+    .stocks-news__content
+      .stocks-news__btn-wrapper   
+        button.stocks-news__btn.stocks-news__btn_left.js-stocks-news-btn.active Всі
+        button.stocks-news__btn.stocks-news__btn_center.js-stocks-news-btn Акції
+        button.stocks-news__btn.stocks-news__btn_right.js-stocks-news-btn Новини
 block footer
   include ../includes/footer.pug
 

@@ -1,0 +1,45 @@
+.stocks-news {
+  &__header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  &__content {
+    padding: 0 var(--lr-paddings);
+  }
+
+  &__btn-wrapper {
+    @include baseFlexStyle($justify-content: center);
+    margin-bottom: 50px;
+  }
+
+  &__btn {
+    @include link-btns(
+      125px,
+      50px,
+      transparent,
+      14px,
+      $dark-grey,
+      400,
+      1px solid rgba(74, 58, 94, 0.15),
+      0
+    );
+    @include multiple-transitions(0.3s, ease-in-out, color, background-color);
+    letter-spacing: 0.01em;
+    text-transform: none;
+    // color: $dark-grey;
+
+    &.active {
+      color: $light-grey;
+      background-color: $dark-violet;
+    }
+
+    &_left {
+      border-radius: 100px 0px 0px 100px;
+    }
+
+    &_right {
+      border-radius: 0px 100px 100px 0px;
+    }
+  }
+}
