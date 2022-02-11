@@ -61,3 +61,14 @@ mixin card(image, date = "", text, discount = "")
 			else 
 				p.card-date= date
 			p.card-text= text 
+
+mixin progress-card(image, date, pages, video = "")
+	.progress-card 
+		.progress-card-top 
+			img.progress-card__img(src=image, alt="Card photo")
+		.progress-card-bottom 
+			span.progress-card__date= date 
+			span.progress-card__numbers 
+				if video
+					span.progress-card__numbers-info.progress-card__numbers-info_video= video
+				span.progress-card__numbers-info.progress-card__numbers-info_pages= pages

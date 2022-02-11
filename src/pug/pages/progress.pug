@@ -1,0 +1,65 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Хід будівництва'
+    var id_page = 'id-page-progress'
+    var class_page = 'class-page-progress'
+    //- var breadcrumbsSubitem = [
+    //-   {
+    //-     label: 'About',
+    //-     link: pagesLink[0].about
+    //-   }
+    //- ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/progress.js')
+block content
+  main.main.main-progress
+    block breadcrumbs
+      include ../includes/breadcrumbs.pug
+    p.progress__header.headers хід будівництва
+    .progress__content
+      aside.progress__filter 
+        //- input.filter__input.js-range-slider(type="text")
+        label.filter__label
+          span.filter__label-text секція 1
+          input.filter__input.js-range-slider(type="text")
+        label.filter__label
+          span.filter__label-text секція 2
+          input.filter__input.js-range-slider(type="text")
+        label.filter__label
+          span.filter__label-text секція 3
+          input.filter__input.js-range-slider(type="text")
+      .progress__result 
+        .progress__cards-wrapper
+          +progress-card('./assets/images/progress/1.jpg', 'листопад 2021', 10, 1)
+          +progress-card('./assets/images/progress/2.jpg', 
+          'жовтень 2021', 14)
+          +progress-card('./assets/images/progress/3.jpg', 'вересень 2021', 9)
+          +progress-card('./assets/images/progress/4.jpg', 'серпень 2021', 10)
+          +progress-card('./assets/images/progress/5.jpg', 'липень 2021', 10, 1)
+          +progress-card('./assets/images/progress/6.jpg', 'червень 2021', 9, 3)
+        .progress__btn-wrapper
+          button.progress__load-more-btn завантажити більше
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+
+block menu
+  include ../includes/menu.pug
+
+block call
+  include ../includes/call.pug

@@ -1,0 +1,113 @@
+.progress {
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  &__content {
+    padding: 0 var(--lr-paddings);
+    @include baseFlexStyle($justify-content: space-between);
+  }
+
+  &__filter {
+    @include baseFlexStyle($flex-direction: column);
+    width: 450px;
+  }
+
+  &__cards-wrapper {
+    @include grid-card-content(repeat(3, minmax(420px, 1fr)), repeat(2, 1fr), 420px);
+    margin-bottom: 60px;
+  }
+
+  &__btn-wrapper {
+    @include baseFlexStyle($justify-content: center);
+  }
+
+  &__load-more-btn {
+    @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey);
+  }
+}
+
+.filter {
+  &__label {
+    @include baseFlexStyle($flex-direction: column);
+    width: 100%;
+
+    &:not(:last-child) {
+      margin-bottom: 40px;
+    }
+
+    &-text {
+      @include setFontStyle('Mont', 20px, 400, $dark-violet, 100%);
+      border-bottom: 1px solid $dark-violet;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+  }
+
+  &__input {
+    @include resetInputStyles;
+  }
+}
+
+.irs {
+  &--flat {
+    width: 100%;
+
+    .irs-bar {
+      background-color: $dark-violet;
+      height: 2px;
+      top: 0;
+    }
+
+    // .irs-handle > i:first-child,
+    // .irs-handle:hover > i:first-child {
+    //   background-color: $dark-violet;
+    // }
+
+    .irs-handle {
+      & {
+        cursor: pointer;
+        // background-color: $dark-violet;
+        // top: 25px;
+        top: 0;
+        @include after-before-img('../images/progress/rangeHandler.svg', 7px, 12px);
+        // width: 7px;
+        // height: 12px;
+      }
+
+      & > i:first-child,
+      &:hover > i:first-child {
+        // background-color: $dark-violet;
+        display: none;
+      }
+    }
+
+    .irs-line {
+      height: 2px;
+      top: 0;
+    }
+
+    .irs-single {
+      @include setFontStyle('Mont', 20px, 500, $dark-grey, 100%);
+      background-color: transparent;
+      border-radius: 0;
+      top: 17px;
+      padding: 0 5px;
+      // transform: translateY(100%);
+
+      &:before {
+        display: none;
+      }
+
+      &::after {
+        content: '%';
+      }
+    }
+  }
+
+  &-min,
+  &-max {
+    display: none;
+  }
+}

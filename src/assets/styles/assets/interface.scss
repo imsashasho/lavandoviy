@@ -74,6 +74,66 @@
   }
 }
 
+.progress-card {
+  @include baseFlexStyle(stretch, $flex-direction: column);
+
+  &__img {
+    @include setImgWidth(100%);
+  }
+
+  &-bottom {
+    padding: 30px 40px;
+    background-color: $light-grey;
+    border: 1px solid $border-color;
+    border-top: 0;
+    flex-grow: 1;
+    @include baseFlexStyle(center, space-between);
+    @include setFontStyle('Mont', 20px, 600, $dark-grey, 100%);
+  }
+
+  // &__date {
+  //   @include setFontStyle('Mont', 20px, 600, $dark-grey, 100%);
+  // }
+
+  // &__video {
+  //   &::before {
+  //     @include after-before-img('../images/progress/video.svg', 20px);
+  //   }
+  // }
+
+  // &__pages {
+  //   &::before {
+  //     @include after-before-img('../images/progress/pages.svg', 20px);
+  //   }
+  // }
+
+  &__numbers-info {
+    @include baseFlexStyle(center);
+    display: inline-flex;
+
+    &:not(:last-child) {
+      margin-right: 34px;
+    }
+
+    &::before {
+      @include after-before-img('', 20px);
+      margin-right: 10px;
+    }
+
+    &_video {
+      &::before {
+        background-image: url('../images/progress/video.svg');
+      }
+    }
+
+    &_pages {
+      &::before {
+        background-image: url('../images/progress/pages.svg');
+      }
+    }
+  }
+}
+
 .menu {
   position: fixed;
   @include width-heigth(100%);
