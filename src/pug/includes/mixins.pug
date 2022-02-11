@@ -72,3 +72,9 @@ mixin progress-card(image, date, pages, video = "")
 				if video
 					span.progress-card__numbers-info.progress-card__numbers-info_video= video
 				span.progress-card__numbers-info.progress-card__numbers-info_pages= pages
+
+mixin purple-block(...texts)
+	.purple-block
+		+svg('purple-block-close')&attributes(attributes)
+		each text in texts 
+			p.purple-block__par= text

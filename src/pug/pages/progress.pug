@@ -31,15 +31,17 @@ block content
     p.progress__header.headers хід будівництва
     .progress__content
       aside.progress__filter 
-        //- input.filter__input.js-range-slider(type="text")
         label.filter__label
-          span.filter__label-text секція 1
+          +purple-block('Роботи до позн. 0,000 - 100%', 'Каркас - 100%', 'Цегляна кладка - 99%', 'Внутрішнє опорядження - 36%')(class="js-purple-close")
+          span.filter__label-text.js-filter-text секція 1
           input.filter__input.js-range-slider(type="text")
         label.filter__label
-          span.filter__label-text секція 2
+          +purple-block('Роботи до позн. 0,000 - 100%', 'Каркас - 100%', 'Цегляна кладка - 99%', 'Внутрішнє опорядження - 36%')(class="js-purple-close")
+          span.filter__label-text.js-filter-text секція 2
           input.filter__input.js-range-slider(type="text")
         label.filter__label
-          span.filter__label-text секція 3
+          +purple-block('Роботи до позн. 0,000 - 100%', 'Каркас - 100%', 'Цегляна кладка - 99%', 'Внутрішнє опорядження - 36%')(class="js-purple-close")
+          span.filter__label-text.js-filter-text секція 3
           input.filter__input.js-range-slider(type="text")
       .progress__result 
         .progress__cards-wrapper
