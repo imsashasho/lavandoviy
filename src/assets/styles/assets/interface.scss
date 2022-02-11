@@ -162,15 +162,15 @@
   top: 0;
   z-index: 30;
   @include baseFlexStyle($justify-content: flex-end);
-  // visibility: hidden;
-  // opacity: 0;
+  visibility: hidden;
+  opacity: 0;
   @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
 
-  // &.active {
-  //   visibility: visible;
-  //   opacity: 1;
-  //   overflow-y: auto;
-  // }
+  &.active {
+    visibility: visible;
+    opacity: 1;
+    overflow-y: auto;
+  }
 
   .call-block,
   .call-thanks-block {
@@ -182,6 +182,21 @@
     // @include baseGridStyle(auto 1fr, auto);
     @include baseGridStyle(auto 1fr, 1fr repeat(2, auto));
     justify-content: flex-end;
+    @include multiple-transitions(0.5s, ease-in-out, opacity, visibility);
+
+    &.active {
+      // top: 100%;
+      // visibility: visible;
+      // opacity: 1;
+      // animation: fadeIn 5s ease-in-out;
+      transform: translateY(0);
+    }
+
+    &.hidden {
+      visibility: hidden;
+      opacity: 0;
+      // display: none;
+    }
 
     &__header {
       grid-column-start: 3;
@@ -292,7 +307,13 @@
   }
 
   .call-thanks-block {
+    // background-color: tomato;
     grid-template: repeat(2, auto) 1fr/1fr repeat(2, auto);
+    // visibility: hidden;
+    // opacity: 0;
+    position: absolute;
+    transform: translateY(-100%);
+    // display: none;
 
     &__content {
       margin-top: 96px;

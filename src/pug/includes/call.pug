@@ -1,5 +1,5 @@
 .call
-    //- .call-block 
+    .call-block 
         .call-block__header 
             button.call-block__close-btn.js-call-close
         .call-block__content 
@@ -11,8 +11,8 @@
                     input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
                     span.call-block__checkbox-custom
                     label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
-                button.call-block__submit(type="submit" form="call-form") 
-    .call-thanks-block 
+                button.call-block__submit.js-call-submit(type="submit" form="call-form") 
+    .call-thanks-block.hidden 
         .call-thanks-block__header 
             button.call-thanks-block__close-btn.js-call-thanks-close
         .call-thanks-block__content
