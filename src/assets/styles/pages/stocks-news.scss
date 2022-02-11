@@ -42,4 +42,17 @@
       border-radius: 0px 100px 100px 0px;
     }
   }
+
+  &__cards-wrapper {
+    @include grid-card-content;
+  }
+}
+
+.icon {
+  &--discount {
+    position: absolute;
+    top: 0;
+    left: 0;
+    @include width-heigth(50px);
+  }
 }

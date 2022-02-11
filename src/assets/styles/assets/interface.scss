@@ -36,10 +36,19 @@
 }
 
 .card {
-  width: 520px;
+  // width: 520px;
+  @include baseFlexStyle(stretch, $flex-direction: column);
+
+  // & > * {
+  //   flex-grow: 1;
+  // }
 
   &-img {
     @include setImgWidth(100%);
+  }
+
+  &-top {
+    position: relative;
   }
 
   &-bottom {
@@ -48,11 +57,16 @@
     background-color: $light-grey;
     border: 1px solid $border-color;
     border-top: 0;
+    flex-grow: 1;
   }
 
   &-date {
     margin-bottom: 20px;
     @include setFontStyle('Mont', 16px, 600, $date-color, 100%);
+
+    &.hidden {
+      visibility: hidden;
+    }
   }
 
   &-text {
