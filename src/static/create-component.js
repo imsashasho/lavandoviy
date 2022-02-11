@@ -40,6 +40,9 @@ block header
 
 block menu
   include ../includes/menu.pug
+
+block call
+  include ../includes/call.pug
 `;
 }
 const tmplateName = process.argv[2];
