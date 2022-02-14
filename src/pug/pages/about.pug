@@ -40,12 +40,16 @@ block content
       section.describe.about-section-content
         p.describe__header.about-headers Опис жк lavanda park
         p.describe__right-text «Lavanda Park» – житловий комплекс комфорт класу Із власною новітньою інфраструктурою Розташований у мікрорайоні Тяжилів, в оточенні парку Інтеграл з великим стадіоном та озера
-        figure.describe__figure
-          img.describe__img(src="./assets/images/about/dad-and-son.jpg", alt="Dad and son")
-          figcaption.describe__figcaption Тут міське життя поєднується із перевагами життя на природі: ранкові пробіжки, прогулянки із сім'єю, велосипедні маршрути.
-        figure.describe__figure
-          img.describe__img(src="./assets/images/about/complex-from-top.jpg", alt="Complex from top")
-          figcaption.describe__figcaption Проєкт представлений трьома десятиповерховими будинками, по 4 секції в кожному та одним окремим десятиповерховим будинком біля озера.
+        //- figure.describe__figure
+        //-   img.describe__img(src="./assets/images/about/dad-and-son.jpg", alt="Dad and son")
+        //-   figcaption.describe__figcaption Тут міське життя поєднується із перевагами життя на природі: ранкові пробіжки, прогулянки із сім'єю, велосипедні маршрути.
+        //- figure.describe__figure
+        //-   img.describe__img(src="./assets/images/about/complex-from-top.jpg", alt="Complex from top")
+        //-   figcaption.describe__figcaption Проєкт представлений трьома десятиповерховими будинками, по 4 секції в кожному та одним окремим десятиповерховим будинком біля озера.
+        img.describe__img.describe__img_left(src="./assets/images/about/dad-and-son.jpg", alt="Dad and son")
+        p.describe__figcaption.describe__figcaption_left Тут міське життя поєднується із перевагами життя на природі: ранкові пробіжки, прогулянки із сім'єю, велосипедні маршрути.
+        img.describe__img.describe__img_right(src="./assets/images/about/complex-from-top.jpg", alt="Complex from top")
+        p.describe__figcaption.describe__figcaption_right Проєкт представлений трьома десятиповерховими будинками, по 4 секції в кожному та одним окремим десятиповерховим будинком біля озера.
 block footer
   include ../includes/footer.pug
 
