@@ -178,7 +178,6 @@
   $auto-rows: 340px,
   $gap: 60px
 ) {
-  // padding: 0 var(--lr-paddings);
   @include baseGridStyle($rows, $columns);
   grid-auto-rows: minmax($auto-rows, 1fr);
   grid-gap: $gap;

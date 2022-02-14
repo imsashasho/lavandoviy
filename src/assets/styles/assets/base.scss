@@ -27,6 +27,7 @@
 
 html {
   font-size: 14px;
+  scrollbar-width: none; // for Firefox 64 and above disabled scroll
 }
 body {
   margin: 0;

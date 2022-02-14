@@ -1,0 +1,59 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Про комплекс'
+    var id_page = 'id-page-about'
+    var class_page = 'class-page-about'
+    //- var breadcrumbsSubitem = [
+    //-   {
+    //-     label: 'About',
+    //-     link: pagesLink[0].about
+    //-   }
+    //- ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/about.js')
+block content
+  main.main.main-about
+    block breadcrumbs
+      include ../includes/breadcrumbs.pug
+    p.about__header.headers про комплекс
+    .about__content 
+      img.about__main-img.about-section-content(src="./assets/images/about/main-img.jpg", alt="Building complex")
+      section.philosophy.about-section-content
+        p.philosophy__header.about-headers Філософія комплексу
+        p.philosophy__left-text Для вашого комфорту ми продумали кожну деталь не лише будинків, а й навколишньої території. Все, що вам знадобиться, буде під рукою і ви зможете швидше та простіше вирішувати побутові питання, а благоустрій території дозволить насолоджуватися гарними краєвидами щодня! ЖК Lavanda Park – справжній простір сили, енергії та процвітання для Вас та Вашої родини!
+        p.philosophy__right-text.philosophy__right-text_left Всім з дитинства знайоме почуття Коли хочеться усамітнитися, створити свій милий серцю куточок.
+        p.philosophy__right-text.philosophy__right-text_right З віком запитів стає набагато більше: вид з вікна, привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі, хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
+        img.philosophy__img(src="./assets/images/about/philosophy-img.jpg", alt="Girl`s in kitchen")
+      section.describe.about-section-content
+        p.describe__header.about-headers Опис жк lavanda park
+        p.describe__right-text «Lavanda Park» – житловий комплекс комфорт класу Із власною новітньою інфраструктурою Розташований у мікрорайоні Тяжилів, в оточенні парку Інтеграл з великим стадіоном та озера
+        figure.describe__figure
+          img.describe__img(src="./assets/images/about/dad-and-son.jpg", alt="Dad and son")
+          figcaption.describe__figcaption Тут міське життя поєднується із перевагами життя на природі: ранкові пробіжки, прогулянки із сім'єю, велосипедні маршрути.
+        figure.describe__figure
+          img.describe__img(src="./assets/images/about/complex-from-top.jpg", alt="Complex from top")
+          figcaption.describe__figcaption Проєкт представлений трьома десятиповерховими будинками, по 4 секції в кожному та одним окремим десятиповерховим будинком біля озера.
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+
+block menu
+  include ../includes/menu.pug
+
+block call
+  include ../includes/call.pug

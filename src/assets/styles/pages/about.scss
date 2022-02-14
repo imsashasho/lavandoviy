@@ -1,0 +1,77 @@
+:root {
+  --about-sec-btm-indent: 200px;
+  --about-elem-btm-margin: 100px;
+}
+
+.main {
+  &-about {
+    padding-bottom: var(--about-sec-btm-indent);
+  }
+}
+
+.about {
+  &-section-content {
+    padding: 0 var(--lr-paddings);
+
+    &:not(:first-child):not(:last-child) {
+      margin-bottom: var(--about-sec-btm-indent);
+    }
+  }
+
+  &-headers {
+    @include setFontStyle('Cormorant Garamond', 100px, 400, $headers-color, 100%);
+  }
+
+  &__header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  &__main-img {
+    @include setImgWidth(100%);
+    margin-bottom: var(--about-elem-btm-margin);
+  }
+}
+
+.philosophy {
+  @include baseGridStyle(repeat(3, auto), 520px 205px repeat(2, auto));
+
+  &__header {
+    grid-column: 1 / 3;
+    margin-bottom: var(--about-elem-btm-margin);
+  }
+
+  &__right-text {
+    grid-row-start: 2;
+    @include setFontStyle('Mont', 20px, 500, $dark-grey, 130%);
+    margin-bottom: 150px;
+
+    &_left {
+      grid-column-start: 3;
+      margin-right: 60px;
+    }
+
+    &_right {
+      grid-column-start: 4;
+    }
+  }
+
+  &__left-text,
+  &__img {
+    grid-row-start: 3;
+  }
+
+  &__left-text {
+    @include setFontStyle('Mont', 16px, 500, $text-color, 160%, $text-transform: none);
+  }
+
+  &__img {
+    grid-column-start: 3;
+    grid-column-end: 5;
+    @include setImgWidth(100%);
+  }
+}
+
+.describe {
+  @include baseGridStyle(repeat(auto-fill, auto), auto);
+}
