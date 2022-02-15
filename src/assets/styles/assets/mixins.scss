@@ -97,6 +97,12 @@
   object-fit: cover;
 }
 
+@mixin setImgMaxWidth($width) {
+  max-width: $width;
+  height: auto;
+  object-fit: cover;
+}
+
 @mixin setImgHeight($height) {
   width: auto;
   height: $height;
