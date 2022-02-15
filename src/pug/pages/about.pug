@@ -51,6 +51,23 @@ block content
         p.describe__figcaption.describe__figcaption_left Тут міське життя поєднується із перевагами життя на природі: ранкові пробіжки, прогулянки із сім'єю, велосипедні маршрути.
         img.describe__img.describe__img_right(src="./assets/images/about/complex-from-top.jpg", alt="Complex from top")
         p.describe__figcaption.describe__figcaption_right Проєкт представлений трьома десятиповерховими будинками, по 4 секції в кожному та одним окремим десятиповерховим будинком біля озера.
+      section.advantages.about-section-content
+        p.advantages__header.about-headers переваги
+        .advantages__content-wrapper 
+          p.advantages__text На перших поверхах - будуть розташовані магазини, салон краси, кав’ярня, аптека, пекарня для комфортного проживання та щасливого майбутнього кожної сім'ї.
+          .advantages__btn-wrapper 
+            button.advantages__btn.left-btn
+              img.advantages__btn-img(src="./assets/images/about/left-arrow.svg")
+            span.advantages__slide-num 
+              span.advantages__curr-slide 01
+              span.advantages__divider /
+              span.advantages__all-slides 06
+            button.advantages__btn.right-btn
+             img.advantages__btn-img(src="./assets/images/about/right-arrow.svg")
+          img.advantages__main-slide-img(src="./assets/images/about/slider/1.jpg", alt="Infrastructure")
+          .advantages__nav-wrapper 
+            .advantages__nav-line
+          img.advantages__slide-img(src="./assets/images/about/slider/2.jpg", alt="Kid`s infrastructure")
 block footer
   include ../includes/footer.pug
 

@@ -117,7 +117,7 @@
     repeat(auto-fill, minmax(60px, 1fr))
   );
   // @include baseGridStyle(repeat(2, auto) 150px auto 150px, repeat(auto-fill, minmax(60px, 1fr)));
-  margin-bottom: var(--about-sec-btm-indent);
+  // margin-bottom: var(--about-sec-btm-indent);
 
   &__header {
     // grid-column: 1 / 13;
@@ -186,5 +186,78 @@
       // grid-row-end: -1;
       // grid-row-start: 4;
     }
+  }
+}
+
+.advantages {
+  background-color: $dark-violet;
+  padding-bottom: var(--about-sec-btm-indent);
+
+  &__header {
+    text-align: center;
+    margin-bottom: var(--about-elem-btm-margin);
+    color: $light-grey;
+  }
+
+  &__content-wrapper {
+    @include baseGridStyle(92px auto 92px, repeat(auto-fill, minmax(60px, 1fr)));
+  }
+
+  &__text {
+    @include setFontStyle('Mont', 20px, 500, $light-grey, 130%);
+    grid-column: 1 / 9;
+  }
+
+  &__main-slide-img {
+    // @include setImgWidth(100%);
+    @include width-heigth(100%);
+    object-fit: cover;
+    grid-column: 13 / 22;
+    grid-row: 1 / 4;
+  }
+
+  &__slide-img {
+    // @include setImgWidth(100%);
+    @include width-heigth(100%);
+    object-fit: cover;
+    // grid-row-start: 2;
+    grid-row: 2 / 3;
+    grid-column: 23 / -1;
+  }
+
+  &__btn-wrapper {
+    // grid-column-start: 1;
+    grid-column: 1 / 6;
+    // grid-column-start: 1 / auto;
+    grid-row-end: 4;
+    @include baseFlexStyle(center);
+    align-self: flex-end;
+  }
+
+  &__btn {
+    @include slideBtns($background: $grey-link-btn);
+    @include width-heigth(70px);
+  }
+
+  &__btn-img {
+    @include width-heigth(6px, 12px);
+  }
+
+  &__slide-num {
+    @include setFontStyle('Mont', 22px, 500, $light-grey, 100%);
+    margin: 0 40px;
+  }
+
+  &__nav-wrapper {
+    grid-column: 13 / 22;
+    grid-row-start: 5;
+    @include width-heigth(100%, 2px);
+    background-color: rgba(255, 255, 255, 0.15);
+    margin-top: 40px;
+  }
+
+  &__nav-line {
+    @include width-heigth(142px, 100%);
+    background-color: $light-grey;
   }
 }
