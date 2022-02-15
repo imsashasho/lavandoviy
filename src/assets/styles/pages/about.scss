@@ -416,3 +416,45 @@
     @include setImgWidth(100%);
   }
 }
+
+.charact {
+  &__header {
+    text-align: center;
+    margin-bottom: var(--about-elem-btm-margin);
+  }
+
+  &__content {
+    @include baseFlexStyle(flex-end, space-between);
+    margin-bottom: 150px;
+  }
+
+  &__figure {
+    @include baseFlexStyle(center, $flex-direction: column);
+    max-width: 330px;
+  }
+
+  &__img {
+    @include width-heigth(50px);
+    object-fit: cover;
+    margin-bottom: 30px;
+
+    &_conditioner {
+      height: 42px;
+    }
+  }
+
+  &__figcaption {
+    text-align: center;
+    @include setFontStyle('Mont', 16px, 400, $text-color, 160%, $text-transform: none);
+  }
+
+  &__btn {
+    &-wrapper {
+      @include baseFlexStyle($justify-content: center);
+    }
+
+    &-link {
+      @include link-btns(270px, 70px, $dark-violet, 14px, $font-weight: 400);
+    }
+  }
+}
