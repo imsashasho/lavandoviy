@@ -404,3 +404,34 @@
 .lr-paddings {
   padding: 0 var(--lr-paddings);
 }
+
+.white-btn-link,
+.violet-btn-link {
+  --btn-link-width: 270px;
+  --btn-link-height: 70px;
+  --btn-link-font-size: 14px;
+}
+
+.white-btn-link {
+  @include link-btns(
+    var(--btn-link-width),
+    var(--btn-link-height),
+    transparent,
+    var(--btn-link-font-size),
+    $dark-violet,
+    400,
+    1px solid $dark-violet
+  );
+}
+
+.violet-btn-link {
+  @include link-btns(
+    var(--btn-link-width),
+    var(--btn-link-height),
+    $dark-violet,
+    var(--btn-link-font-size),
+    $white-color,
+    400,
+    none
+  );
+}
