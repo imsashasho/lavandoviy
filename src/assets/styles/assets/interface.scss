@@ -473,7 +473,13 @@
     &-slides {
       @include baseFlexStyle(center, center);
 
-      .slide-img {
+      // .slide-img {
+      //   &:not(:first-child) {
+      //     margin-left: 30px;
+      //   }
+      // }
+
+      .swiper-slide {
         &:not(:first-child) {
           margin-left: 30px;
         }
