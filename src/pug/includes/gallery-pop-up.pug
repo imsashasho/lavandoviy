@@ -1,20 +1,34 @@
 .gallery-pop-up
-  .pop-up-content.swiper
-    .pop-up-main-slide.swiper-wrapper
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/2.jpg", alt="Gallery slide img")
-    .pop-up-slides.swiper-wrapper
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/2.jpg", alt="Gallery slide img")
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/3.jpg", alt="Gallery slide img")
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/4.jpg", alt="Gallery slide img")
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/5.jpg", alt="Gallery slide img")
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/6.jpg", alt="Gallery slide img")
-      .swiper-slide
-        img.slide-img(src="./assets/images/gallery/slider/7.jpg", alt="Gallery slide img")
+  .pop-up-content 
+    .pop-up-main-slide.swiper-gallery-top
+      .swiper-wrapper
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/1.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/2.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/3.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/4.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/5.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/6.jpg", alt="Gallery slide img")
+        .swiper-slide.swiper-gallery__slide
+          img.slide-img(src="./assets/images/gallery/slider/7.jpg", alt="Gallery slide img")
+    .pop-up-slides.swiper.swiper-gallery-bottom
+      .swiper-wrapper.swiper-gallery__bottom-wrapper
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/2.jpg", alt="Gallery slide img")
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/3.jpg", alt="Gallery slide img")
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/4.jpg", alt="Gallery slide img")
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/5.jpg", alt="Gallery slide img")
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/6.jpg", alt="Gallery slide img")
+        .swiper-slide
+          img.slide-img(src="./assets/images/gallery/slider/7.jpg", alt="Gallery slide img")
   .pop-up__btn-wrapper
-    button.pop-up__close-btn
+    button.pop-up__close-btn.js-close-pop-up
