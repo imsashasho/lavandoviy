@@ -38,6 +38,9 @@
 .card {
   // width: 520px;
   @include baseFlexStyle(stretch, $flex-direction: column);
+  height: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 
   // & > * {
   //   flex-grow: 1;

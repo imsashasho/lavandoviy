@@ -1,0 +1,70 @@
+
+extends ../layout/main
+block variable
+  -
+    var title_page = 'Відкриття відділу продажу ЖК лаванда парк!'
+    var id_page = 'id-page-inner-stocks-news'
+    var class_page = 'class-page-inner-stocks-news'
+    var breadcrumbsSubitem = [
+      {
+        label: 'акції та новини',
+        link: pagesLink[0].stocksAndNews
+      }
+    ]
+  
+block meta
+  title= title_page
+  meta(name='description', content='')
+block head
+    link(rel='stylesheet', href="./assets/styles/main.min.css")
+block scripts
+  script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/index.bundle.js')
+  script(defer src='./assets/scripts/libs.js')
+  script(defer src='./assets/scripts/index.js')
+  script(defer src='./assets/scripts/header.js')
+  script(defer src='./assets/scripts/inner-stocks-news.js')
+block content
+  main.main.main-inner-stocks-news
+    block breadcrumbs
+      include ../includes/breadcrumbs.pug
+    //- isn - inner-stocks-news - лучше имени не придумал)
+    .isn-content-wrapper
+      .isn__back-link-wrapper
+        a.isn__back-link(href="javascript:history.back();") назад
+      .isn__content
+        p.isn__header.headers Відкриття відділу продажу ЖК лаванда парк!
+        p.isn__date 23/09/2021
+        img.isn__slider-img(src="./assets/images/stocks-news/inner/slider/1.jpg" alt="Interiere")
+        .isn__text-wrapper
+          p.isn__text Анонсируем открытие отдела продаж нового комплекса Лаванда Парк!
+          p.isn__text Ждем вас 11 и 12 декабря с 11:00 по адресу: Голосеевский проспект, 6 – вдоль улицы Изюмской.
+          p.isn__text По случаю открытия вас будут ждать:
+          ul.isn__list.isn__text
+            li.isn__element большой выбор планировок;
+            li.isn__element особые условия для покупки и рассрочки;
+            li.isn__element самая актуальная информация о комплексе и преимуществах локации;
+            li.isn__element розыгрыш техники от Apple среди первых инвесторов!
+          p.isn__text Лаванда Парк — современный жилой комплекс на Демеевке, который воплощается в концепции «город в городе» и будет иметь реку на территории. Это совместный проект девелопера Perfect Group в партнерстве с Altis и Archimatika – команды практиков, архитекторов, инженеров и новаторов.
+          p.isn__text Точная локация отдела продаж - #[a.isn__text.isn__text_link(href="https://goo.gl/maps/wLzdzaejmP2f3kHW9") https://goo.gl/maps/wLzdzaejmP2f3kHW9]
+          p.isn__text Ждем вас на открытии!
+        a.isn__btn-link.violet-btn-link(href="#") Обрати квартиру
+        .isn__video-wrapper
+          video.isn__video(poster="./assets/images/stocks-news/inner/poster.jpg")
+            source.isn__video-src(src="" type="")
+          button.isn__video-btn-play
+        p.isn__stocks-news-header.headers останні новини та акції
+        .isn__cards-wrapper
+          +card('./assets/images/stocks-news/1.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!', './inner-stocks-news.html')
+          +card('./assets/images/stocks-news/2.jpg', '23/09/2021', 'Графік роботи відділу продажу на свята! встигніть прибати квартиру до нового року', './inner-stocks-news.html')
+block footer
+  include ../includes/footer.pug
+
+block header
+  include ../includes/header.pug
+
+block menu
+  include ../includes/menu.pug
+
+block call
+  include ../includes/call.pug

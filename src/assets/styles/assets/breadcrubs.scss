@@ -10,6 +10,14 @@
       color: $dark-violet;
       border-bottom: 1px solid $dark-violet;
     }
+
+    &__current--color {
+      white-space: nowrap;
+      overflow-x: hidden;
+      text-overflow: ellipsis;
+      display: inline;
+      max-width: 255px;
+    }
   }
 
   .icon {

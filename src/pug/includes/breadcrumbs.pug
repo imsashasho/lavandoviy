@@ -5,6 +5,6 @@ ul.breadcrumbs
   if breadcrumbsSubitem
     each v in breadcrumbsSubitem
       li.breadcrumbs-item
-        a(href="#").breadcrumbs-item__link= v.label
+        a(href= v.link).breadcrumbs-item__link= v.label
         +svg('dot')
   li.breadcrumbs-item__current--color.breadcrumbs-item= title_page
