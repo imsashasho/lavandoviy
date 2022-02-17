@@ -36,13 +36,33 @@ closeProgressBtn.addEventListener('click', () => {
 });
 
 // Инициализация слайдера в поп-апе
-const sliderConfigTop = {
+const sliderConfig = {
   speed: 400,
   autoHeight: true,
   slidesPerView: 1,
   freeMode: true,
   adaptiveHeight: true,
   allowTouchMove: true,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
+  // navigation: {
+  //   nextEl: '.swiper-button-next',
+  //   prevEl: '.swiper-button-prev',
+  // },
 };
 
-const swiperProgress = new Swiper('.pop-up__slider', sliderConfigTop);
+const swiperProgress = new Swiper('.pop-up__slider', sliderConfig);
+
+// Переключение слайдер по клику
+const leftBtn = document.querySelector('.left-btn');
+const rightBtn = document.querySelector('.right-btn');
+
+leftBtn.addEventListener('click', () => {
+  swiperProgress.slidePrev();
+});
+
+rightBtn.addEventListener('click', () => {
+  swiperProgress.slideNext();
+});

@@ -688,6 +688,10 @@
         &:not(:first-child) {
           margin-left: 60px;
         }
+
+        &_video {
+          position: relative;
+        }
       }
 
       &-img,
@@ -707,11 +711,16 @@
         grid-column: 10 / -2;
         @include baseFlexStyle(center, center);
         margin-top: 30px;
+        position: relative;
       }
 
       &-btn {
         @include width-heigth(70px);
         @include slideBtns(rgba(74, 58, 94, 0.15));
+      }
+
+      &-play {
+        @include abs-position();
       }
     }
 
@@ -726,6 +735,7 @@
     }
 
     &__slide-num {
+      // position: relative;
       margin: 0 40px;
       @include setFontStyle('Mont', 22px, 400, $dark-grey, 100%);
     }
@@ -736,4 +746,10 @@
       visibility: hidden;
     }
   }
+}
+
+.swiper-pagination-fraction {
+  // bottom: 0;
+  position: static;
+  width: 50px;
 }

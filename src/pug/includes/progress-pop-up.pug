@@ -24,16 +24,20 @@
         img.pop-up__slider-img(src="./assets/images/progress/slider/1.jpg", alt="Progress of building")
       .pop-up__slider-slide.swiper-slide 
         img.pop-up__slider-img(src="./assets/images/progress/slider/2.jpg", alt="Progress of building")
-      .pop-up__slider-slide.swiper-slide 
+      .pop-up__slider-slide.pop-up__slider-slide_video.swiper-slide 
+        img.pop-up__slider-play(src="./assets/images/progress/slider/play.svg", alt="Play")
         video.pop-up__slider-video(poster="./assets/images/progress/slider/3.jpg")
           source.pop-up__slider-src(src="" type="")
   .pop-up__slider-btn-wrapper
     button.pop-up__slider-btn.left-btn
       img.pop-up__slider-btn-img(src="./assets/images/home/left-arrow.svg")
-    span.pop-up__slide-num
-      span.pop-up__curr-slide 01
-      span.pop-up__divider /
-      span.pop-up__all-slides 14
+    .pop-up__slide-num
+      //- span.pop-up__slide-num
+      //- span.pop-up__slide-numero-hidden
+      //-   span.pop-up__curr-slide 01
+      //-   span.pop-up__divider /
+      //-   span.pop-up__all-slides 14
+      .swiper-pagination
     button.pop-up__slider-btn.right-btn
       img.pop-up__slider-btn-im(src="./assets/images/home/right-arrow.svg")
   .pop-up__hidden-content HIDDEN CONTENT
