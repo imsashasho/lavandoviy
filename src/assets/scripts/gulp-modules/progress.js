@@ -9,7 +9,7 @@ $('.js-range-slider').ionRangeSlider({
 $('.js-filter-text').on('click', event => {
   $(event.target)
     .siblings('.purple-block')
-    .addClass('active');
+    .toggleClass('active');
 });
 
 $('.js-purple-close').on('click', event => {
