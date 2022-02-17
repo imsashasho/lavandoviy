@@ -79,9 +79,32 @@
 
 .progress-card {
   @include baseFlexStyle(stretch, $flex-direction: column);
+  cursor: pointer;
+
+  &:hover {
+    .progress-card__img {
+      transform: scale(1.02);
+
+      &-plus {
+        opacity: 1;
+      }
+    }
+  }
 
   &__img {
     @include setImgWidth(100%);
+    transition: transform 0.5s ease-in-out;
+
+    &-plus {
+      @include abs-position();
+      opacity: 0;
+      transition: opacity 0.5s ease-in-out;
+    }
+  }
+
+  &-top {
+    position: relative;
+    overflow: hidden;
   }
 
   &-bottom {
@@ -93,22 +116,6 @@
     @include baseFlexStyle(center, space-between);
     @include setFontStyle('Mont', 20px, 600, $dark-grey, 100%);
   }
-
-  // &__date {
-  //   @include setFontStyle('Mont', 20px, 600, $dark-grey, 100%);
-  // }
-
-  // &__video {
-  //   &::before {
-  //     @include after-before-img('../images/progress/video.svg', 20px);
-  //   }
-  // }
-
-  // &__pages {
-  //   &::before {
-  //     @include after-before-img('../images/progress/pages.svg', 20px);
-  //   }
-  // }
 
   &__numbers-info {
     @include baseFlexStyle(center);

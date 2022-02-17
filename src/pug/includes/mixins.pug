@@ -65,8 +65,9 @@ mixin card(image, date = "", text, link, discount = "")
 
 mixin progress-card(image, date, pages, video = "")
 	.progress-card 
-		.progress-card-top 
+		figure.progress-card-top 
 			img.progress-card__img(src=image, alt="Card photo")
+			img.progress-card__img-plus(src="./assets/images/progress/plus.svg", alt="Plus")
 		.progress-card-bottom 
 			span.progress-card__date= date 
 			span.progress-card__numbers 
@@ -79,3 +80,8 @@ mixin purple-block(...texts)
 		+svg('purple-block-close')&attributes(attributes)
 		each text in texts 
 			p.purple-block__par= text
+
+mixin gallery-card(url)
+	figure.gallery__figure
+		img.gallery__img(src=url, alt="Gallery image")
+		img.gallery__img-loupe(src="./assets/images/gallery/loupe.svg", alt="Loupe")
