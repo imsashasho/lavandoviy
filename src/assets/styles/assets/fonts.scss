@@ -20,3 +20,10 @@
   'ttf',
   400
 );
+
+@include font-face-one-type(
+  'Nanum',
+  '../fonts/nanumMyeongjoRegular/NanumMyeongjo-Regular',
+  'ttf',
+  400
+);

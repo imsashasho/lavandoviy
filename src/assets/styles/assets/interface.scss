@@ -468,6 +468,10 @@
     &-content {
       grid-column: 3 / 23;
       overflow-x: hidden;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
 
     &-main-slide {
@@ -553,11 +557,21 @@
   top: 0;
   z-index: 30;
   overflow-y: auto;
+  // padding-bottom: var(--top-padding);
   // visibility: hidden;
   // opacity: 0;
   @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
-  padding: 50px var(--lr-paddings);
-  // @include baseGridStyle(auto, repeat(24, minmax(var(--popular-indent), 1fr)));
+  // padding: 50px var(--lr-paddings);
+  // padding: 0 var(--lr-paddings);
+  // @include baseGridStyle(
+  //   var(--top-padding) repeat(4, auto) var(--top-padding),
+  //   var(--lr-paddings) repeat(24, minmax(var(--popular-indent), 1fr)) var(--lr-paddings)
+  // );
+  @include baseGridStyle(
+    var(--top-padding) repeat(4, auto) var(--top-padding),
+    var(--lr-paddings) repeat(24, minmax(var(--popular-indent), 1fr)) var(--lr-paddings)
+  );
+  overflow-x: hidden;
 
   &.active {
     visibility: visible;
@@ -565,13 +579,38 @@
   }
 
   .pop-up {
-    &-content {
-      // @include baseFlexStyle($justify-content: space-between);
+    // &-content {
+    //   // @include baseFlexStyle($justify-content: space-between);
+    // }
+
+    &__left-side {
+      grid-column: 1 / 9;
+      grid-row: 1 / -1;
+      // background-color: $dark-violet;
+      box-shadow: 7px 0 25px rgba(56, 56, 56, 0.07);
     }
+
+    // &__text-content {
+    //   grid-column: 2 / 7;
+    //   grid-row: 3 / 4;
+    //   overflow-y: scroll;
+    // }
+
+    // &__text-wrapper {
+    //   overflow-y: scroll;
+    // }
+
+    // &__right-side {
+    //   grid-column: 9 / -1;
+    //   grid-row: 3 / 4;
+    // }
 
     &__btn-wrapper {
       // @include baseFlexStyle($justify-content: flex-end);
       margin-bottom: 30px;
+      grid-column-end: 26;
+      grid-row-start: 2;
+      @include baseFlexStyle($justify-content: flex-end);
     }
 
     &__close-btn {
@@ -580,6 +619,106 @@
       &::before {
         @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
       }
+    }
+
+    &__header {
+      grid-column: 2 / 8;
+      grid-row: 3 / 4;
+      margin-bottom: 30px;
+
+      &-month {
+        @include setFontStyle('Cormorant Garamond', 50px, 300, $headers-color, 100%, 0.01em);
+        margin-right: 15px;
+      }
+
+      &-year {
+        @include setFontStyle('Nanum', 42px, 400, $headers-color, 100%, 0.01em);
+      }
+    }
+
+    &__text-wrapper {
+      overflow-y: auto;
+      grid-row: 4 / 5;
+      grid-column: 2 / 8;
+      padding-right: 30px;
+      @include setFontStyle('Mont', 16px, 400, $text-color, 160%, $text-transform: none);
+
+      &::-webkit-scrollbar {
+        cursor: none;
+
+        & {
+          appearance: none;
+          width: 2px;
+        }
+
+        &-track {
+          background-color: rgba(74, 58, 94, 0.15);
+        }
+
+        &-thumb {
+          background-color: $dark-violet;
+        }
+      }
+    }
+
+    &__slider {
+      grid-row: 3 / 5;
+      grid-column: 10 / -2;
+      // overflow: hidden;
+
+      // &-wrapper {
+      //   max-height: 670px;
+      // }
+
+      &-slide {
+        overflow-x: hidden;
+
+        &:not(:first-child) {
+          margin-left: 60px;
+        }
+      }
+
+      &-img {
+        // @include setImgWidth(100%);
+        // max-height: 670px;
+        // @include setImgHeight(100%);
+        @include width-heigth(100%);
+        position: absolute;
+        // object-fit: cover;
+      }
+
+      &-btn-wrapper {
+        grid-row: 5 / 6;
+        grid-column: 10 / -2;
+        @include baseFlexStyle(center, center);
+        margin-top: 30px;
+      }
+
+      &-btn {
+        @include width-heigth(70px);
+        @include slideBtns(rgba(74, 58, 94, 0.15));
+      }
+    }
+
+    &__element {
+      margin-top: 10px;
+      @include baseFlexStyle();
+
+      &::before {
+        content: '/';
+        margin-right: 23px;
+      }
+    }
+
+    &__slide-num {
+      margin: 0 40px;
+      @include setFontStyle('Mont', 22px, 400, $dark-grey, 100%);
+    }
+
+    &__hidden-content {
+      grid-row: 6 / -1;
+      grid-column: 1 / -1;
+      visibility: hidden;
     }
   }
 }
