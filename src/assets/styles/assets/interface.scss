@@ -545,3 +545,41 @@
     }
   }
 }
+
+.progress-pop-up {
+  position: fixed;
+  @include width-heigth(100%);
+  background-color: $light-grey;
+  top: 0;
+  z-index: 30;
+  overflow-y: auto;
+  // visibility: hidden;
+  // opacity: 0;
+  @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
+  padding: 50px var(--lr-paddings);
+  // @include baseGridStyle(auto, repeat(24, minmax(var(--popular-indent), 1fr)));
+
+  &.active {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .pop-up {
+    &-content {
+      // @include baseFlexStyle($justify-content: space-between);
+    }
+
+    &__btn-wrapper {
+      // @include baseFlexStyle($justify-content: flex-end);
+      margin-bottom: 30px;
+    }
+
+    &__close-btn {
+      @include baseFlexStyle();
+
+      &::before {
+        @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
+      }
+    }
+  }
+}
