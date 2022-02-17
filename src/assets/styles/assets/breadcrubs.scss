@@ -17,6 +17,10 @@
       text-overflow: ellipsis;
       display: inline;
       max-width: 255px;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
     }
   }
 

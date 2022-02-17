@@ -156,6 +156,10 @@
   // transition: opacity 0.3s ease-in-out;
   @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
 
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
   &.active {
     visibility: visible;
     opacity: 1;
@@ -558,8 +562,8 @@
   z-index: 30;
   // overflow-y: auto;
   // padding-bottom: var(--top-padding);
-  // visibility: hidden;
-  // opacity: 0;
+  visibility: hidden;
+  opacity: 0;
   @include multiple-transitions(0.3s, ease-in-out, opacity, visibility);
   // padding: 50px var(--lr-paddings);
   // padding: 0 var(--lr-paddings);
