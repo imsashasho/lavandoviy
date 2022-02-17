@@ -32,9 +32,9 @@ html {
   font-size: 14px;
   scrollbar-width: none; // for Firefox 64 and above disabled scroll
 
-  &::-webkit-scrollbar {
-    display: none;
-  }
+  // &::-webkit-scrollbar {
+  //   display: none;
+  // }
 }
 body {
   margin: 0;
@@ -47,6 +47,10 @@ body {
 
   &.disabled-scroll {
     overflow: hidden;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }
 
@@ -61,3 +65,7 @@ button {
 img {
   vertical-align: middle;
 }
+
+// ::-webkit-scrollbar {
+//   display: none;
+// }

@@ -556,7 +556,7 @@
   background-color: $light-grey;
   top: 0;
   z-index: 30;
-  overflow-y: auto;
+  // overflow-y: auto;
   // padding-bottom: var(--top-padding);
   // visibility: hidden;
   // opacity: 0;
@@ -572,6 +572,10 @@
     var(--lr-paddings) repeat(24, minmax(var(--popular-indent), 1fr)) var(--lr-paddings)
   );
   overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 
   &.active {
     visibility: visible;
