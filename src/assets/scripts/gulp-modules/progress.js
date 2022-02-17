@@ -34,3 +34,15 @@ closeProgressBtn.addEventListener('click', () => {
   progressPopUp.classList.remove('active');
   body.classList.remove('disabled-scroll');
 });
+
+// Инициализация слайдера в поп-апе
+const sliderConfigTop = {
+  speed: 400,
+  autoHeight: true,
+  slidesPerView: 1,
+  freeMode: true,
+  adaptiveHeight: true,
+  allowTouchMove: true,
+};
+
+const swiperProgress = new Swiper('.pop-up__slider', sliderConfigTop);
