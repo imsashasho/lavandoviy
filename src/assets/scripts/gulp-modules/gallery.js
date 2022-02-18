@@ -31,14 +31,21 @@ let images = [
   './assets/images/gallery/slider/7.jpg',
 ];
 
+// const createContent = function() {
+//   images.forEach(img => {
+//     swiperWrapper.append(getSwiperSlide(img));
+//     slidesContent.append(getImage(img, 'js-slides-img'));
+//   });
+// };
+
 images.forEach(img => {
   swiperWrapper.append(getSwiperSlide(img));
-  slidesContent.append(getImage(img));
+  slidesContent.append(getImage(img, 'js-slides-img'));
 });
 
-function getImage(img) {
+function getImage(img, nameOfClass = '') {
   const image = document.createElement('img');
-  image.className = 'slide-img';
+  image.className = `slide-img ${nameOfClass}`;
   image.src = `${img}`;
   image.alt = 'Gallery slide img';
   return image;
@@ -49,6 +56,21 @@ function getSwiperSlide(img) {
   div.className = 'swiper-slide swiper-gallery__slide';
   div.append(getImage(img));
   return div;
+}
+
+function collectImgsInSwiper() {
+  const gallerySlide = document.querySelectorAll('.swiper-gallery__slide');
+  let imgs = [];
+
+  gallerySlide.forEach(slide => {
+    // imgs.push(slide.querySelector('img').src.replace('http://localhost:3000/dist', '.'));
+    imgs.push(slide.querySelector('img').src);
+  });
+
+  return {
+    gallerySlide: gallerySlide,
+    imgs: imgs,
+  };
 }
 
 // Инициализируем слайдер
@@ -66,9 +88,36 @@ const sliderConfig = {
 };
 
 const swiperGallery = new Swiper('.swiper-gallery', sliderConfig);
-const $customCursor = $('.js-slider-controller');
+
+// Клик по маленьким изображениям поп-апа
+const slidesImages = document.querySelectorAll('.js-slides-img');
+slidesImages.forEach((img, index) => {
+  img.addEventListener('click', () => {
+    // Записываем номер изображения по которому кликнули, форматом: 1.jpg
+    const numberOfImg = img.src.match(/\d.jpg/g)[0];
+    console.log(numberOfImg);
+    // Собираем оболочки слайдера gallerySlide и его содержимое imgs
+    let swiperContentObj = collectImgsInSwiper();
+    console.log(swiperContentObj);
+    // Находим индекс изображения в слайдере который содержит номер формата: 1.jpg
+    swiperContentObj.imgs.forEach((img, index) => {
+      if (img.includes(numberOfImg)) {
+        console.log(index);
+      }
+    });
+    // for (elem of swiperContentObj.gallerySlide) {
+    //   if (elem.classList.contains('swiper-slide-active')) {
+    //     const originalImg = elem.querySelector('img').src;
+    //     // console.log(elem.querySelector('img').src);
+    //     elem.querySelector('img').src = images[index];
+    //   }
+    // }
+  });
+});
 
 // Реализация клика по слайдеру и кастомного курсора
+const $customCursor = $('.js-slider-controller');
+
 sideSwitchArrow(
   {
     onNext: () => {
