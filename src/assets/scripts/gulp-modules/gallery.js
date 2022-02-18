@@ -1,31 +1,3 @@
-// Инициализируем слайдер
-const sliderConfig = {
-  speed: 400,
-  autoHeight: true,
-  slidesPerView: 1,
-  freeMode: true,
-  adaptiveHeight: true,
-  allowTouchMove: true,
-  pagination: {
-    el: '.swiper-pagination',
-    type: 'fraction',
-  },
-};
-
-// const sliderConfigBottom = {
-//   speed: 400,
-//   autoHeight: true,
-//   slidesPerView: 'auto',
-//   freeMode: true,
-//   adaptiveHeight: true,
-//   allowTouchMove: true,
-// };
-
-const swiperGallery = new Swiper('.swiper-gallery', sliderConfig);
-const $customCursor = $('.js-slider-controller');
-
-// const swiperGalleryBottom = new Swiper('.swiper-gallery-bottom', sliderConfigBottom);
-
 // Вызов поп-апа
 const galleryFigures = document.querySelectorAll('.gallery__figure');
 const galleryPopUp = document.querySelector('.gallery-pop-up');
@@ -43,6 +15,59 @@ closePopUp.addEventListener('click', () => {
   body.classList.remove('disabled-scroll');
 });
 
+// Вставляем слайды в поп-ап
+const swiperWrapper = document.querySelector('.swiper-wrapper');
+const slidesContent = document.querySelector('.js-slides-content');
+
+// Новые изображения слайдера и нижних слайдов вставляем сюда
+
+let images = [
+  './assets/images/gallery/slider/1.jpg',
+  './assets/images/gallery/slider/2.jpg',
+  './assets/images/gallery/slider/3.jpg',
+  './assets/images/gallery/slider/4.jpg',
+  './assets/images/gallery/slider/5.jpg',
+  './assets/images/gallery/slider/6.jpg',
+  './assets/images/gallery/slider/7.jpg',
+];
+
+images.forEach(img => {
+  swiperWrapper.append(getSwiperSlide(img));
+  slidesContent.append(getImage(img));
+});
+
+function getImage(img) {
+  const image = document.createElement('img');
+  image.className = 'slide-img';
+  image.src = `${img}`;
+  image.alt = 'Gallery slide img';
+  return image;
+}
+
+function getSwiperSlide(img) {
+  const div = document.createElement('div');
+  div.className = 'swiper-slide swiper-gallery__slide';
+  div.append(getImage(img));
+  return div;
+}
+
+// Инициализируем слайдер
+const sliderConfig = {
+  speed: 400,
+  autoHeight: true,
+  slidesPerView: 1,
+  freeMode: true,
+  adaptiveHeight: true,
+  allowTouchMove: true,
+  pagination: {
+    el: '.swiper-pagination',
+    type: 'fraction',
+  },
+};
+
+const swiperGallery = new Swiper('.swiper-gallery', sliderConfig);
+const $customCursor = $('.js-slider-controller');
+
 // Реализация клика по слайдеру и кастомного курсора
 sideSwitchArrow(
   {
@@ -56,19 +81,13 @@ sideSwitchArrow(
   $customCursor[0],
   document.querySelector('.js-slider-wrapper'),
 );
-// function stopMoveInCursor(e) {
-//   e.stopPropagation();
-//   $customCursor.removeClass('active');
-//   document.onmousemove = null;
-// }
 
 function sideSwitchArrow(opts, arrowArgs, conArgs) {
   const isMobile = window.matchMedia('(max-width:1024px)').matches;
   const arrow = arrowArgs;
   const container = conArgs;
   const mediumCordValue = document.documentElement.clientWidth / 2;
-  // document.body.append(arrow);
-  // container.style.cursor = 'none';
+  container.style.cursor = 'none';
   arrow.style.cursor = 'none';
   arrow.style.zIndex = 10;
   arrow.__proto__.hide = function some() {
@@ -94,9 +113,6 @@ function sideSwitchArrow(opts, arrowArgs, conArgs) {
     window.removeEventListener('mousemove', desktopNavButtonHandler);
     arrow.remove();
   }
-
-  /** Записывает координаты обьекта, на котором нужно скрыть стрелку переключения слайдера */
-  /** ms ---> main-screen */
 
   function desktopNavButtonHandler(evt) {
     arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
@@ -133,6 +149,4 @@ function sideSwitchArrow(opts, arrowArgs, conArgs) {
     navigate[side]();
     return navigate.side;
   }
-
-  // eslint-disable-next-line no-unused-vars
 }
