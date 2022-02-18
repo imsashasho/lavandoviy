@@ -237,11 +237,12 @@
         border-radius: 50%;
         background-color: $dark-violet;
         // position: absolute;
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
-        opacity: 0;
-        z-index: 20;
+        opacity: 1;
+        // transform: translate(-50%, -50%);
+        // z-index: 20;
         @include width-heigth(0);
         // @include multiple-transitions(0.5s, ease-in-out, opacity, width, height);
         @include multiple-transitions(0.5s, ease-in-out, width, height);
@@ -254,7 +255,8 @@
 
         &-text {
           @include setFontStyle('Mont', 22px, 400, $light-grey, 100%);
-          margin-right: 9px;
+          min-width: 55px;
+          // margin-right: 9px;
           // opacity: 0;
 
           // &.active {
@@ -264,14 +266,16 @@
         }
 
         &-arrow {
-          @include width-heigth(7px, 14px);
+          // @include width-heigth(7px, 14px);
+          @include setImgWidth(10px);
         }
       }
 
       &__slider-wrapper {
         position: relative;
         // margin: 0 120px;
-        overflow-x: hidden;
+        // overflow-x: hidden;
+        overflow: hidden;
         // cursor: none;
       }
 

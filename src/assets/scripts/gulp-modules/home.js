@@ -14,6 +14,10 @@ document.addEventListener('DOMContentLoaded', () => {
     freeMode: true,
     adaptiveHeight: true,
     allowTouchMove: true,
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'fraction',
+    },
   };
 
   // slider = new Swiper($('.js-slider')[0], sliderConfig);
@@ -163,7 +167,8 @@ document.addEventListener('DOMContentLoaded', () => {
     /** ms ---> main-screen */
 
     function desktopNavButtonHandler(evt) {
-      arrow.style.transform = `translate(${evt.clientX - 18}px, ${evt.clientY - 18}px)`;
+      // arrow.style.transform = `translate(${evt.clientX - 18}px, ${evt.clientY - 18}px)`;
+      arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
 
       getCursorSide(evt.clientX);
       handleArrowVisibility(evt);

@@ -21,7 +21,7 @@
   width: 100%;
   height: var(--header-height);
   @include baseFlexStyle(center, space-between);
-  z-index: 10;
+  z-index: 100;
   font-weight: 400;
 
   &-left {
