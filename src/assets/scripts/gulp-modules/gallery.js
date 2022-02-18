@@ -68,7 +68,7 @@ function sideSwitchArrow(opts, arrowArgs, conArgs) {
   const container = conArgs;
   const mediumCordValue = document.documentElement.clientWidth / 2;
   // document.body.append(arrow);
-  container.style.cursor = 'none';
+  // container.style.cursor = 'none';
   arrow.style.cursor = 'none';
   arrow.style.zIndex = 10;
   arrow.__proto__.hide = function some() {
