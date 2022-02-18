@@ -236,7 +236,10 @@
         @include baseFlexStyle(center, center);
         border-radius: 50%;
         background-color: $dark-violet;
-        position: absolute;
+        // position: absolute;
+        position: fixed;
+        top: 0;
+        left: 0;
         opacity: 0;
         z-index: 20;
         @include width-heigth(0);
