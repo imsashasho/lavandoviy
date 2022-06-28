@@ -1,5 +1,6 @@
 $xs: 767px;
-$sm: 1366px;
+$notebook: 1360px;
+$sm: 1024px;
 $md: 1920px;
 
 @mixin media($size) {
@@ -20,6 +21,11 @@ $md: 1920px;
   }
 }
 
+@mixin notebook {
+  @include media($notebook) {
+    @content;
+  }
+}
 @mixin tabletLarge {
   @include media($md) {
     @content;

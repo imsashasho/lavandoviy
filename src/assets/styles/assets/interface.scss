@@ -71,6 +71,9 @@
 
   &-top {
     position: relative;
+    @include tablet {
+      overflow: hidden;
+    }
   }
 
   &-bottom {

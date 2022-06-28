@@ -73,16 +73,16 @@ gsap.registerPlugin(ScrollTrigger);
     },
   });
 
-  gsap.to(document.querySelectorAll('img'), {
-    yPercent: 10,
-    ease: 'none',
-    scrollTrigger: {
-      trigger: '.start-section',
-      // start: "top bottom", // the default values
-      // end: "bottom top",
-      scrub: true,
-    },
-  });
+  // gsap.to(document.querySelectorAll('img'), {
+  //   yPercent: 10,
+  //   ease: 'none',
+  //   scrollTrigger: {
+  //     trigger: '.start-section',
+  //     // start: "top bottom", // the default values
+  //     // end: "bottom top",
+  //     scrub: true,
+  //   },
+  // });
 
   document.addEventListener('DOMContentLoaded', () => {
     // Движение кастомного курсора по слайдеру
@@ -229,6 +229,16 @@ gsap.registerPlugin(ScrollTrigger);
     centeredSlides: false,
     watchSlidesVisibility: true,
     speed: 300,
+    on: {
+      init: (e) => {
+        let { slides } = e;
+        slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
+        document.querySelector('.advantages-section .first-column__all-slides').textContent = slides.length;
+      },
+      activeIndexChange: (e) => {
+        document.querySelector('.advantages-section .first-column__curr-slide').textContent = e.realIndex + 1;
+      }
+    },
     breakpoints: {
       1400: {
         autoHeight: true,
@@ -304,8 +314,8 @@ gsap.registerPlugin(ScrollTrigger);
   let swiper3 = Swiper;
 
   function swiperMode() {
-    let tablet = window.matchMedia('(min-width: 0) and (max-width: 1366px)');
-    let desktop = window.matchMedia('(min-width: 1367px)');
+    let tablet = window.matchMedia('(max-width: 1024px)');
+    let desktop = window.matchMedia('(min-width: 1025px)');
 
     // Enable (for mobile)
     if (desktop.matches) {
@@ -326,7 +336,7 @@ gsap.registerPlugin(ScrollTrigger);
           watchSlidesVisibility: true,
           speed: 300,
           breakpoints: {
-            1400: {
+            1024: {
               autoHeight: true,
               slidesPerView: 1,
             },
@@ -348,10 +358,11 @@ gsap.registerPlugin(ScrollTrigger);
           simulateTouch: true,
         });
       }
+      return;
     }
 
     // Disable (for tablet)
-    else if (tablet.matches) {
+    if (tablet.matches) {
       init = false;
     }
   }

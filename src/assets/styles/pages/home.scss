@@ -41,6 +41,7 @@
       }
       @include mobile {
         padding-top: 60px;   
+        padding-top: 40px;
       }
 
       .first-column,
@@ -58,11 +59,15 @@
           // margin-bottom: 30px;
           // max-width: 98%;
           margin-bottom: var(--headers-margin-bottom);
+          @include tablet {
+            padding-right: 25%;
+          }
           @include tabletLarge {
             font-size: 50px;
           }
           @include mobile {
             font-size: 30px;
+            padding-right: 0;
           }
         }
 
@@ -100,6 +105,7 @@
         @include tablet {
           margin-top: 80px;
           margin-right: 0;
+          overflow: hidden;
     
         }
         @include mobile {
@@ -142,6 +148,7 @@
         grid-column-start: 3;
         @include tablet {
           margin-top: 80px;
+          overflow: hidden;
     
         }
         @include mobile {
@@ -152,9 +159,11 @@
           margin-bottom: 36px;
           @include tablet {
             margin-bottom: 40px;
+            width: 65%;
           }
           @include mobile {
             margin-bottom: 20px;
+            width: auto;
           }
         }
         &__img {
@@ -195,6 +204,9 @@
         flex-direction: column;
         --paddings-tb: 120px;
       }
+      @include notebook {
+        --paddings-tb: 80px;
+      }
       @include mobile {
         --paddings-tb: 60px;
       }
@@ -202,7 +214,7 @@
       .left-side {
         width: 33%;
         @include tablet {
-          width: 50%;
+          width: 75%;
         }
         @include mobile {
           width: 100%;
@@ -210,8 +222,16 @@
 
         &__header {
           @include setFontStyle('Cormorant Garamond', 110px, 400, $white-color, 100%, -0.01em);
+          
           @include tabletLarge {
             font-size: 80px;
+          }
+          @include notebook {
+            font-size: 64px;
+          }
+          @include tablet {
+            font-size: 110px;
+            margin-bottom: 50px;
           }
 
           @include mobile {
@@ -240,7 +260,8 @@
 
         @include mobile {
           column-gap: 50px;
-          row-gap: 40px;
+          row-gap: 60px;
+          column-gap: 25px;
         }
 
         &__cell {
@@ -360,7 +381,7 @@
         @include tablet {
           width: 100%;
           height: auto;
-          pointer-events: none;
+          
         }
 
         &__img {
@@ -372,6 +393,8 @@
           }
           @include tablet {
             height: 400px;
+            height: 120vw;
+            transform: none !important;
           }
           @include mobile {
             height: auto;
@@ -424,6 +447,7 @@
         &__img {
           @include tablet {
             width: 100%;
+            transform: none !important;
           }
         }
 
@@ -670,7 +694,9 @@
           top: 200px;
           right: 265px;
           @include setImgWidth(230px);
-
+          @include notebook {
+            right: 5%;
+          }
           @include tablet {
             right: 0;
             width: 257px;
@@ -704,7 +730,12 @@
           bottom: 0;
           right: 410px;
           @include setImgWidth(520px);
-
+          @include notebook {
+            width: 35%;
+          }
+          @include notebook {
+            right: 5%;
+          }
           @include tablet {
             display: none;
           }
@@ -716,7 +747,9 @@
 
           // grid-area: family;
           @include setImgWidth(640px);
-
+          @include notebook {
+            width: 35%;
+          }
           @include tablet {
             width: 391px;
           }
@@ -732,7 +765,9 @@
           top: 200px;
           left: 120px;
           @include setImgWidth(375px);
-
+          @include notebook {
+            left: 5%;
+          }
           @include tablet {
             width: 257px;
             top: 159px;
@@ -749,6 +784,7 @@
 
     .stocks-section {
       padding: 150px 0 0;
+      overflow: hidden;
       @include baseFlexStyle(center, center);
       position: relative;
       @include tablet {
@@ -855,7 +891,7 @@
   }
 }
 .stocks-section-slider {
-  overflow: hidden;
+  // overflow: hidden;
   width: 30%; 
   @include tablet {
     width: 100%; 

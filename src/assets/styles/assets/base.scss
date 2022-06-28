@@ -11,6 +11,9 @@
     --elem-btm-margin: 60px;
     --sec-btm-indent: 120px;
   }
+  @include notebook {
+    --lr-paddings: 40px;
+  }
   @include tablet {
     --lr-paddings: 40px;
     --elem-btm-margin: 40px;

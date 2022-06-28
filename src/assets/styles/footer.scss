@@ -24,6 +24,9 @@
     @include tabletLarge {
       padding: 120px 80px;
     }
+    @include notebook {
+      padding: 80px 40px;
+    }
     @include tablet {
       padding: 80px 40px;
       width: 100%;
@@ -65,6 +68,8 @@
     }
     @include  mobile {
       margin-top: 20px;
+      font-size: 10px;
+      color: $bottom-footer-text;
     }
   }
 
@@ -96,6 +101,9 @@
     @include tabletLarge {
       padding: 120px 80px;
     }
+    @include notebook {
+      padding: 80px 40px;
+    }
     @include tablet {
       padding: 80px 40px;
       width: 100%;
@@ -104,6 +112,7 @@
       display: flex;
       padding: 60px 15px;
       flex-direction: column;
+      padding-bottom: 27px;
     }
   }
 
@@ -142,6 +151,9 @@
     &:nth-child(1) {
       width: 20%;
       margin-right: 98px;
+      @include notebook {
+        margin-right: 20px;
+      }
       @include tablet {
         width: 100%;
       }
@@ -211,6 +223,10 @@
 
     &__map {
       @include link-btns(270px, 70px, $grey-link-btn, 14px, $light-grey);
+      @include mobile {
+        @include link-btns(170px, 45px, $grey-link-btn, 10px, $light-grey);
+
+      }
     }
 
     &__tel-wrapper {
@@ -226,10 +242,16 @@
     &__call-btn {
       @include link-btns(270px, 70px, $light-grey, 14px, $headers-color);
       font-family: 'Mont';
+      @include mobile {
+        @include link-btns(170px, 45px, $light-grey, 10px, $headers-color);
+      }
     }
 
     &__contacts {
       padding-top: 20px;
+      @include tablet {
+        padding-top: 0;
+      }
     }
 
     // &__soc-netw {
@@ -251,6 +273,10 @@
     @include tabletLarge {
       top: 120px;
       right: 80px;
+    }
+    @include notebook {
+      top: 80px;
+      right: 40px;
     }
     @include tablet {
       top: 80px;
@@ -274,9 +300,16 @@
       align-items: flex-start;
       height: 50px;
     }
+    @include mobile {
+      height: auto;
+    }
 
     &__text {
       @include setFontStyle('Mont', 13px, 600, $bottom-footer-text, 140%, $text-transform: none);
+      @include mobile {
+        @include setFontStyle('Mont', 10px, 600, $bottom-footer-text, 140%, $text-transform: none);
+
+      }
     }
 
     &__link {
@@ -284,6 +317,12 @@
       display: block;
       transform: translateY(80px); 
       transition: all ease-in-out 0.3s;
+      @include tablet {
+        transform: translateY(40px); 
+      }
+      @include mobile {
+        transform: translateY(80px); 
+      }
       &:hover {
         transform: translateY(0); 
 
@@ -293,12 +332,18 @@
     &__img {
       @include setImgWidth(78px);
       position: relative;
+      @include mobile {
+        width: 51px;
+      }
       // transform: translateY(80px); 
     }
   }
 
   &-table-link {
     @include setFontStyle('Mont', 22px, 400, $table-p-color, 170%, $text-transform: none);
+    @include mobile {
+      @include setFontStyle('Mont', 16px, 400, $table-p-color, 170%, $text-transform: none);
+    }
   }
 
   .pb {
