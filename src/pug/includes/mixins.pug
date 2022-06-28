@@ -50,7 +50,7 @@ mixin RangeSlider(options)
 				input(id=option.id+"_max" class="js_"+option.id+"_max js-current-max" name=option.id+"_max" maxlength=option.max type="number" min=option.min value=option.max max=option.max)
 
 mixin card(image, date = "", text, link, discount = "")
-	a.card-link(href= link)
+	a.card-link(href=link data-type=discount ? 'action': 'news')
 		.card
 			.card-top
 				if discount

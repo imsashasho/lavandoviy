@@ -31,9 +31,9 @@ block content
     p.stocks-news__header.headers акції та новини
     .stocks-news__content
       .stocks-news__btn-wrapper   
-        button.stocks-news__btn.stocks-news__btn_left.js-stocks-news-btn.active Всі
-        button.stocks-news__btn.stocks-news__btn_center.js-stocks-news-btn Акції
-        button.stocks-news__btn.stocks-news__btn_right.js-stocks-news-btn Новини
+        button(data-filter).stocks-news__btn.stocks-news__btn_left.js-stocks-news-btn.active Всі
+        button(data-filter="action").stocks-news__btn.stocks-news__btn_center.js-stocks-news-btn Акції
+        button(data-filter="news").stocks-news__btn.stocks-news__btn_right.js-stocks-news-btn Новини
       .stocks-news__cards-wrapper
         +card('./assets/images/stocks-news/1.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!', './inner-stocks-news.html')
         +card('./assets/images/stocks-news/2.jpg', '23/09/2021', 'Графік роботи відділу продажу на свята! встигніть прибати квартиру до нового року', './inner-stocks-news.html')

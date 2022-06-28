@@ -40,7 +40,7 @@ gsap.registerPlugin(ScrollTrigger);
         { yPercent: 0, stagger: 0.05, duration: 1, ease: 'power4.out' },
       )
       .add(() => {
-        elementRef.innerHTML = elementRef.textContent;
+        // elementRef.innerHTML = elementRef.textContent;
       });
   }
 
@@ -367,6 +367,19 @@ gsap.registerPlugin(ScrollTrigger);
     }
   }
 
+  gsap.fromTo('.right-side__header', {
+    textContent: 0,
+  },{
+    textContent: (e, target) => {
+      console.log(target);
+      return target.dataset.count;
+    },
+    duration: 4,
+    ease: 'power1.out',
+    snap: { textContent: 0.1 },
+    stagger: 0,
+    // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+  });
   /* On Load
    **************************************************************/
   window.addEventListener('load', function() {
@@ -378,4 +391,25 @@ gsap.registerPlugin(ScrollTrigger);
   window.addEventListener('resize', function() {
     swiperMode();
   });
+
+  calmPlaceAnimation();
+  function calmPlaceAnimation() {
+    gsap.set('.calm-place__img', { clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)' });
+    intersectionObserver('.calm-place', () => {
+      setTimeout(() => {
+          gsap.to(
+            '.calm-place__img', 
+            {
+              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+              duration: 1.5,
+              stagger: 0.15,
+              transformOrigin: 'center',
+              clear: 'all',
+              ease: 'power4.out'
+            }
+          )
+      }, 1500);
+    })
+  }
 }
+

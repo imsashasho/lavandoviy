@@ -11,7 +11,7 @@
         grid-template: auto/repeat(20, minmax(var(--popular-indent), 1fr));
 
       }
-      @include tablet {
+      @include notebook {
         display: flex;
         flex-direction: column;
       }

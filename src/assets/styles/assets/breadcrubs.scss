@@ -4,11 +4,12 @@
   margin-bottom: 30px;
   @include mobile {
     margin-bottom: 10px;
+    font-size: 10px;
   }
 
   &-item {
     @include baseFlexStyle(center);
-
+    white-space: nowrap;
     &__link {
       color: $dark-violet;
       border-bottom: 1px solid $dark-violet;
