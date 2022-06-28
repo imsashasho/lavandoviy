@@ -2,6 +2,9 @@
   &__header {
     text-align: center;
     margin-bottom: 30px;
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__content {
@@ -11,6 +14,9 @@
   &__btn-wrapper {
     @include baseFlexStyle($justify-content: center);
     margin-bottom: 50px;
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__btn {
@@ -27,6 +33,11 @@
     @include multiple-transitions(0.3s, ease-in-out, color, background-color);
     letter-spacing: 0.01em;
     text-transform: none;
+    @include mobile {
+      height: 30px;
+      width: 69px;
+      font-size: 10px;
+    }
     // color: $dark-grey;
 
     &.active {
@@ -46,6 +57,16 @@
   &__cards-wrapper {
     @include grid-card-content;
     margin-bottom: 100px;
+    @include tablet {
+      grid-template-columns: 1fr;
+      grid-auto-rows: minmax(216px, 1fr);
+      grid-template-rows: min-content;
+      grid-gap: 40px;
+      margin-bottom: 40px;
+    }
+    @include mobile {
+      grid-gap: 20px;
+    }
   }
 
   &__load-more {
@@ -55,6 +76,11 @@
 
     &-btn {
       @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey, 400);
+      @include mobile {
+        width: 170px;
+        height: 45px;
+        font-size: 10px;
+      }
     }
   }
 }

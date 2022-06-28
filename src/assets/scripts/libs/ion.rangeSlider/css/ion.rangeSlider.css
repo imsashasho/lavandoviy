@@ -138,6 +138,11 @@ Build date: 2018-12-11 23:23:51
 .irs--flat {
   height: 40px;
 }
+@media screen and (max-width: 768px) {
+  .irs--flat {
+    height: 29px;
+  }
+}
 .irs--flat.irs-with-grid {
   height: 60px;
 }

@@ -5,6 +5,8 @@ const config = {
   mode: 'development',
   entry: {
     index: './src/assets/scripts/index-app.js',
+    homepage: './src/assets/scripts/homepage/index.js',
+    about: './src/assets/scripts/about/index.js',
   },
   output: {
     filename: '[name].bundle.js',
@@ -25,6 +27,18 @@ const config = {
       sourceMap: true,
     }),
   ],
+  module: {
+    rules: [
+      {
+        test: /\.(png|svg|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+          },
+        ],
+      },
+    ],
+  },
 };
 
 module.exports = config;

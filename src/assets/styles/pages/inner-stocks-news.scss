@@ -7,11 +7,22 @@
   .isn {
     &-content-wrapper {
       @include baseGridStyle(auto, repeat(24, minmax(var(--popular-indent), 1fr)));
+      @include tabletLarge {
+        grid-template: auto/repeat(20, minmax(var(--popular-indent), 1fr));
+
+      }
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+      }
     }
 
     &__back-link {
       &-wrapper {
         grid-column: 1 / 3;
+        @include tabletLarge {
+          display: none;
+        }
       }
 
       & {
@@ -30,17 +41,35 @@
     &__content {
       grid-column: 4 / 22;
       // margin-bottom: 30px;
+      @include tabletLarge {
+        grid-column: 1 / 22;
+      }
     }
 
     &__header {
       text-align: center;
       margin-bottom: 30px;
+      @include tablet {
+        margin-bottom: 40px;
+      }
+      @include mobile {
+        margin-bottom: 20px;
+      }
+
     }
 
     &__date {
       @include setFontStyle('Mont', 20px, 400, $dark-violet, 100%);
       text-align: center;
       margin-bottom: 50px;
+      @include tablet {
+        font-size: 16px;
+        margin-bottom: 40px;
+      }
+      @include mobile {
+        font-size: 14px;
+        margin-bottom: 20px;
+      }
     }
 
     &__slider-img {
@@ -49,12 +78,26 @@
     }
 
     &__text {
+      @include setFontStyle('Mont', 16px, 400, $text-color, 170%, $text-transform: none);
+      @include tablet {
+        font-size: 14px;
+        margin-bottom: 30px;    
+      }
+      @include mobile {
+        font-size: 12px;
+        margin-bottom: 20px;
+      }
+      &:last-child {
+        @include tablet {
+          margin-bottom: 0;
+        }
+
+      }
       &-wrapper {
         margin-bottom: 50px;
-      }
-
-      & {
-        @include setFontStyle('Mont', 16px, 400, $text-color, 170%, $text-transform: none);
+        @include mobile {
+          margin-bottom: 40px;
+        }
       }
 
       &_link {
@@ -70,12 +113,21 @@
 
     &__btn-link {
       margin-bottom: 120px;
+      @include tablet {
+        margin-bottom: 80px;    
+      }
+      @include mobile {
+        margin-bottom: 40px;
+      }
     }
 
     &__video {
       &-wrapper {
         position: relative;
         margin-bottom: var(--sec-btm-indent);
+        @include mobile {
+          margin-bottom: 60px;
+        }
       }
 
       & {
@@ -89,6 +141,11 @@
 
         &::before {
           @include after-before-img('../images/stocks-news/inner/play.svg', 110px);
+          @include mobile {
+            height: 45px;
+            width: 45px;
+            background-size: 45px 45px;
+          }
         }
       }
     }
@@ -99,15 +156,27 @@
 
     &__cards-wrapper {
       @include baseFlexStyle($justify-content: center);
-      flex-wrap: wrap;
+      @include tablet {
+        flex-direction: column;
+      }
 
       .card {
         &-link {
           flex: 0 0 520px;
           margin-top: var(--popular-indent);
+          @include tablet {
+            flex: 0 0 420px; 
+            width: 100%;   
+          }
+          @include mobile {
+            flex: 0 0 330px;
+          }
 
           &:nth-child(2n) {
             margin-left: var(--popular-indent);
+            @include tablet {
+              margin-left: 0;
+            }
           }
         }
       }

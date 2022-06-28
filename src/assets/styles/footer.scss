@@ -1,38 +1,71 @@
 .footer {
-  // @include baseFlexStyle();
-  // padding: 172px 120px 48px;
-  //
-  // grid-template-columns: 568px calc(100vw - 568px);
-  // @include baseFlexStyle();
-  --aside-width: 568px;
-  --footer-min-height: 860px;
-  @include baseGridStyle(auto, var(--aside-width) calc(100vw - var(--aside-width)));
-  min-height: var(--footer-min-height);
+  // --aside-width: 568px;
+  // --footer-min-height: 860px;
+  // @include baseGridStyle(auto, var(--aside-width) calc(100vw - var(--aside-width)));
+  // min-height: var(--footer-min-height);
   // display: grid;
   // grid-template: repeat(10, auto) / repeat(5, auto);
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  @include tablet {
+    flex-direction: column;
+  }
 
   &-menu {
     background-color: $light-lavander;
     padding: 172px 0 48px 120px;
+    width: 30%;
     @include baseFlexStyle(flex-start, space-between, column);
     // @include baseGridStyle(172px auto 48px, 120px auto);
     // align-self: center;
     // padding-left: 120px;
     // padding: 172px 0 48px 120px;
+    @include tabletLarge {
+      padding: 120px 80px;
+    }
+    @include tablet {
+      padding: 80px 40px;
+      width: 100%;
+    }
+    @include mobile {
+      padding: 40px 15px;
+    }
   }
 
   &-element {
     &:not(:last-child) {
       margin-bottom: 30px;
+      @include mobile {
+        margin-bottom: 15px;
+      }
     }
+    
   }
 
   &-link {
     @include setFontStyle('Mont', 28px, 500, $light-grey, 130%);
+    @include mobile {
+      font-size: 18px;
+    }
   }
 
   &-copyright {
     @include setFontStyle('Mont', 13px, 500, $copyright-color, 140%, $text-transform: none);
+    @include tablet {
+      display: none;
+    }
+  }
+  &-copyright-mobile {
+    display: none;
+    @include setFontStyle('Mont', 13px, 500, $copyright-color, 140%, $text-transform: none);
+    @include tablet {
+      display: block;
+      margin-top: 30px;
+    }
+    @include  mobile {
+      margin-top: 20px;
+    }
   }
 
   // &-list,
@@ -50,50 +83,123 @@
 
   &-content {
     background-color: $dark-violet;
+    position: relative;
     // padding: 172px 120px 48px 132px;
     // @include baseFlexStyle(flex-end, space-between, column);
-    padding: 172px 120px 48px 0;
-    display: grid;
-    justify-content: flex-end;
+    padding: 172px 120px 48px 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    width: 70%;
     // padding-left: 132px;
+    @include tabletLarge {
+      padding: 120px 80px;
+    }
+    @include tablet {
+      padding: 80px 40px;
+      width: 100%;
+    }
+    @include mobile {
+      display: flex;
+      padding: 60px 15px;
+      flex-direction: column;
+    }
   }
 
   &-table {
     @include setFontStyle('Mont', 20px, 500, $light-grey, 170%, $text-transform: none);
   }
+  &-row-wrap {
+    display: flex;
+    width: 85%;
+    border-bottom: 1px solid rgba(127, 115, 142, 0.5);
+    @include tablet {
+      border-bottom: none;
+    }
+  }
 
   &-row {
-    // @include baseGridStyle(repeat(2, auto), repeat(3, auto));
-    // justify-content: space-between;
-    // column-gap: 98px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-bottom: 40px;
+    @include tablet {
+      flex-direction: column;
+      padding-bottom: 80px;
+    }
+    @include mobile {
+      padding-bottom: 60px;
+    }
   }
 
   &-cell {
     vertical-align: top;
+    @include tablet {
+      width: 100%;
+    }
 
     &:nth-child(1) {
-      padding-right: 98px;
+      width: 20%;
+      margin-right: 98px;
+      @include tablet {
+        width: 100%;
+      }
     }
 
     &:nth-child(2) {
-      padding-right: 80px;
+      width: 30%;
+      margin-right: 80px;
+      @include tablet {
+        width: 100%;
+      }
     }
 
     &:nth-child(3) {
-      padding-right: 75px;
+      width: fit-content;
+      @include tablet {
+        width: 100%;
+        margin-top: 40px;
+      }
+      @include mobile {
+        margin-top: 20px;
+      }
     }
 
     &__name {
       text-transform: uppercase;
-      // padding-right: 98px;
+      @include tablet {
+       font-size: 20px;
+       margin-bottom: 20px;
+      }
+
+      @include mobile {
+        font-size: 14px;
+        margin-bottom: 10px;
+      }
     }
 
     &__address {
-      // padding-right: 80px;
+      @include tablet {
+        font-size: 22px;
+        margin-top: 10px;
+      }
+      @include mobile {
+        font-size: 16px;
+      }
+    }
+    &__schedule {
+      margin-top: 20px;
+      @include tablet {
+        font-size: 22px;
+        margin-top: 10px;
+      }
+      @include mobile {
+        font-size: 16px;
+       }
     }
 
     table p:not(&__name) {
-      // font-weight: 600;
       font-weight: 400;
       font-size: 22px;
       color: $table-p-color;
@@ -109,6 +215,12 @@
 
     &__tel-wrapper {
       @include baseFlexStyle($flex-direction: column);
+      @include tablet {
+        margin-bottom: 20px;
+      }
+      @include mobile {
+        margin-bottom: 10px;
+      }
     }
 
     &__call-btn {
@@ -133,6 +245,23 @@
     @include slideBtns($background: $grey-link-btn);
     border: none;
     @include width-heigth(70px);
+    position: absolute;
+    top: 172px;
+    right: 120px;
+    @include tabletLarge {
+      top: 120px;
+      right: 80px;
+    }
+    @include tablet {
+      top: 80px;
+      right: 40px;
+    }
+    @include mobile {
+      top: 60px;
+      right: 15px;
+      height: 45px;
+      width: 45px;
+    }
   }
 
   &-top-arrow {
@@ -141,24 +270,35 @@
 
   &-bottom {
     @include baseFlexStyle(flex-end, space-between);
+    @include tablet {
+      align-items: flex-start;
+      height: 50px;
+    }
 
     &__text {
       @include setFontStyle('Mont', 13px, 600, $bottom-footer-text, 140%, $text-transform: none);
     }
 
+    &__link {
+      width: 78px;
+      display: block;
+      transform: translateY(80px); 
+      transition: all ease-in-out 0.3s;
+      &:hover {
+        transform: translateY(0); 
+
+      }
+    }
+
     &__img {
       @include setImgWidth(78px);
       position: relative;
-      transform: translateY(48px);
+      // transform: translateY(80px); 
     }
   }
 
   &-table-link {
     @include setFontStyle('Mont', 22px, 400, $table-p-color, 170%, $text-transform: none);
-  }
-
-  .bb-1px {
-    border-bottom: 1px solid rgba(127, 115, 142, 0.5);
   }
 
   .pb {
@@ -167,5 +307,8 @@
 
   .pt {
     padding-top: 60px;
+    @include tablet {
+      padding-top: 0;
+    }
   }
 }

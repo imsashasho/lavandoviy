@@ -1,6 +1,12 @@
 :root {
   // --ss-col-gap: 60px;
   --section-padding-bottom: 150px;
+  @include tablet {
+    --section-padding-bottom: 120px;      
+  }
+  @include mobile {
+    --section-padding-bottom: 60px;
+  }
 }
 
 .main {
@@ -18,11 +24,24 @@
       // --ss-col-gap: 60px;
       // column-gap: var(--ss-col-gap);
 
-      // column-gap: 60px;
+      column-gap: 60px;
 
       // @include to(1366px) {
       //   --ss-col-gap: 110px;
       // }
+      @include tabletLarge {
+        grid-template-columns: repeat(2, auto) 271px;
+      }
+      @include tablet {
+        display: flex;
+        flex-direction: column;
+        background-color: $greyBg;
+        padding-top: 80px;
+
+      }
+      @include mobile {
+        padding-top: 60px;   
+      }
 
       .first-column,
       .third-column {
@@ -30,22 +49,46 @@
       }
 
       .first-column {
-        margin-right: 52px;
+        margin-right: 0;
+        @include mobile {
+          margin-right: 0;
+        }
 
         &__header {
           // margin-bottom: 30px;
           // max-width: 98%;
           margin-bottom: var(--headers-margin-bottom);
+          @include tabletLarge {
+            font-size: 50px;
+          }
+          @include mobile {
+            font-size: 30px;
+          }
         }
 
         &__text {
-          max-width: 66%;
+          width: 66%;
           margin-bottom: 40px;
+          @include mobile {
+            width: 100%;
+            margin-bottom: 20px;
+          }
         }
 
         &__btn-link {
           @include link-btns(270px, 70px, $dark-violet, 14px);
           // border-radius: 100px;
+          @include tablet {
+            width: 270px;
+            height: 70px;  
+            font-size: 14px;      
+          }
+          @include mobile {
+            width: 170px;
+            height: 45px;
+            font-size: 10px;
+          }
+          
         }
       }
 
@@ -53,10 +96,35 @@
         grid-column-start: 2;
         grid-row: 1 / 3;
         @include baseFlexStyle(flex-end, space-between, column);
-        margin-right: 60px;
+        // margin-right: 60px;
+        @include tablet {
+          margin-top: 80px;
+          margin-right: 0;
+    
+        }
+        @include mobile {
+          margin-top: 40px
+        }
 
         &__img {
           @include setImgHeight(680px);
+          @include tabletLarge {
+            height: auto;
+            width: 100%;
+          }
+          @include tablet {
+            width: 100%;
+            height: 900px;
+          }
+          @include mobile {
+            height: 432px;
+          }
+        }
+
+        &__link-wrapper {
+          @include tablet {
+            display: none;
+          }
         }
 
         &__link {
@@ -72,9 +140,36 @@
 
       .third-column {
         grid-column-start: 3;
+        @include tablet {
+          margin-top: 80px;
+    
+        }
+        @include mobile {
+          margin-top: 40px;
+        }
 
         &__text {
           margin-bottom: 36px;
+          @include tablet {
+            margin-bottom: 40px;
+          }
+          @include mobile {
+            margin-bottom: 20px;
+          }
+        }
+        &__img {
+          @include tabletLarge {
+            width: 100%;
+            height: auto;
+          }
+          @include tablet {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+          }
+          @include mobile {
+            height: 423px;
+          }
         }
       }
 
@@ -91,17 +186,39 @@
 
     .lavanda-park {
       @include baseFlexStyle($justify-content: space-between);
-      --paddins-tb: 270px;
-      padding-top: var(--paddins-tb);
-      padding-bottom: var(--paddins-tb);
+      --paddings-tb: 270px;
+      padding-top: var(--paddings-tb);
+      padding-bottom: var(--paddings-tb);
       background: no-repeat url('../images/home/lavanda-park.jpg');
       background-size: cover;
+      @include tablet {
+        flex-direction: column;
+        --paddings-tb: 120px;
+      }
+      @include mobile {
+        --paddings-tb: 60px;
+      }
 
       .left-side {
         width: 33%;
+        @include tablet {
+          width: 50%;
+        }
+        @include mobile {
+          width: 100%;
+        }
 
         &__header {
           @include setFontStyle('Cormorant Garamond', 110px, 400, $white-color, 100%, -0.01em);
+          @include tabletLarge {
+            font-size: 80px;
+          }
+
+          @include mobile {
+            font-size: 60px;
+            margin-bottom: 40px;
+
+          }
         }
       }
 
@@ -111,43 +228,79 @@
         grid-template-rows: repeat(2, auto);
         column-gap: 130px;
         row-gap: 80px;
+        @include tabletLarge {
+          column-gap: 100px;
+        }
+        @include tablet {
+          grid-template-columns: repeat(2, auto);
+          grid-template-rows: repeat(3, auto);
+          column-gap: 130px;
+          row-gap: 80px;
+        }
+
+        @include mobile {
+          column-gap: 50px;
+          row-gap: 40px;
+        }
 
         &__cell {
           white-space: nowrap;
+          @include mobile {
+            white-space: wrap;
+          }
         }
 
         &__header {
           @include setFontStyle('Tenor Sans', 70px, 400, $white-color, 120%, $text-transform: none);
+          @include mobile {
+            font-size: 50px;
+          }
         }
 
         &__subheader {
           font-size: 16px;
+          font-weight: 500;
           line-height: 160%;
           color: $light-grey;
+          @include mobile {
+            font-size: 12px;
+          }
+
         }
       }
     }
 
     .advantages-section {
-      // --padding-top: 150px;
-      // padding-top: var(--padding-top);
       padding-top: 150px;
-      display: grid;
-      // grid-template-columns: repeat(2, auto) 375px;
-      grid-template-columns: auto 520px 375px;
-      grid-template-rows: 92px auto 42px;
-      column-gap: 60px;
-
-      // .first-column,
-      // .second-column {
-      //   grid-row: 1 / 4;
-      // }
+      display: flex;
+      justify-content: space-between;
+      @include tablet {
+        flex-direction: column;
+        padding-top: 120px;
+      }
+      @include mobile {
+        padding-top: 60px;
+      }
 
       .first-column {
-        grid-row: 1 / 3;
         @include baseFlexStyle($flex-direction: column, $justify-content: space-between);
-        // display: grid;
-        // grid-template-rows: repeat(3, auto);
+        width: 32%;
+        @include tabletLarge {
+          width: 34%;
+        }
+        @include tablet {
+          width: 100%;
+        }
+
+        &__text-wrapper {
+          width: 100%;
+          @include tablet {
+            margin-bottom: 40px;
+          }
+          @include mobile {
+            margin-bottom: 30px;
+          }
+        }
 
         &__header {
           letter-spacing: -0.01em;
@@ -157,15 +310,23 @@
         }
 
         &__text {
-          max-width: 66%;
+          width: 66%;
           font-weight: 500;
           // font-size: 16px;
           // line-height: 170%;
           // color: $text-color;
+          @include mobile {
+            width: 100%;
+          }
         }
 
         &__btn-wrapper {
           @include baseFlexStyle(center);
+          margin-bottom: 50px;
+          
+          @include tablet {
+            display: none;
+          }
         }
 
         &__btn {
@@ -186,18 +347,49 @@
       }
 
       .second-column {
-        grid-row: 1 / 4;
+        height: 670px;
+        width: 56%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        @include tabletLarge {
+          width: 57%;
+          height: 550px;
+        }
+
+        @include tablet {
+          width: 100%;
+          height: auto;
+          pointer-events: none;
+        }
+
         &__img {
           // @include setImgWidth(520px);
           @include setImgWidth(100%);
+          height: 625px;
+          @include tabletLarge {
+            height: 500px;
+          }
+          @include tablet {
+            height: 400px;
+          }
+          @include mobile {
+            height: auto;
+          }
         }
 
         &__nav-wrapper {
-          width: 100%;
+          width: 49%;
           height: 2px;
           background-color: rgba(74, 58, 94, 0.15);
           margin-top: 40px;
           position: relative;
+          @include tablet {
+            display: none;
+          }
+          .swiper-pagination-progressbar-fill {
+            background: #000000 !important;
+          }
         }
 
         &__nav-line {
@@ -211,6 +403,48 @@
       .third-column {
         grid-row-start: 2;
         grid-column-start: 3;
+        display: none;
+        @include tablet {
+          display: block;
+          padding-top: 80px;
+        }
+
+        @include mobile {
+          padding-top: 60px;
+        }
+
+        &__text-wrapper {
+          @include tablet {
+            margin-bottom: 40px;
+          }
+          @include mobile {
+            margin-bottom: 30px;
+          }
+        }
+        &__img {
+          @include tablet {
+            width: 100%;
+          }
+        }
+
+        &__header {
+          letter-spacing: -0.01em;
+          color: $headers-color-two;
+          // margin-bottom: 30px;
+          margin-bottom: var(--headers-margin-bottom);
+        }
+
+        &__text {
+          width: 66%;
+          font-weight: 500;
+          // font-size: 16px;
+          // line-height: 170%;
+          // color: $text-color;
+          
+          @include mobile {
+            width: 100%;
+          }
+        }
 
         // &__img {
         //   @include setImgWidth(520px);
@@ -224,11 +458,62 @@
       padding: 155px 0 150px;
       margin: 0 120px;
 
+      @include tablet {
+        padding: 80px 50px;
+        margin: 0;
+      }
+
+      @include mobile {
+        padding: 60px 15px;
+      }
+
       &__header {
         letter-spacing: -0.01em;
         color: $headers-color-two;
         margin-bottom: 104px;
-        max-width: 70%;
+        width: 70%;
+        @include tablet {
+          width: 100%;
+          margin-bottom: 40px;
+        }
+        @include mobile {
+          margin-bottom: 30px;
+        }
+      }
+
+      &__btn-wrapper {
+        display: none;
+        @include tablet {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-direction: row;
+          margin-top: 40px;
+        }
+        @include mobile {
+          margin-top: 20px;
+        }
+
+      }
+      &__btn {
+        // @include slideBtns(70px, 70px, rgba(74, 58, 94, 0.15));
+        @include slideBtns(rgba(74, 58, 94, 0.15));
+        @include width-heigth(70px);
+
+        @include mobile {
+          width: 45px;
+          height: 45px;
+        }
+
+        &-img {
+          // @include setImgWidth(6px);
+          @include width-heigth(6px, 12px);
+        }
+      }
+
+      &__slide-num {
+        @include setFontStyle('Mont', 22px, 500, $dark-grey, 100%);
+        margin: 0 40px;
       }
 
       &__controller {
@@ -260,26 +545,9 @@
           }
         }
 
-        // &.right {
-        //   &-arrow {
-        //     order: -1;
-        //   }
-
-        //   &-text {
-        //     order: 1;
-        //   }
-        // }
-
         &-text {
           @include setFontStyle('Mont', 22px, 400, $light-grey, 100%);
           min-width: 55px;
-          // margin-right: 9px;
-          // opacity: 0;
-
-          // &.active {
-          //   transition: opacity 0.5s ease-in-out;
-          //   opacity: 1;
-          // }
         }
 
         &-arrow {
@@ -302,9 +570,15 @@
       &__slide {
         // height: 708px;
         @include setImgHeight(708px);
+        @include tablet {
+          height: 351px;
+        }
 
         &:not(:first-child) {
           padding-left: 60px;
+          @include mobile {
+            padding-left: 0;
+          }
         }
       }
     }
@@ -329,6 +603,14 @@
       //   'family family family family family family family family . . book book book book book book book . . . . . . .'
       //   '. . . . . . . . . . . . . . . . . . . . . . . .';
       height: 1360px;
+      @include tablet {
+        height: 1414px;
+        padding: 120px 50px;
+      }
+      @include mobile {
+        padding: 60px 15px;
+        height: 720px;
+      }
       &__content-wrapper {
         position: relative;
         @include baseFlexStyle(center, center, column);
@@ -346,10 +628,26 @@
         max-width: 50%;
         text-align: center;
         // grid-area: header;
+        @include tablet {
+          max-width: 100%;
+        }
+        @include mobile {
+          font-size: 60px;
+        }
       }
 
       &__link {
         @include link-btns(270px, 70px, $white-color, 14px, $headers-color-two);
+        @include tablet {
+          width: 270px;
+          height: 70px;
+          font-size: 14px;
+        }
+        @include mobile {
+          width: 170px;
+          height: 45px;
+          font-size: 10px;
+        }
       }
 
       .img {
@@ -357,6 +655,14 @@
           // grid-area: baby;
           top: 0;
           @include setImgWidth(520px);
+          @include tablet {
+            right: 0;
+            width: 391px;
+          }
+          
+          @include mobile {
+            width: 190px;
+          }
         }
 
         &-flower {
@@ -364,6 +670,22 @@
           top: 200px;
           right: 265px;
           @include setImgWidth(230px);
+
+          @include tablet {
+            right: 0;
+            width: 257px;
+            height: 146px;
+            top: auto;
+            bottom: 159px;
+          }
+
+          @include mobile {
+            width: 125px;
+            right: 0;
+            bottom: 78px;
+            top: auto;
+            height: 71px;
+          }
         }
 
         &-brushes {
@@ -371,6 +693,10 @@
           transform: translateY(120px);
           // grid-area: brushes;
           @include setImgWidth(265px);
+
+          @include tablet {
+            display: none;
+          }
         }
 
         &-book {
@@ -378,6 +704,10 @@
           bottom: 0;
           right: 410px;
           @include setImgWidth(520px);
+
+          @include tablet {
+            display: none;
+          }
         }
 
         &-family {
@@ -386,6 +716,15 @@
 
           // grid-area: family;
           @include setImgWidth(640px);
+
+          @include tablet {
+            width: 391px;
+          }
+  
+          @include mobile {
+            width: 190px;
+            bottom: 0;
+          }
         }
 
         &-cup {
@@ -393,6 +732,17 @@
           top: 200px;
           left: 120px;
           @include setImgWidth(375px);
+
+          @include tablet {
+            width: 257px;
+            top: 159px;
+            left: 0;
+          }
+
+          @include mobile {
+            width: 125px;
+            top: 78px;
+          }
         }
       }
     }
@@ -401,15 +751,38 @@
       padding: 150px 0 0;
       @include baseFlexStyle(center, center);
       position: relative;
+      @include tablet {
+        padding: 290px 124px 0px 124px;
+       }
+      @include mobile {
+       padding: 168px 15px 0px 15px;
+      }
+
+      & >.card-link {
+        display: block;
+
+        & >.card {
+          max-width: 520px;
+          @include tablet {
+            max-width: 100%;
+           }
+        }
+      }
 
       &_abs {
-        position: absolute;
-        // left: 0;
+        position: absolute;        
+        left: -100%;
         // top: 50%;
         // transform: translateY(-50%);
         width: 100%;
         // overflow: hidden;
         // white-space: nowrap;
+        @include tablet {
+          top: 120px;
+         }
+        @include mobile {
+          top: 60px;
+        }
       }
 
       &_abs-inn {
@@ -418,12 +791,11 @@
       }
 
       &__text-wrapper {
-        // position: absolute;
         @include setFontStyle('Cormorant Garamond', 100px, 300, $stocks-color, 130%, -0.01em);
-        // @include baseFlexStyle();
-        // width: 100%;
-        // white-space: nowrap;
         z-index: -1;
+        @include mobile {
+          font-size: 60px;
+        }
       }
 
       // &__text {
@@ -434,9 +806,87 @@
         padding: 0 60px;
       }
 
-      .card {
-        max-width: 520px;
+      
+    }
+  }
+}
+@keyframes sliderText {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.advantages {
+  &-slider {
+    overflow: hidden;
+    margin-right: -35px;
+    @include tablet {
+      margin-right: 0;
+    }
+    .swiper-slide-active {
+      transform: scale(1);
+      transition: all ease-in-out 1s;
+    }
+    .swiper-slide-next {
+      transform: scale(0.85);
+      transition: all ease-in-out 1s;
+      transform-origin: 50% 50%;
+    }
+    img {
+      width: 100%;
+    }
+  }
+  &-text-slider {
+    overflow: hidden;
+    width: 100%;
+    @include tablet {
+      pointer-events: none;
+    }
+    .swiper-slide-active {
+      > .first-column__text {
+        animation: sliderText 1.5s;
+      }
+      > .first-column__header {
+        animation: sliderText 1.5s;
       }
     }
   }
 }
+.stocks-section-slider {
+  overflow: hidden;
+  width: 30%; 
+  @include tablet {
+    width: 100%; 
+  }
+  .stocks-section-slider__wrp {
+    @include tablet {
+      flex-direction: column;
+    }
+
+  }
+  .swiper-slide {
+    @include tablet {
+      height: auto !important;
+      margin-bottom: 50px;
+    }
+    @include mobile {
+      margin-bottom: 30px;
+    }
+    &:last-child {
+      @include tablet {
+        margin-bottom: 0;
+      }
+    }
+    
+  }
+  .card {
+    overflow-x: initial;
+  }
+}
+
+
+ 
+
+

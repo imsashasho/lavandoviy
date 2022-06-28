@@ -6,6 +6,25 @@
   --sec-btm-indent: 200px;
   --elem-btm-margin: 100px;
   --popular-indent: 60px;
+  @include tabletLarge {
+    --lr-paddings: 80px;
+    --elem-btm-margin: 60px;
+    --sec-btm-indent: 120px;
+  }
+  @include tablet {
+    --lr-paddings: 40px;
+    --elem-btm-margin: 40px;
+    --sec-btm-indent: 80px;
+    --popular-indent: 40px;
+    --btm-padding: 80px;
+  }
+  @include mobile {
+    --lr-paddings: 15px;
+    --btm-padding: 60px;
+    --popular-indent: 40px;
+    --sec-btm-indent: 60px;
+    --elem-btm-margin: 20px;
+  }
 }
 
 * {

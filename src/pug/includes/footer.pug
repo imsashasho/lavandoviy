@@ -18,46 +18,39 @@ footer.footer
     p.footer-copyright © Усі права захищено.#[br] Lavanda park 2022
   .footer-content
     .footer-top 
-      table.footer-table 
-        tr.footer-row
-          td.footer-cell 
-            p.footer-cell__name Відділ продажу: 
-          td.footer-cell
-            p.footer-cell__address м. Вінниця, вул. Ватутіна  16 Б
-          td.footer-cell 
-            a.footer-cell__map(href="https://goo.gl/maps/bn97bnty8pZQcHKm7" target="_blank") переглянути на карті
-          td.footer-cell 
+      .footer-table 
+        .footer-row-wrap
+          .footer-row
+            .footer-cell 
+              p.footer-cell__name Відділ продажу: 
+            .footer-cell.footer-cell__info
+              p.footer-cell__address м. Вінниця, вул. Ватутіна  16 Б
+              .footer-cell__schedule
+                p.footer-cell__schedule-text Пн-Сб: 09:00-19:00
+                p.footer-cell__schedule-text Нд: 10:00-17:00 
+            .footer-cell 
+              a.footer-cell__map(href="https://goo.gl/maps/bn97bnty8pZQcHKm7" target="_blank") переглянути на карті
             button.footer-to-top 
               img.footer-top-arrow(src="./assets/images/footer/arrow-to-top.png" alt="Arrow to top")
-        tr.footer-row.bb-1px
-          td.footer-cell 
-          td.footer-cell.pb
-            .footer-cell__schedule
-              p.footer-cell__schedule-text Пн-Сб: 09:00-19:00
-              p.footer-cell__schedule-text Нд: 10:00-17:00 
-          td.footer-cell 
-          td.footer-cell 
-        tr.footer-row
-          td.footer-cell.pt
-            p.footer-cell__name Зв’язок:
-          td.footer-cell.pt 
-            .footer-cell__tel-wrapper 
-              a.footer-cell__tel.footer-table-link(href="tel:+38 (096) 421 80 00") +38 (096) 421 80 00
-              a.footer-cell__tel.footer-table-link(href="tel:+38 (093) 421 80 00") +38 (093) 421 80 00
-          td.footer-cell.pt
-            button.footer-cell__call-btn.js-btn-call замовити дзвінок
-          td.footer-cell.pt 
-        tr.footer-row.bb-1px
-          td.footer-cell 
-          td.footer-cell.pb
-            .footer-cell__contacts
-              a.footer-cell__email.footer-table-link(href="mailto:zklavandapark@gmail.com") zklavandapark@gmail.com
-              .footer-cell__soc-netw
-                a.footer-cell__facebook.footer-table-link(href="" target="_blank") Facebook
-                a.footer-cell__insta.footer-table-link(href="" target="_blank") Instagram
-          td.footer-cell 
-          td.footer-cell 
+        .footer-row-wrap
+          .footer-row
+            .footer-cell.pt
+              p.footer-cell__name Зв’язок:
+            .footer-cell.pt 
+              .footer-cell__tel-wrapper 
+                a.footer-cell__tel.footer-table-link(href="tel:+38 (096) 421 80 00") +38 (096) 421 80 00
+                a.footer-cell__tel.footer-table-link(href="tel:+38 (093) 421 80 00") +38 (093) 421 80 00
+              .footer-cell__contacts
+                a.footer-cell__email.footer-table-link(href="mailto:zklavandapark@gmail.com") zklavandapark@gmail.com
+                .footer-cell__soc-netw
+                  a.footer-cell__facebook.footer-table-link(href="" target="_blank") Facebook
+                  a.footer-cell__insta.footer-table-link(href="" target="_blank") Instagram
+            .footer-cell.pt
+              button.footer-cell__call-btn.js-btn-call замовити дзвінок
+              
     .footer-bottom
-      p.footer-bottom__text Не є публічною офертою. Візуалізації та планування об’єкту є орієнтовними.#[br] Забудовник має право вносити зміни згідно з діючим законодавством.
+      .footer-bottom-info
+        p.footer-bottom__text Не є публічною офертою. Візуалізації та планування об’єкту є орієнтовними.#[br] Забудовник має право вносити зміни згідно з діючим законодавством.
+        p.footer-copyright.footer-copyright-mobile © Усі права захищено.#[br] Lavanda park 2022
       a.footer-bottom__link(href="https://smarto.agency/")
         img.footer-bottom__img(src="./assets/images/footer/smartora-logo.jpg", alt="Smart Orange")

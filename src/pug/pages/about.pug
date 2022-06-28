@@ -23,7 +23,7 @@ block scripts
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/header.js')
-  script(defer src='./assets/scripts/about.js')
+  script(defer src='./assets/scripts/about.bundle.js')
 block content
   main.main.main-about
     block breadcrumbs
@@ -55,20 +55,40 @@ block content
       section.advantages.about-section-content
         p.advantages__header.about-headers переваги
         .advantages__content-wrapper 
-          p.advantages__text На перших поверхах - будуть розташовані магазини, салон краси, кав’ярня, аптека, пекарня для комфортного проживання та щасливого майбутнього кожної сім'ї.
-          .advantages__btn-wrapper 
-            button.advantages__btn.left-btn
-              img.advantages__btn-img(src="./assets/images/about/left-arrow.svg")
-            span.advantages__slide-num 
-              span.advantages__curr-slide 01
-              span.advantages__divider /
-              span.advantages__all-slides 06
-            button.advantages__btn.right-btn
-             img.advantages__btn-img(src="./assets/images/about/right-arrow.svg")
-          img.advantages__main-slide-img(src="./assets/images/about/slider/1.jpg", alt="Infrastructure")
-          .advantages__nav-wrapper 
-            .advantages__nav-line
-          img.advantages__slide-img(src="./assets/images/about/slider/2.jpg", alt="Kid`s infrastructure")
+          .advantages__content-left
+            .about-text-slider
+              .about-text-slider__wrp.swiper-wrapper
+                .swiper-slide.about-text-slider__item
+                  p.advantages__text На перших поверхах - будуть розташовані магазини, салон краси, кав’ярня, аптека, пекарня для комфортного проживання та щасливого майбутнього кожної сім'ї.
+                .swiper-slide.about-text-slider__item
+                  p.advantages__text Усередині комплексу будуть створені дитячі ігрові комплекси та спортивні майданчики, зелені зони, засаджені деревами, декоративними кущами та клумбами з ніжною ароматною лавандою.
+            .advantages__btn-wrapper
+              button.advantages__btn.left-btn.about-slider-prev
+                img.advantages__btn-img(src="./assets/images/about/left-arrow.svg")
+              span.advantages__slide-num 
+                span.advantages__curr-slide 01
+                span.advantages__divider /
+                span.advantages__all-slides 06
+              button.advantages__btn.right-btn.about-slider-next
+                img.advantages__btn-img(src="./assets/images/about/right-arrow.svg")
+          .advantages__content-right  
+            .about-slider
+              .advantages-slider__wrp.swiper-wrapper
+                .swiper-slide.advantages-slider__item
+                  img(src="./assets/images/about/slider/1.jpg", alt="Parking")
+                .swiper-slide.advantages-slider__item
+                  img(src="./assets/images/about/slider/2.png", alt="Parking")
+            .advantages__btn-wrapper.advantages__btn-wrapper-mobile
+              button.advantages__btn.left-btn.about-slider-prev
+                img.advantages__btn-img(src="./assets/images/about/left-arrow.svg")
+              span.advantages__slide-num 
+                span.advantages__curr-slide 01
+                span.advantages__divider /
+                span.advantages__all-slides 06
+              button.advantages__btn.right-btn.about-slider-next
+                img.advantages__btn-img(src="./assets/images/about/right-arrow.svg")
+            .advantages__nav-wrapper 
+              .advantages__nav-line
       section.infra.lr-paddings
         p.infra__header.about-headers Інфраструктура
         .infra__right-text.infra__right-text_left Безпосередньо поруч із будинками знаходиться парк Інтеграл з великим стадіоном, за ним – озеро

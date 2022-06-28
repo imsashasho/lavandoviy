@@ -41,6 +41,9 @@ const sliderConfig = {
   autoHeight: true,
   slidesPerView: 1,
   freeMode: true,
+  spaceBetween: 50,
+  centeredSlides: true,
+  watchSlidesVisibility: true,
   adaptiveHeight: true,
   allowTouchMove: true,
   pagination: {

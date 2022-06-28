@@ -2,21 +2,50 @@
   &__header {
     text-align: center;
     margin-bottom: 60px;
+    @include mobile {
+      margin-bottom: 40px;      
+    }
   }
 
   &__content {
     padding: 0 var(--lr-paddings);
     @include baseFlexStyle($justify-content: space-between);
+    @include tablet {
+      flex-direction: column;     
+    }
   }
 
   &__filter {
     @include baseFlexStyle($flex-direction: column);
-    width: 450px;
+    width: 25%;
+    @include tablet {
+      width: 100%;
+    }
+    @include mobile {
+      margin-bottom: 40px;       
+    }
+  }
+  &__result {
+    width: 70%;
+    @include tablet {
+      width: 100%;
+      margin-top: 40px;
+    }
+    @include mobile {
+      margin-top: 0;
+    }
   }
 
   &__cards-wrapper {
     @include grid-card-content(repeat(3, minmax(420px, 1fr)), repeat(2, 1fr), 420px);
     margin-bottom: 60px;
+    @include tablet {
+      display: block;
+      margin-bottom: 40px;
+    }
+    @include mobile {
+      margin-bottom: 40px;        
+    }
   }
 
   &__btn-wrapper {
@@ -24,7 +53,16 @@
   }
 
   &__load-more-btn {
-    @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey);
+    @include link-btns(270px, 70px, $dark-violet, 14px, $light-grey);@include tablet {
+      font-size: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    @include mobile {
+      width: 170px;
+      height: 45px;
+      font-size: 10px;
+    }
   }
 }
 
@@ -36,6 +74,12 @@
 
     &:not(:last-child) {
       margin-bottom: 40px;
+      @include tablet {
+        margin-bottom: 30px;
+      }
+      @include mobile {
+        margin-bottom: 20px;    
+      }
     }
 
     &-text {
@@ -44,6 +88,13 @@
       margin-bottom: 15px;
       cursor: pointer;
       @include multiple-transitions(0.3s, ease-in-out, color, border-color);
+      @include tablet {
+        font-size: 16px;
+      }
+      @include mobile {
+        font-size: 14px;
+        margin-bottom: 10px;        
+      }
 
       &:hover {
         border-color: $dark-violet;
@@ -79,6 +130,11 @@
         // top: 25px;
         top: 0;
         @include after-before-img('../images/progress/rangeHandler.svg', 7px, 12px);
+        @include tablet {
+          height: 9px;
+          width: 5px;
+          background-size: 5px 9px;
+        }
         // width: 7px;
         // height: 12px;
       }
@@ -102,6 +158,12 @@
       top: 17px;
       padding: 0 5px;
       // transform: translateY(100%);
+      @include tablet {
+        font-size: 16px;
+      }
+      @include mobile {
+        font-size: 14px;    
+      }
 
       &:before {
         display: none;

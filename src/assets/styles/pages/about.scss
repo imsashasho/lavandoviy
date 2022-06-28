@@ -11,6 +11,10 @@
     @include baseGridStyle(auto, repeat(auto-fill, minmax(60px, 1fr)));
     // padding-left: var(--lr-paddings);
     // padding-right: var(--lr-paddings);
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+    }
 
     .breadcrumbs {
       grid-column: 1 / -1;
@@ -29,38 +33,61 @@
     &:not(:first-child):not(:last-child) {
       // margin-bottom: var(--sec-btm-indent);
       padding-bottom: var(--sec-btm-indent);
+      @include mobile {
+        
+      }
     }
   }
 
   &-headers {
     @include setFontStyle('Cormorant Garamond', 100px, 400, $headers-color, 100%);
+    @include tablet {
+      font-size: 62px;
+    }
+    @include mobile {
+      font-size: 30px;
+    }
   }
 
   &__header {
     text-align: center;
     margin-bottom: 60px;
     grid-column: 1 / -1;
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__main-img {
     @include setImgWidth(100%);
     margin-bottom: var(--elem-btm-margin);
     grid-column: 1 / -1;
-    // padding: 0 var(--lr-paddings);
+    @include tablet {
+      margin-bottom: 40px;
+    }
   }
 }
 
 .philosophy {
-  // @include baseGridStyle(repeat(3, auto), 520px 205px repeat(2, auto));
-  // display: grid;
-  // grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));
   @include baseGridStyle(repeat(3, auto), repeat(auto-fill, minmax(60px, 1fr)));
-  // padding: 0 var(--lr-paddings);
+  @include tabletLarge {
+    grid-template: repeat(3, auto)/repeat(auto-fill, minmax(40px, 1fr));
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+  }
 
   &__header {
     // grid-column: 1 / 3;
     grid-column: 1 / 13;
     margin-bottom: var(--elem-btm-margin);
+    @include tablet {
+      order: 1;
+    }
+    @include mobile {
+      margin-bottom: 20px;
+    }
   }
 
   &__right-text {
@@ -75,6 +102,19 @@
     // margin-bottom: 150px;
     @include setFontStyle('Mont', 20px, 500, $dark-grey, 130%);
     margin-bottom: 150px;
+    @include tabletLarge {
+      margin-bottom: 100px;
+    }
+    @include tablet {
+      margin-bottom: 40px;
+      font-size: 15px;
+      text-transform: uppercase;
+      order: 2;
+    }
+    @include mobile {
+      margin-bottom: 20px;
+      font-size: 12px;
+    }
 
     &_left {
       grid-row-start: 2;
@@ -97,6 +137,16 @@
   &__left-text {
     @include setFontStyle('Mont', 16px, 500, $text-color, 160%, $text-transform: none);
     grid-column: 1 / 10;
+    @include tablet {
+      order: 4;
+      font-size: 15px;
+    }
+    @include mobile {
+      font-size: 12px;
+      // margin-bottom: 20px;
+      // font-size: 12px;
+      // text-transform: uppercase;
+    }
   }
 
   &__img {
@@ -104,6 +154,15 @@
     // grid-column-end: 5;
     grid-column: 13 / -1;
     @include setImgWidth(100%);
+    @include tablet {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      order: 3;
+    }
+    @include mobile {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
 }
 
@@ -123,6 +182,26 @@
     repeat(2, auto) 150px calc(532px - 150px) 150px auto 200px,
     repeat(auto-fill, minmax(60px, 1fr))
   );
+  background: linear-gradient(0.5deg, #4A3A5E 47%, white 47%);
+  @include tabletLarge {
+    @include baseGridStyle(
+      repeat(2, auto) 150px calc(532px - 150px) 120px auto 100px,
+      repeat(auto-fill, minmax(40px, 1fr))
+  );
+
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(0deg, #4A3A5E 70%, transparent 50%);
+    padding: 0 40px 80px 40px;
+    margin-bottom: -2px;
+
+  }
+  @include mobile {
+    padding: 0 15px 60px 15px;
+    background: linear-gradient(0.5deg, #4A3A5E 70%, transparent 50%);
+  }
   // @include baseGridStyle(repeat(2, auto) 150px auto 150px, repeat(auto-fill, minmax(60px, 1fr)));
   // margin-bottom: var(--sec-btm-indent);
 
@@ -138,6 +217,15 @@
     grid-column: 15 / 23;
     @include setFontStyle('Mont', 20px, 500, $dark-grey, 130%);
     margin-bottom: var(--elem-btm-margin);
+    @include tabletLarge {
+      grid-column: 15 / 26;
+    }
+    @include tablet {
+      font-size: 15px;
+    } 
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__img {
@@ -147,6 +235,15 @@
     // @include setImgHeight(530px);
     @include width-heigth(100%, 530px);
     object-fit: cover;
+    @include tabletLarge {
+      height: 450px;
+    }
+    @include tablet {
+      height: 300px;
+    }
+    @include mobile {
+      height: 183px;
+    }
 
     &_left {
       grid-column: 3 / 19;
@@ -156,6 +253,9 @@
       // height: auto;
       // @include setImgMaxWidth(100%);
       // @include setImgWidth(100%);
+      @include tabletLarge {
+        grid-column: 3 / 22;
+      }
     }
 
     &_right {
@@ -171,13 +271,29 @@
       // top: 150px;
       // @include setImgWidth(100%);
       // @include setImgMaxWidth(100%);
+      @include tabletLarge {
+        grid-column: 16 / -3;
+      }
     }
   }
 
   &__figcaption {
     @include setFontStyle('Mont', 16px, 500, $white-color, 160%, $text-transform: none);
     // background-color: $dark-violet;
-    padding-top: 30px;
+    margin-top: 30px;
+    @include tabletLarge {
+      margin-top: 0;
+    }
+    @include tablet {
+      font-size: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    @include mobile {
+      font-size: 12px;
+      margin-top: 20px;
+      margin-bottom: 40px;
+    }
 
     &_left {
       // grid-column-start: 1;
@@ -195,6 +311,12 @@
       // transform: translateY(150px);
       // grid-row-end: -1;
       // grid-row-start: 4;
+      @include tabletLarge {
+        grid-column: 16 / 23;
+      }
+      @include tablet {
+        margin-bottom: 0;
+      }
     }
   }
 
@@ -214,21 +336,78 @@
   background-color: $dark-violet;
   // padding-bottom: var(--sec-btm-indent);
   margin-bottom: var(--sec-btm-indent);
+  padding: 0 120px;
+  @include tabletLarge {
+    padding: 0 80px;
+  }
+  @include tablet {
+    padding: 0 40px;
+    margin-bottom: 0;
+  }
+  @include mobile {
+    padding: 0 15px;   
+  }
 
   &__header {
     text-align: center;
     margin-bottom: var(--elem-btm-margin);
     color: $light-grey;
+    @include tablet {
+      text-align: left;  
+    }
   }
 
   &__content-wrapper {
-    @include baseGridStyle(92px auto 92px, repeat(auto-fill, minmax(60px, 1fr)));
+    display: flex;
+    justify-content: space-between;
+    @include tablet {
+      display: flex;
+      flex-direction: column;  
+    }
+  }
+
+  &__content-left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30%;
+    @include tablet {
+      width: 80%;
+      height: 100px;
+    }
+  }
+  &__content-right {
+    width: 56%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-right: -35px;
+    @include tabletLarge {
+      width: 61%;
+    }
+    @include tablet {
+      width: 100%;
+      flex-direction: row;
+    }
+
   }
 
   &__text {
     @include setFontStyle('Mont', 20px, 500, $light-grey, 130%);
     // grid-column: 1 / 9;
     grid-column: 3 / 10;
+    @include tabletLarge {
+      grid-column: 3 / 12;
+    }
+    @include tablet {
+      font-size: 15px;
+      order: 1;
+      margin-bottom: 40px;
+    }
+    @include mobile {
+      font-size: 12px;
+      margin-bottom: 30px;
+    }
   }
 
   &__main-slide-img {
@@ -236,33 +415,64 @@
     @include width-heigth(100%);
     object-fit: cover;
     // grid-column: 13 / 22;
-    grid-column: 15 / 24;
+    grid-column: 15 / 31;
     grid-row: 1 / 4;
+    @include tablet {
+      order: 2;
+      width: 80%;
+      
+    }
   }
 
   &__slide-img {
     // @include setImgWidth(100%);
     @include width-heigth(100%);
     object-fit: cover;
-    // grid-row-start: 2;
-    grid-row: 2 / 3;
-    // grid-column: 23 / -1;
-    grid-column: 25 / -3;
   }
 
   &__btn-wrapper {
-    // grid-column-start: 1;
-    // grid-column: 1 / 6;
-    grid-column: 3 / 8;
-    // grid-column-start: 1 / auto;
-    grid-row-end: 4;
     @include baseFlexStyle(center);
-    align-self: flex-end;
+    align-self: flex-start;
+    margin-bottom: 50px;
+    @include tablet {
+      display: none;
+    }
+    
+    @include tablet {
+      order: 3;
+      flex-direction: column;
+      width: 20%;
+      align-self: flex-start;  
+    }
+  }
+  &__btn-wrapper-mobile {
+    display: none; 
+    
+    @include tabletLarge {
+      display: none;
+    }
+    @include tablet {
+      @include baseFlexStyle(center);
+      align-self: flex-start;
+      margin-bottom: 50px;
+    }
+    
+    @include tablet {
+      order: 3;
+      flex-direction: column;
+      width: 20%;
+      align-self: flex-start;  
+    }
+
   }
 
   &__btn {
     @include slideBtns($background: $grey-link-btn);
     @include width-heigth(70px);
+    @include mobile {
+      height: 45px;
+      width: 45px;
+    }
   }
 
   &__btn-img {
@@ -272,15 +482,31 @@
   &__slide-num {
     @include setFontStyle('Mont', 22px, 500, $light-grey, 100%);
     margin: 0 40px;
+    @include tablet {
+      font-size: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    @include mobile {
+      font-size: 12px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
   }
 
   &__nav-wrapper {
-    // grid-column: 13 / 22;
-    grid-column: 15 / 24;
-    grid-row-start: 5;
-    @include width-heigth(100%, 2px);
-    background-color: rgba(255, 255, 255, 0.15);
+    width: 47.5%;
+    height: 2px;
     margin-top: 40px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.15);
+    
+    @include tablet {
+      display: none;
+    }
+    .swiper-pagination-progressbar-fill {
+      background: $white-color !important;
+    }
   }
 
   &__nav-line {
@@ -292,6 +518,21 @@
 .infra {
   @include baseGridStyle(auto, repeat(auto-fill, minmax(60px, 1fr)));
   margin-bottom: 150px;
+  @include tabletLarge {
+    grid-template: auto/repeat(auto-fill, minmax(40px, 1fr));
+    margin-bottom: 120px;
+  }
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+    margin-bottom: 0;
+    padding-bottom: 80px;
+  }
+  @include mobile {
+    padding-top: 60px;
+    padding-bottom: 60px;  
+  }
 
   &__header {
     grid-column: 1 / -1;
@@ -301,6 +542,12 @@
   &__right-text {
     @include setFontStyle('Mont', 20px, 500, $dark-grey, 130%);
     margin-bottom: var(--elem-btm-margin);
+    @include tablet {
+      font-size: 15px;
+    }
+    @include mobile {
+      font-size: 12px;
+    }
 
     &_left {
       grid-column: 13 / 21;
@@ -308,6 +555,12 @@
 
     &_right {
       grid-column: 22 / -1;
+      @include tablet {
+        margin-bottom: 60px;
+      }
+      @include mobile {
+        margin-bottom: 40px;
+      }
     }
   }
 
@@ -316,6 +569,12 @@
     height: 755px;
     margin-bottom: 150px;
     position: relative;
+    @include tablet {
+      margin-bottom: 60px;
+    }
+    @include mobile {
+      margin-bottom: 40px;  
+    }
 
     iframe {
       @include width-heigth(100%);
@@ -378,12 +637,28 @@
   &__subheader {
     @include setFontStyle('Mont', 20px, 500, $dark-grey, 130%);
     margin-bottom: 40px;
+    @include tablet {
+      font-size: 15px;
+      margin-bottom: 30px;
+    }
+    @include mobile {
+      font-size: 12px;
+      margin-bottom: 20px;  
+    }
   }
 
   &__list {
     // list-style-position: inside;
     position: relative;
     transform: translateX(20px);
+    @include tablet {
+      padding-bottom: 40px;
+      padding-right: 80px;
+    }
+    @include mobile {
+      padding-bottom: 20px;
+      padding-right: 50px;
+    }
   }
 
   &__element {
@@ -391,9 +666,18 @@
     // list-style-position: inside;
     @include setFontStyle('Mont', 16px, 500, $text-color, 160%, $text-transform: none);
     color: $text-color;
+    @include tablet {
+      font-size: 15px;
+    }
+    @include mobile {
+      font-size: 12px; 
+    }
 
     &:not(:last-child) {
       margin-bottom: 20px;
+      @include mobile {
+        margin-bottom: 10px;
+      }
     }
 
     // &::before {
@@ -421,31 +705,70 @@
   &__header {
     text-align: center;
     margin-bottom: var(--elem-btm-margin);
+    @include mobile {
+      margin-bottom: 40px;
+    }
   }
 
   &__content {
     @include baseFlexStyle(flex-end, space-between);
     margin-bottom: 150px;
+    @include tabletLarge {
+      margin-bottom: 120px;
+    }   
+    @include tablet {
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+    @include mobile {
+      margin-bottom: 40px;
+      
+    }
   }
 
   &__figure {
     @include baseFlexStyle(center, $flex-direction: column);
     max-width: 330px;
+    @include tablet {
+      &:not(:last-child) {
+        margin-bottom: 60px;
+      }
+    }
+    @include mobile {
+      &:not(:last-child) {
+        margin-bottom: 40px;
+      }      
+    }
   }
 
   &__img {
     @include width-heigth(50px);
     object-fit: cover;
     margin-bottom: 30px;
+    @include mobile {
+      margin-bottom: 20px;
+      width: 40px;
+      height: 40px;
+    }
 
     &_conditioner {
       height: 42px;
+      @include mobile {
+        height: 33px;
+      }
     }
   }
 
   &__figcaption {
     text-align: center;
     @include setFontStyle('Mont', 16px, 400, $text-color, 160%, $text-transform: none);
+    @include tablet {
+      font-size: 15px;
+    }
+    @include mobile {
+      font-size: 12px;
+    }
   }
 
   &__btn {
@@ -455,6 +778,71 @@
 
     &-link {
       @include link-btns(270px, 70px, $dark-violet, 14px, $font-weight: 400);
+      @include tablet {
+        width: 220px;
+        height: 60px;
+        font-size: 12px;
+      }
+      @include mobile {
+        width: 170px;
+        height: 45px;
+        font-size: 10px;
+      }
+    }
+  }
+}
+
+.about {
+  &-slider {
+    overflow: hidden;
+    .swiper-slide-active {
+      transform: scale(1);
+      transition: all ease-in-out 0.5s;
+    }
+    .swiper-slide-next {
+      transform: scale(0.85);
+      transition: all ease-in-out 0.5s;
+      transform-origin: 25% 50%;
+      @include tablet {
+        transform: scale(1);
+      }
+    }
+    img {
+      width: 100%;
+      height: 625px;
+      object-fit: cover;
+      @include tabletLarge {
+        height: 500px;
+      }
+      @include tablet {
+        height: 400px;
+      }
+      @include mobile {
+        height: 320px;
+      }
+    }
+  }
+  
+}
+@keyframes sliderText {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+.about {
+  &-text-slider {
+    overflow: hidden;
+    width: 100%;
+    .swiper-slide-active {
+      > .advantages__text {
+        animation: sliderText 1.5s;
+      }
+    }
+    @include tablet {
+      pointer-events: none;
     }
   }
 }

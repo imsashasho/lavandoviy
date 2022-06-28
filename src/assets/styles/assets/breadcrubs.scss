@@ -2,6 +2,9 @@
   @include baseFlexStyle(center, center);
   @include setFontStyle('Mont', 14px, 400, $dark-grey, 100%, 0.01em);
   margin-bottom: 30px;
+  @include mobile {
+    margin-bottom: 10px;
+  }
 
   &-item {
     @include baseFlexStyle(center);

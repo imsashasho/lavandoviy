@@ -12,12 +12,12 @@ block meta
 block head
     link(rel='stylesheet', href="./assets/styles/main.min.css")
 block scripts
-  //- script(defer src='./assets/scripts/vendors.bundle.js')
+  script(defer src='./assets/scripts/vendors.bundle.js')
   script(defer src='./assets/scripts/index.bundle.js')
   script(defer src='./assets/scripts/index.js')
   script(defer src='./assets/scripts/libs.js')
   script(defer src='./assets/scripts/header.js')
-  script(defer src='./assets/scripts/home.js')
+  script(defer src='./assets/scripts/homepage.bundle.js')
 block content
   main.main.main-home 
     section.start-section
@@ -58,22 +58,41 @@ block content
     section.advantages-section 
       .first-column
         .first-column__text-wrapper
-          p.first-column__header.headers дворівневий підземний паркінг
-          p.first-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
+          .advantages-text-slider
+            .advantages-text-slider__wrp.swiper-wrapper
+              .swiper-slide.advantages-text-slider__item
+                p.first-column__header.headers дворівневий підземний паркінг
+                p.first-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
+              .swiper-slide.advantages-text-slider__item
+                p.first-column__header.headers дворівневий підземний паркінг
+                p.first-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
+              .swiper-slide.advantages-text-slider__item
+                p.first-column__header.headers дворівневий підземний паркінг
+                p.first-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
         .first-column__btn-wrapper 
-          button.first-column__btn.left-btn
+          button.first-column__btn.left-btn.advantages-slider-prev
             img.first-column__btn-img(src="./assets/images/home/left-arrow.svg")
           span.first-column__slide-num 
             span.first-column__curr-slide 01
             span.first-column__divider /
             span.first-column__all-slides 04
-          button.first-column__btn.right-btn
+          button.first-column__btn.right-btn.advantages-slider-next
            img.first-column__btn-img(src="./assets/images/home/right-arrow.svg")
       .second-column 
-        img(src="./assets/images/home/parking.jpg", alt="Parking").second-column__img
+        .advantages-slider
+          .advantages-slider__wrp.swiper-wrapper
+            .swiper-slide.advantages-slider__item
+              img(src="./assets/images/home/parking.jpg", alt="Parking").second-column__img
+            .swiper-slide.advantages-slider__item
+              img(src="./assets/images/home/parking.jpg", alt="Parking").second-column__img
+            .swiper-slide.advantages-slider__item
+              img(src="./assets/images/home/parking.jpg", alt="Parking").second-column__img
         .second-column__nav-wrapper 
           .second-column__nav-line
       .third-column
+        .third-column__text-wrapper
+          p.third-column__header.headers дворівневий підземний паркінг
+          p.third-column__text.section-text З віком запитів стає набагато більше: вид з вікна,  привітні сусіди, безпечні майданчики для дітей, супермаркети на першому поверсі,   хімчистки, ресторани, пекарні, кафе в будинку, місце для машини.
         img(src="./assets/images/home/developer.jpg", alt="Developer").third-column__img
     section.slider-section 
       p.slider-section__header.headers справжній простір сили, енергії та процвітання для Вас та Вашої родини!
@@ -97,6 +116,15 @@ block content
             img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/1.jpg", alt="Slide")
             img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/2.jpg", alt="Slide")
             img.swiper-slide.slider-section__slide(src="./assets/images/home/slider-section/3.jpg", alt="Slide")
+      .slider-section__btn-wrapper 
+        button.slider-section__btn.left-btn.slider-section-prev
+          img.slider-section__btn-img(src="./assets/images/home/left-arrow.svg")
+        span.slider-section__slide-num 
+          span.slider-section__curr-slide 01
+          span.slider-section__divider /
+          span.slider-section__all-slides 04
+        button.slider-section__btn.right-btn.slider-section-next
+          img.slider-section__btn-img(src="./assets/images/home/right-arrow.svg")  
     section.calm-place 
       .calm-place__content-wrapper
         img.calm-place__img.img-baby(src="./assets/images/home/calm-place/baby.jpg", alt="Baby")
@@ -108,12 +136,17 @@ block content
         p.calm-place__header місце вашого спокою
         a.calm-place__link(href="#") обрати квартиру
     section.stocks-section 
-      +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
+      .stocks-section-slider
+          .stocks-section-slider__wrp.swiper-wrapper
+            .swiper-slide.stocks-section-slider__item
+              +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
+            .swiper-slide.stocks-section-slider__item
+              +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
       //- p.stocks-section__text акції#[span.stocks-section__ampersand &]новини
       .stocks-section_abs
-        .stocks-section_abs-inn
+        .stocks-section_abs-inn#scrollingText
           - let count = 0;
-          while count < 5
+          while count < 10
             p.stocks-section__text-wrapper.js-stocks-text-wrapper 
               span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
             - count++;
