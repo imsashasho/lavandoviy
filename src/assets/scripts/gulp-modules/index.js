@@ -28,11 +28,43 @@ const call = document.querySelector('.call');
 const btnsCall = document.querySelectorAll('.js-btn-call');
 
 btnsCall.forEach(btn => {
+  if (window.matchMedia('(max-width: 575px').matches) return;
   btn.addEventListener('click', () => {
     call.classList.add('active');
     body.classList.add('disabled-scroll');
   });
 });
+
+function mobilePopupHandler() {
+  if (window.matchMedia('(min-width: 576px').matches) return;
+  const mobPopup = document.querySelector('[data-mobile-callback-popup]');
+  const call = document.querySelector('.call');
+  function close() {
+    mobPopup.classList.remove('active');
+  }
+  function open() {
+    mobPopup.classList.add('active');
+
+  }
+  document.querySelector('[data-mobile-callback-close]').addEventListener('click', () => {
+    mobPopup.classList.remove('active');
+  })
+  mobPopup.addEventListener('click', ({target}) => {
+    target === mobPopup ? close() : null;
+  })
+  window.addEventListener('click',function(evt){
+    const target = evt.target.closest('.js-mobile-popup-call');
+    if (target === null) return;
+    open();
+  });
+  document.querySelector('[data-call-form-popup]').addEventListener('click', () => {
+    call.classList.add('active');
+    close();
+  })
+}
+
+mobilePopupHandler();
+
 
 // Отправить форму колл-пейджа
 const submitCall = document.querySelector('.js-call-submit');

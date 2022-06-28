@@ -590,6 +590,10 @@
       transform: translateY(-50%);
       background-color: $light-grey;
       width: 320px;
+      @include mobile {
+        width: 100%;
+        left: 0;
+      }
     }
 
     &-element {

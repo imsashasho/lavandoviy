@@ -269,6 +269,9 @@
 
         &:not(:last-child) {
           margin-right: 117px;
+          @include mobile {
+            margin-right: auto;
+          }
         }
       }
       
@@ -276,8 +279,27 @@
 
     &__call-btn {
       font-size: 14px;
-      @include tablet {
-        display: none;
+      // @include tablet {
+      //   display: none;
+      // }
+      @include mobile {
+        font-size: 0;
+        width: 45px;
+        height: 45px;
+        border: 1px solid $dark-violet;
+        border-radius: 50%;
+        margin-right: 15px !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        &:after {
+          content: '';
+          width: 13px;
+          height: 14px;
+          background-image: url("data:image/svg+xml,%3Csvg width='15' height='16' viewBox='0 0 15 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M13.716 11.2538V13.3156C13.7167 13.507 13.6803 13.6964 13.6089 13.8718C13.5376 14.0472 13.4329 14.2046 13.3017 14.334C13.1705 14.4634 13.0156 14.5619 12.8469 14.6232C12.6782 14.6845 12.4994 14.7073 12.3221 14.6901C10.3544 14.4603 8.46441 13.7376 6.80382 12.5802C5.25885 11.5251 3.94899 10.1172 2.96725 8.45672C1.88661 6.66383 1.2141 4.62255 1.00421 2.49827C0.988235 2.30822 1.00925 2.11668 1.06592 1.93584C1.12259 1.755 1.21367 1.58883 1.33337 1.44789C1.45307 1.30696 1.59876 1.19436 1.76116 1.11726C1.92357 1.04016 2.09913 1.00025 2.27667 1.00007H4.19495C4.50527 0.996784 4.80611 1.11489 5.0414 1.33237C5.27669 1.54986 5.43038 1.85188 5.47381 2.18214C5.55477 2.84194 5.70493 3.48978 5.92141 4.11331C6.00744 4.35929 6.02606 4.62662 5.97506 4.88363C5.92406 5.14064 5.80558 5.37655 5.63366 5.5634L4.82159 6.43621C5.73185 8.15677 7.05732 9.58137 8.65815 10.5597L9.47023 9.6869C9.64408 9.50212 9.86357 9.37478 10.1027 9.31997C10.3418 9.26516 10.5906 9.28517 10.8194 9.37764C11.3996 9.6103 12.0023 9.77169 12.6162 9.85871C12.9268 9.90581 13.2105 10.074 13.4133 10.3312C13.6161 10.5884 13.7238 10.9168 13.716 11.2538Z' stroke='%234A3A5E' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E%0A");
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
       }
     }
 
@@ -579,6 +601,9 @@
       grid-column: 1 / 4;
       grid-row-start: 4;
       max-width: 100%;
+      @include mobile {
+        transform: translateX(calc(var(--lr-paddings) * -1));
+      }
     }
   }
 }

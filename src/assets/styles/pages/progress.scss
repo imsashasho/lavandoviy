@@ -62,6 +62,8 @@
       width: 170px;
       height: 45px;
       font-size: 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
     }
   }
 }
@@ -71,7 +73,7 @@
     position: relative;
     @include baseFlexStyle($flex-direction: column);
     width: 100%;
-
+    pointer-events: none;
     &:not(:last-child) {
       margin-bottom: 40px;
       @include tablet {

@@ -1,9 +1,18 @@
 // Инициализация rangeSlider
-$('.js-range-slider').ionRangeSlider({
-  type: 'single',
-  min: 0,
-  max: 100,
-});
+
+document.querySelectorAll('.js-range-slider').forEach(el => {
+  const defaultValue = el.dataset.value;
+  $(el).ionRangeSlider({
+    type: 'single',
+    min: 0,
+    max: 100,
+    from: +defaultValue
+  });
+  
+})
+
+
+
 
 // Реализация появляющегося purple block
 $('.js-filter-text').on('click', event => {
