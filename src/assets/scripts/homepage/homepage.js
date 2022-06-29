@@ -109,6 +109,16 @@ gsap.registerPlugin(ScrollTrigger);
         nextEl: '.slider-section-next',
         prevEl: '.slider-section-prev',
       },
+      on: {
+        init: (e) => {
+          let { slides } = e;
+          slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
+          document.querySelector('.slider-section .slider-section__all-slides').textContent = slides.length;
+        },
+        activeIndexChange: (e) => {
+          document.querySelector('.slider-section .slider-section__curr-slide').textContent = e.realIndex + 1;
+        }
+      },
       breakpoints: {
         360: {
           slidesPerView: 1,
@@ -243,12 +253,12 @@ gsap.registerPlugin(ScrollTrigger);
     breakpoints: {
       1400: {
         autoHeight: true,
-        slidesPerView: 2,
+        slidesPerView: 1.75,
       },
       768: {
         initialSlide: 1,
         autoHeight: true,
-        slidesPerView: 1,
+        slidesPerView: 1.75,
         centeredSlides: false,
       },
       360: {
@@ -282,6 +292,10 @@ gsap.registerPlugin(ScrollTrigger);
     centeredSlides: false,
     watchSlidesVisibility: true,
     speed: 750,
+    effect: 'fade',
+    fadeEffect: {
+      crossFade: true
+    },
     breakpoints: {
       1400: {
         autoHeight: true,

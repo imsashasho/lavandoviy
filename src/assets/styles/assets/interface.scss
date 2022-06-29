@@ -313,6 +313,11 @@
           background-size: 45px 45px;
         }
       }
+      @include mobile {
+        height: 45px;
+        width: 45px;
+        background-size: 45px 45px;
+      }
       .hover,
         .default {
           transition: .25s ease-out;

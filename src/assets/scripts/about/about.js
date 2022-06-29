@@ -72,6 +72,7 @@ const swiper1 = new Swiper('.about-slider', {
   spaceBetween: 50,
   // initialSlide: 0,
   preloadImages: false,
+  slidesPerView: 1.75,
   lazy: true,
   height: 600,
   centeredSlides: false,
@@ -80,12 +81,12 @@ const swiper1 = new Swiper('.about-slider', {
   breakpoints: {
     1400: {
       autoHeight: true,
-      slidesPerView: 2,
+      slidesPerView: 1.85,
     },
     768: {
       initialSlide: 1,
       autoHeight: true,
-      slidesPerView: 1,
+      slidesPerView: 1.85,
       centeredSlides: false,
     },
     360: {
@@ -94,6 +95,16 @@ const swiper1 = new Swiper('.about-slider', {
       autoHeight: true,
       centeredSlides: false,
     },
+  },
+  on: {
+    init: (e) => {
+      let { slides } = e;
+      slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
+      document.querySelector('.advantages__all-slides').textContent = slides.length;
+    },
+    activeIndexChange: (e) => {
+      document.querySelector('.advantages__curr-slide').textContent = e.realIndex + 1;
+    }
   },
   simulateTouch: true,
   navigation: {
@@ -116,6 +127,10 @@ const swiper2 = new Swiper('.about-text-slider', {
   preloadImages: false,
   lazy: true,
   height: 600,
+  effect: 'fade',
+  fadeEffect: {
+    crossFade: true
+  },
   centeredSlides: false,
   watchSlidesVisibility: true,
   speed: 300,
