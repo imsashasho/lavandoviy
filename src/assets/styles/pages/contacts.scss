@@ -190,6 +190,12 @@
           height: 45px;
           font-size: 10px;
         }
+        @include from(1025px){
+          transition: .25s ease-out;
+          &:hover {
+            background-color: $light-lavander;
+          }
+        }
       }
     }
 
@@ -209,6 +215,12 @@
           height: 45px;
           width: 170px;
           font-size: 10px;  
+        }
+        @include from(1025px){
+          transition: .25s ease-out;
+          &:hover {
+            background-color: $light-lavander;
+          }
         }
       }
     }
