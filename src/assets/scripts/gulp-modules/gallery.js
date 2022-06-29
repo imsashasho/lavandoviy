@@ -103,6 +103,7 @@ slidesImages.forEach((img, index) => {
     swiperContentObj.imgs.forEach((img, index) => {
       if (img.includes(numberOfImg)) {
         console.log(index);
+        swiperGallery.slideTo(index);
       }
     });
     // for (elem of swiperContentObj.gallerySlide) {

@@ -1,12 +1,30 @@
 header.header 
   .header-left
-    a.header-left__link.header-link-houses(href="#") квартири
+    a.header-left__link.header-link-houses(href="#") 
+      <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="default" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <circle class="hover" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <path d="M44 46H26V28.1935L34.5714 22L44 28.1935V46Z" stroke="#F9F8FC" stroke-width="1.1"/>
+        <path d="M33.6665 32.0647H31V34.7312H33.6665V32.0647Z" fill="#F9F8FC"/>
+        <path d="M33.6665 37.3977H31V40.0642H33.6665V37.3977Z" fill="#F9F8FC"/>
+        <path d="M39.0005 32.0647H36.334V34.7312H39.0005V32.0647Z" fill="#F9F8FC"/>
+        <path d="M39.0005 37.3977H36.334V40.0642H39.0005V37.3977Z" fill="#F9F8FC"/>
+        </svg>
+      span квартири
     a.header-left__link.header-link-tel(href="tel:+38 (067) 954 43 25") +38 (067) 954 43 25
   a.header__logo-link(href="/index.html")
     img.header__logo-img(src="./assets/images/Header/logo.svg")
   .header-right
     button.header-right__btn.header-btn-call.js-btn-call.js-mobile-popup-call замовити дзвінок
-    button.header-right__btn.header-btn-menu меню
+    button.header-right__btn.header-btn-menu 
+      span меню
+      <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="default" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <circle  class="hover" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <rect x="27" y="31" width="16" height="1.5" fill="#F9F8FC"/>
+        <rect x="27" y="37" width="16" height="1.5" fill="#F9F8FC"/>
+      </svg>
+
 .mobile-callback-popup(data-mobile-callback-popup) 
     a.mobile-callback-popup__tel(href="tel:+380443563777") Виклик +380 (44) 356 37 77
     .mobile-callback-popup__callback(data-call-form-popup) Зворотній дзвінок

@@ -4,6 +4,7 @@ import axios from 'axios';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
 import SexyInput from '../../pug/components/input/input';
+import { throttle } from './common/intersectionObserver';
 const formsWithTel = ['#call-form'];
 
 formsWithTel.forEach(form => {
@@ -63,3 +64,30 @@ formsWithTel.forEach(form => {
     // }, false);
   }
 });
+
+
+
+function headerHandle() {
+    const header = document.querySelector('.header');
+    let prevScrollY = 0;
+    const headerChange = () => {
+      if (window.scrollY < 175) {
+        header.classList.remove('hidden');
+        header.classList.remove('not-on-top');
+        prevScrollY = window.scrollY;
+        return;
+      }
+      if (prevScrollY > window.scrollY) {
+        header.classList.remove('hidden');
+        prevScrollY = window.scrollY;
+        return;
+      }
+      header.classList.add('not-on-top');
+      header.classList.add('hidden');
+      prevScrollY = window.scrollY;
+    }
+    const throttleHeaderChange = throttle(headerChange, 300);
+    
+    window.addEventListener('scroll',throttleHeaderChange);
+  }
+  headerHandle()

@@ -76,19 +76,27 @@
     &-houses {
       @include baseFlexStyle(center);
       font-weight: 600;
-
-      &::before {
-        @include after-before-img('../images/header/houses-icon.svg', 70px, 70px);
+      &>svg {
+        @include hoverSvg();
         margin-right: var(--header-margin-inner);
-        @include tablet {
-          margin-right: 0;
-        }
         @include mobile {
           background-size: 45px 45px;
           width: 45px;
           height: 45px;
         }
       }
+      // &::before {
+      //   @include after-before-img('../images/header/houses-icon.svg', 70px, 70px);
+      //   margin-right: var(--header-margin-inner);
+      //   @include tablet {
+      //     margin-right: 0;
+      //   }
+      //   @include mobile {
+      //     background-size: 45px 45px;
+      //     width: 45px;
+      //     height: 45px;
+      //   }
+      // }
     }
 
     &-tel {
@@ -167,14 +175,48 @@
       @include tablet {
         font-size: 0;
       }
-
-      &::after {
-        @include after-before-img('../images/header/burger-icon.svg', 70px, 70px);
+      &>svg {
         margin-left: var(--header-margin-inner);
         @include mobile {
           background-size: 45px 45px;
           width: 45px;
           height: 45px;
+        }
+      }
+      // &::after {
+      //   @include after-before-img('../images/header/burger-icon.svg', 70px, 70px);
+      //   margin-left: var(--header-margin-inner);
+      //   @include mobile {
+      //     background-size: 45px 45px;
+      //     width: 45px;
+      //     height: 45px;
+      //   }
+      // }
+      // &::after {
+      //   display: none;
+      // }
+      svg {
+        .hover,
+        .default {
+          transition: .25s ease-out;
+          transform-origin: center;
+          transform-box: fill-box;
+        }
+        .default {
+          transform: scale(1);
+
+        }
+        .hover {
+          transform: scale(0);
+          fill: $lavander;
+        }
+        @include from(1025px){
+          &:hover .hover {
+            transform: scale(1);
+          }
+          &:hover .default {
+            transform: scale(0);
+          }
         }
       }
     }

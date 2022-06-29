@@ -97,3 +97,4 @@ callThanksCloseBtn.addEventListener('click', () => {
     callThanksBlock.classList.remove('active');
   }, 500);
 });
+

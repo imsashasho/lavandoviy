@@ -3,23 +3,28 @@
     .menu-block__header
       a.menu-block__tel(href="tel:+38 (067) 954 43 25") +38 (067) 954 43 25
       button.menu-block__call-btn.js-btn-call.js-mobile-popup-call замовити дзвінок
-      button.menu-block__close-btn.js-menu-close
+      <svg  class="menu-block__close-btn js-menu-close" width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle class="default" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <circle class="hover" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+        <path d="M41 41L29 29M29 41L41 29L29 41Z" stroke="#F9F8FC" stroke-width="1.5"/>
+        </svg>
+      //- button.menu-block__close-btn.js-menu-close
     .menu-block__content
       ul.menu-block__list
         li.menu-block__element 
-          a.menu-block__link(href="./index.html") Головна
+          a.menu-block__link(href="./index.html" data-text="") Головна
         li.menu-block__element
-          a.menu-block__link(href="./404.html") Квартири
+          a.menu-block__link(href="./404.html" data-text="Квартири") Квартири
         li.menu-block__element
-          a.menu-block__link(href="./about.html") Про комплекс
+          a.menu-block__link(href="./about.html" data-text="Про комплекс") Про комплекс
         li.menu-block__element
-          a.menu-block__link(href="./gallery.html") Галерея
+          a.menu-block__link(href="./gallery.html" data-text="Галерея") Галерея
         li.menu-block__element
-          a.menu-block__link(href="./progress.html") Хід будівництва
+          a.menu-block__link(href="./progress.html" data-text="Хід будівництва") Хід будівництва
         li.menu-block__element
-          a.menu-block__link(href="./stocks-news.html") Акції та новини
+          a.menu-block__link(href="./stocks-news.html" data-text="Акції та новини") Акції та новини
         li.menu-block__element
-          a.menu-block__link(href="./contacts.html") Контакти
+          a.menu-block__link(href="./contacts.html" data-text="Контакти") Контакти
     .menu-block__footer
       .menu-block__soc-netw
         a.menu-block__soc-link.menu-block__soc-link_facebook(href="#") facebook

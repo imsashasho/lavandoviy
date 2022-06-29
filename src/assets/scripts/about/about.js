@@ -18,7 +18,16 @@ iconsElements.forEach(elem => {
 
 gsap.registerPlugin(ScrollTrigger);
 splitToLinesAndFadeUp(
-  '[data-span-fade-up], h3, [data-split-fade-up], .description__marker-text, .describe__figcaption, .infra__right-text, .charact__figcaption, .infra__subheader, .infra__element',
+  `[data-span-fade-up], 
+  h3, 
+  .about-headers,
+  .philosophy__right-text,
+  .philosophy__left-text,
+  .describe__right-text,
+  [data-split-fade-up], 
+  .description__marker-text, 
+  .describe__figcaption, 
+  .infra__right-text, .charact__figcaption, .infra__subheader, .infra__element`,
   document.body,
 );
 function splitToLinesAndFadeUp(selector, $scroller) {

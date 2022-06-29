@@ -469,30 +469,5 @@ gsap.registerPlugin(ScrollTrigger);
     })
   }
 
-
-  function headerHandle() {
-    const header = document.querySelector('.header');
-    let prevScrollY = 0;
-    const headerChange = () => {
-      if (window.scrollY < 175) {
-        header.classList.remove('hidden');
-        header.classList.remove('not-on-top');
-        prevScrollY = window.scrollY;
-        return;
-      }
-      if (prevScrollY > window.scrollY) {
-        header.classList.remove('hidden');
-        prevScrollY = window.scrollY;
-        return;
-      }
-      header.classList.add('not-on-top');
-      header.classList.add('hidden');
-      prevScrollY = window.scrollY;
-    }
-    const throttleHeaderChange = throttle(headerChange, 300);
-    
-    window.addEventListener('scroll',throttleHeaderChange);
-  }
-  headerHandle()
 }
 
