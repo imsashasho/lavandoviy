@@ -654,10 +654,12 @@
       }
 
       &__header {
-        @include setFontStyle('Cormorant Garamond', 100px, 400, $light-grey, 100%);
+        @include setFontStyle('Cormorant Garamond', Min(6vw, 100px), 400, $light-grey, 100%);
         margin-bottom: 30px;
         max-width: 50%;
         text-align: center;
+        position: relative;
+        z-index: 2;
         // grid-area: header;
         @include tablet {
           max-width: 100%;
@@ -701,6 +703,8 @@
           top: 200px;
           right: 265px;
           @include setImgWidth(230px);
+          right: 15vw;
+          width: 13.5vw;
           @include notebook {
             right: 5%;
           }
@@ -736,7 +740,9 @@
           // grid-area: book;
           bottom: 0;
           right: 410px;
+          right: 13vw;
           @include setImgWidth(520px);
+          width: 31vw;
           @include notebook {
             width: 35%;
           }
@@ -754,6 +760,7 @@
 
           // grid-area: family;
           @include setImgWidth(640px);
+          width: 33.65vw;
           @include notebook {
             width: 35%;
           }
@@ -770,10 +777,12 @@
         &-cup {
           // grid-area: cup;
           top: 200px;
-          left: 120px;
+          top: 10vw;
+          left: 6vw;
+
           @include setImgWidth(375px);
           @include notebook {
-            left: 5%;
+            // left: 5%;
           }
           @include tablet {
             width: 257px;
@@ -900,7 +909,7 @@
   }
 }
 .stocks-section-slider {
-  // overflow: hidden;
+  overflow: hidden;
   width: 30%; 
   @include tablet {
     width: 100%; 
