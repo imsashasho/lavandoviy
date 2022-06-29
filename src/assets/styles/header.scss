@@ -27,6 +27,7 @@
 
 .header {
   padding: var(--header-tb-padding) var(--lr-paddings);
+  padding-top: calc(var(--header-tb-padding) * 2);
   position: fixed;
   background: $light-grey;
   width: 100%;
@@ -34,13 +35,20 @@
   @include baseFlexStyle(center, space-between);
   z-index: 20;
   font-weight: 400;
+  transition: transform .55s ease-out, padding-top .55s ease-out;
   @include tablet {
     padding: 15px 40px;
   }
   @include mobile {
     padding: 15px;
   }
-  
+  &.not-on-top {
+    padding: var(--header-tb-padding) var(--lr-paddings);
+    
+  }
+  &.hidden {
+    transform: translateY(-100%)
+  }
 
   &-left {
     @include baseFlexStyle(center);

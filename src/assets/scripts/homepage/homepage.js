@@ -1,6 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { intersectionObserver } from '../common/intersectionObserver';
+import { intersectionObserver, throttle } from '../common/intersectionObserver';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -228,7 +228,7 @@ gsap.registerPlugin(ScrollTrigger);
     height: 600,
     centeredSlides: false,
     watchSlidesVisibility: true,
-    speed: 300,
+    speed: 750,
     on: {
       init: (e) => {
         let { slides } = e;
@@ -280,7 +280,7 @@ gsap.registerPlugin(ScrollTrigger);
     height: 600,
     centeredSlides: false,
     watchSlidesVisibility: true,
-    speed: 300,
+    speed: 750,
     breakpoints: {
       1400: {
         autoHeight: true,
@@ -307,7 +307,61 @@ gsap.registerPlugin(ScrollTrigger);
       nextEl: '.advantages-slider-next',
       prevEl: '.advantages-slider-prev',
     },
+    on: {
+      init: (e) => {
+        e.slidesForAnimation = [];
+        e.titlesForAnimation = [];
+        document.querySelectorAll('.advantages-section .first-column__text.section-text').forEach(text => {
+          splitToLines(text);
+          e.slidesForAnimation.push(text);
+          console.log(e);
+        })
+        document.querySelectorAll('.advantages-section .first-column__header').forEach(text => {
+          splitToLines(text);
+          e.titlesForAnimation.push(text);
+          console.log(e);
+        })
+      },
+      activeIndexChange: (e) => {
+        if (!e.slidesForAnimation) return;
+        const currentText = e.slidesForAnimation[e.activeIndex];
+        const currentTitle = e.titlesForAnimation[e.activeIndex];
+        if (!currentText) return;
+        fadeUpLines(currentText);
+        fadeUpLines(currentTitle);
+      }
+    }
   });
+  function fadeUpLines(element) {
+    gsap
+      .timeline()
+      .fromTo(
+        element.querySelectorAll('span>span'),
+        { yPercent: 100 },
+        { yPercent: 0, stagger: 0.05, duration: 1, ease: 'power2.out' },
+      )
+      .add(() => {
+        // elementRef.innerHTML = elementRef.textContent;
+      });
+  }
+  function splitToLines(selector) {
+    const elementRef = typeof selector === 'string' ? document.querySelector(selector) : selector;
+    let mathM = elementRef.innerHTML.match(
+      /<\s*(\w+\b)(?:(?!<\s*\/\s*\1\b)[\s\S])*<\s*\/\s*\1\s*>|\S+/g,
+    );
+    if (mathM === null) return;
+    mathM = mathM.map(el => `<span style="display:inline-flex"><span>${el}</span></span>`);
+    elementRef.innerHTML = mathM.join(' ');
+    gsap.set(elementRef, { overflow: 'hidden', opacity: 1 });
+    gsap.set(elementRef.children, { overflow: 'hidden' });
+    gsap.set(elementRef.querySelectorAll('span>span'), {
+      overflow: 'initial',
+      display: 'inline-block',
+    });
+  }
+
+
+
 
   var init = false;
 
@@ -367,19 +421,21 @@ gsap.registerPlugin(ScrollTrigger);
     }
   }
 
-  gsap.fromTo('.right-side__header', {
-    textContent: 0,
-  },{
-    textContent: (e, target) => {
-      console.log(target);
-      return target.dataset.count;
-    },
-    duration: 4,
-    ease: 'power1.out',
-    snap: { textContent: 0.1 },
-    stagger: 0,
-    // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-  });
+  intersectionObserver('.lavanda-park', () => {
+    gsap.fromTo('.right-side__header', {
+      textContent: 0,
+    },{
+      textContent: (e, target) => {
+        console.log(target);
+        return target.dataset.count;
+      },
+      duration: 4,
+      ease: 'power1.out',
+      snap: { textContent: 0.1 },
+      stagger: 0,
+      // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+    });
+  })
   /* On Load
    **************************************************************/
   window.addEventListener('load', function() {
@@ -411,5 +467,31 @@ gsap.registerPlugin(ScrollTrigger);
       }, 1500);
     })
   }
+
+
+  function headerHandle() {
+    const header = document.querySelector('.header');
+    let prevScrollY = 0;
+    const headerChange = () => {
+      if (window.scrollY < 175) {
+        header.classList.remove('hidden');
+        header.classList.remove('not-on-top');
+        prevScrollY = window.scrollY;
+        return;
+      }
+      if (prevScrollY > window.scrollY) {
+        header.classList.remove('hidden');
+        prevScrollY = window.scrollY;
+        return;
+      }
+      header.classList.add('not-on-top');
+      header.classList.add('hidden');
+      prevScrollY = window.scrollY;
+    }
+    const throttleHeaderChange = throttle(headerChange, 300);
+    
+    window.addEventListener('scroll',throttleHeaderChange);
+  }
+  headerHandle()
 }
 
