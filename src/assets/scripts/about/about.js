@@ -178,8 +178,9 @@ const swiper2 = new Swiper('.about-text-slider', {
   }
 });
 
-
-paralax('.describe__img_right', document.body, 100)
+if (!window.matchMedia('(max-width: 575px)').matches) {
+  paralax('.describe__img_right', document.body, 100)
+}
 export default function paralax(selector, scroller, amplitude = 35) {
   // gsap.registerPlugin(ScrollTrigger)
   const paralaxImages = document.querySelectorAll(selector);
