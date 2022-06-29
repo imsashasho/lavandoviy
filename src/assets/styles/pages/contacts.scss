@@ -39,7 +39,8 @@
         margin-top: 40px;
         height: 205px; 
       }
-
+      &>div>div,
+      &>div,
       iframe {
         @include width-heigth(100%);
         vertical-align: middle;

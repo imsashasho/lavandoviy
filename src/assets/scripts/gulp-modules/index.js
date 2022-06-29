@@ -67,16 +67,16 @@ mobilePopupHandler();
 
 
 // Отправить форму колл-пейджа
-const submitCall = document.querySelector('.js-call-submit');
-const callBlock = document.querySelector('.call-block');
-const callThanksBlock = document.querySelector('.call-thanks-block');
+// const submitCall = document.querySelector('.js-call-submit');
+// const callBlock = document.querySelector('.call-block');
+// const callThanksBlock = document.querySelector('.call-thanks-block');
 
-submitCall.addEventListener('click', e => {
-  e.preventDefault();
-  callBlock.classList.add('hidden');
-  callThanksBlock.classList.add('active');
-  callThanksBlock.classList.remove('hidden');
-});
+// submitCall.addEventListener('click', e => {
+//   e.preventDefault();
+//   callBlock.classList.add('hidden');
+//   callThanksBlock.classList.add('active');
+//   callThanksBlock.classList.remove('hidden');
+// });
 
 // Закрытие колл-пейджа
 const callCloseBtn = document.querySelector('.js-call-close');

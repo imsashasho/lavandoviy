@@ -5,13 +5,18 @@
         .call-block__content 
             p.call-block__header-text.headers замовити дзвінок
             form.call-block__form(id="call-form")
-                input.call-block__input(type="text" name="name" placeholder="Ваше ім‘я")
-                input.call-block__input(type="tel" name="phone" placeholder="Телефон")
+                .form-field.form-field-input(data-field-input data-field-name data-status="field--inactive")
+                    .input-message(data-input-message)
+                    input.call-block__input(type="text" name="name" placeholder="Ваше ім‘я").form-field__input
+                .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
+                    .input-message(data-input-message)
+                    input.call-block__input(type="tel" name="phone" placeholder="Телефон")
                 .call-block__checkbox-wrapper
                     input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
                     span.call-block__checkbox-custom
                     label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
-                button.call-block__submit.js-call-submit(type="submit" form="call-form") 
+                button.call-block__submit.js-call-submit(type="submit" data-btn-submit) 
+                    span(data-btn-submit-text)
     .call-thanks-block.hidden 
         .call-thanks-block__header 
             button.call-thanks-block__close-btn.js-call-thanks-close

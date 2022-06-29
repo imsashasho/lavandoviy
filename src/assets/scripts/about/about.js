@@ -1,5 +1,6 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
+import { fadeUpLines, splitToLines } from '../modules/effects/animationHelpers';
 
 const iconsElements = document.querySelectorAll('.js-icons-element');
 iconsElements.forEach(elem => {
@@ -17,7 +18,7 @@ iconsElements.forEach(elem => {
 
 gsap.registerPlugin(ScrollTrigger);
 splitToLinesAndFadeUp(
-  '[data-span-fade-up], p, h3, [data-split-fade-up], .description__marker-text',
+  '[data-span-fade-up], h3, [data-split-fade-up], .description__marker-text, .describe__figcaption, .infra__right-text, .charact__figcaption, .infra__subheader, .infra__element',
   document.body,
 );
 function splitToLinesAndFadeUp(selector, $scroller) {
@@ -135,4 +136,56 @@ const swiper2 = new Swiper('.about-text-slider', {
     nextEl: '.about-slider-next',
     prevEl: '.about-slider-prev',
   },
+  on: {
+    init: (e) => {
+      e.slidesForAnimation = [];
+      document.querySelectorAll('.advantages__content-wrapper .advantages__text').forEach(text => {
+        splitToLines(text);
+        e.slidesForAnimation.push(text);
+      })
+    },
+    activeIndexChange: (e) => {
+      if (!e.slidesForAnimation) return;
+      const currentText = e.slidesForAnimation[e.activeIndex];
+      if (!currentText) return;
+      fadeUpLines(currentText, { duration: 0.5, stagger: 0.025 });
+
+    }
+  }
 });
+
+
+paralax('.describe__img_right', document.body, 100)
+export default function paralax(selector, scroller, amplitude = 35) {
+  // gsap.registerPlugin(ScrollTrigger)
+  const paralaxImages = document.querySelectorAll(selector);
+  paralaxImages.forEach((image) => {
+     gsap.timeline({
+      scrollTrigger: {
+        trigger: image,
+        start: '20% bottom',
+        once: true,
+        scroller: scroller ? scroller : null,
+      }
+    })
+      // .to(curtain, { scaleY: 1, duration: 1,  ease: 'expo.out' })
+      // .to(curtain, { scaleY: 0, duration: 1,  ease: 'expo.out', transformOrigin: '50% 0%' })
+      .to(image, { autoAlpha: 1 }, '<')
+    // .add(() => curtain.remove())
+    gsap.timeline({
+      ease: 'none',
+      scrollTrigger: {
+        trigger: image,
+        scrub: 0.5,
+        scroller: scroller ? scroller : null,
+        // markers: true,
+      },
+    })
+      .fromTo(image, {
+        y: amplitude,
+      }, {
+        y: amplitude * -1,
+        ease: 'linear',
+      });
+  });
+}

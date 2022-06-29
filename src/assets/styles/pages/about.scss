@@ -842,7 +842,7 @@
     width: 100%;
     .swiper-slide-active {
       > .advantages__text {
-        animation: sliderText 1.5s;
+        // animation: sliderText 1.5s;
       }
     }
     @include tablet {
