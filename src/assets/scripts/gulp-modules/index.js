@@ -32,6 +32,7 @@ btnsCall.forEach(btn => {
   btn.addEventListener('click', () => {
     call.classList.add('active');
     body.classList.add('disabled-scroll');
+    document.querySelector('.menu').classList.remove('active');
   });
 });
 

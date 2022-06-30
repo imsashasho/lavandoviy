@@ -100,6 +100,7 @@
             }
           }
         }
+        
       }
 
       .second-column {
@@ -198,6 +199,28 @@
       // img {
       //   vertical-align: middle;
       // }
+      &__scroll-down {
+        position: absolute;
+        left: var(--lr-paddings);
+        bottom: var(--lr-paddings);
+        cursor: pointer;
+        path,
+        circle {
+          transition: .25s ease-out;
+        }
+        circle {
+          fill: transparent;
+        }
+        @include from(1025px){
+          &:hover circle {
+            fill: $dark-violet;
+            stroke: transparent;
+          }
+          &:hover path {
+            stroke: $white-color;
+          }
+        }
+      }
     }
 
     .lavanda-park {
@@ -559,13 +582,17 @@
         opacity: 1;
         // transform: translate(-50%, -50%);
         // z-index: 20;
-        @include width-heigth(0);
+        // @include width-heigth(0);
         // @include multiple-transitions(0.5s, ease-in-out, opacity, width, height);
-        @include multiple-transitions(0.5s, ease-in-out, width, height);
-        // transform: translate(-50%, -50%);
+        @include width-heigth(110px);
+        @include multiple-transitions(0.5s, ease-out, transform, opacity);
 
+        transform: scale(0);
+        transform-origin: center;
+        // transform: translate(-50%, -50%);
+        
         &.active {
-          @include width-heigth(110px);
+          transform: scale(1);
           opacity: 1;
         }
 
@@ -703,7 +730,7 @@
           top: 200px;
           right: 265px;
           @include setImgWidth(230px);
-          right: 15vw;
+          right: 9vw;
           width: 13.5vw;
           @include notebook {
             right: 5%;
@@ -879,13 +906,19 @@
     @include tablet {
       margin-right: 0;
     }
+    .swiper-slide {
+      transition: all ease-out 1s;
+    }
     .swiper-slide-active {
       transform: scale(1);
-      transition: all ease-in-out 1s;
+      transition: all ease-out 1s;
     }
+    .swiper-slide-duplicate-prev,
+    .swiper-slide-duplicate-next,
+    .swiper-slide-prev,
     .swiper-slide-next {
       transform: scale(0.85);
-      transition: all ease-in-out 1s;
+      transition: all ease-out 1s;
       transform-origin: 50% 50%;
     }
     img {

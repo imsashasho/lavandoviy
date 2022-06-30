@@ -6,11 +6,16 @@ import { fadeUpLines, splitToLines } from '../modules/effects/animationHelpers';
 gsap.registerPlugin(ScrollTrigger);
 
 {
+
+  document.querySelector('[data-scroll-down]').addEventListener('click',function(evt){
+    document.querySelector('.lavanda-park').scrollIntoView({ behavior: 'smooth' })
+  });
   const animationItemSelectors = [
     '.first-column__header',
     '.section-text',
     '.left-side__header',
     '.slider-section__header',
+    '.third-column__text'
   ];
 
   animationItemSelectors.forEach(selector => {
@@ -189,7 +194,9 @@ gsap.registerPlugin(ScrollTrigger);
 
       function desktopNavButtonHandler(evt) {
         // arrow.style.transform = `translate(${evt.clientX - 18}px, ${evt.clientY - 18}px)`;
-        arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
+        // arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
+        arrow.style.left = `${evt.clientX - 120}px`;
+        arrow.style.top = `${evt.offsetY}px`;
 
         getCursorSide(evt.clientX);
         handleArrowVisibility(evt);
@@ -246,7 +253,11 @@ gsap.registerPlugin(ScrollTrigger);
         slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
         document.querySelector('.advantages-section .first-column__all-slides').textContent = slides.length;
       },
+      beforeTransitionStart: (e) => {
+        console.log(e.realIndex);
+      },
       activeIndexChange: (e) => {
+        // console.log(e);
         document.querySelector('.advantages-section .first-column__curr-slide').textContent = e.realIndex + 1;
       }
     },
@@ -437,20 +448,25 @@ gsap.registerPlugin(ScrollTrigger);
   }
 
   intersectionObserver('.lavanda-park', () => {
-    gsap.fromTo('.right-side__header', {
-      textContent: 0,
-    },{
-      textContent: (e, target) => {
-        console.log(target);
-        return target.dataset.count;
-      },
-      duration: 4,
-      ease: 'power1.out',
-      snap: { textContent: 0.1 },
-      stagger: 0,
-      // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-    });
-  })
+
+    const digits = document.querySelectorAll('.lavanda-park .right-side__header');
+    digits.forEach(digitForAnim => {
+      const isDigitInteger = Number.isInteger(+digitForAnim.dataset.count);
+      gsap.fromTo(digitForAnim, {
+        textContent: 0,
+      },{
+        textContent: (e, target) => {
+          console.log(target);
+          return target.dataset.count;
+        },
+        duration: 4,
+        ease: 'power1.out',
+        snap: { textContent: isDigitInteger ? 1 : 0.1 },
+        stagger: 0,
+        // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+      });
+    })
+    })
   /* On Load
    **************************************************************/
   window.addEventListener('load', function() {
@@ -479,7 +495,7 @@ gsap.registerPlugin(ScrollTrigger);
               ease: 'power4.out'
             }
           )
-      }, 1500);
+      }, 750);
     })
   }
 

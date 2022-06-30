@@ -620,7 +620,9 @@
 
     &__submit {
       display: flex;
-
+      [data-btn-submit-text] {
+        display: none;
+      }
       &::before {
         @include after-before-img('../images/call/submit.svg', 110px);
         @include mobile {
