@@ -389,6 +389,13 @@
             // @include setImgWidth(6px);
             @include width-heigth(6px, 12px);
           }
+          @include from(1025px){
+            transition: .25s ease-out;
+            &:hover {
+              background-color: $light-lavander;
+              border-color: $light-lavander;
+            }
+          }
         }
 
         &__slide-num {
@@ -707,6 +714,13 @@
           width: 170px;
           height: 45px;
           font-size: 10px;
+        }
+        @include from(1025px){
+          transition: .25s ease-out;
+          &:hover {
+            background-color: $light-lavander;
+            color: $white-color;
+          }
         }
       }
 

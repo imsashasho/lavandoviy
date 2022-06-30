@@ -820,13 +820,19 @@
 .about {
   &-slider {
     overflow: hidden;
+    .swiper-slide {
+      transition: all ease-out 1s;
+    }
     .swiper-slide-active {
       transform: scale(1);
-      transition: all ease-in-out 0.75s;
+      transition: all ease-in-out 1s;
     }
+    .swiper-slide-duplicate-prev,
+    .swiper-slide-duplicate-next,
+    .swiper-slide-prev,
     .swiper-slide-next {
       transform: scale(0.85);
-      transition: all ease-in-out 0.75s;
+      transition: all ease-in-out 1s;
       transform-origin: 25% 50%;
       @include tablet {
         transform: scale(1);

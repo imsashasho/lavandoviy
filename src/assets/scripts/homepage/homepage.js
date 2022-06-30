@@ -2,6 +2,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { intersectionObserver, throttle } from '../common/intersectionObserver';
 import { fadeUpLines, splitToLines } from '../modules/effects/animationHelpers';
+import clipPathEntry from '../modules/effects/clipPathEntry';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -498,6 +499,9 @@ gsap.registerPlugin(ScrollTrigger);
       }, 750);
     })
   }
+
+  
+  clipPathEntry('.second-column__img, .third-column__img, .slider-section img', document.body, {}, gsap);
 
 }
 

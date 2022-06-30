@@ -1,5 +1,6 @@
 import i18next from 'i18next';
-import gsap from 'gsap';
+import gsap from 'gsap'
+import ScrollTrigger from 'gsap/ScrollTrigger';
 import axios from 'axios';
 import * as yup from 'yup';
 import FormMonster from '../../pug/components/form/form';
@@ -90,4 +91,43 @@ function headerHandle() {
     
     window.addEventListener('scroll',throttleHeaderChange);
   }
-  headerHandle()
+  headerHandle();
+
+
+
+// Вызов меню
+const menuBtn = document.querySelector('.header-btn-menu');
+const menu = document.querySelector('.menu');
+const body = document.querySelector('body');
+const menuCloseBtn = document.querySelector('.js-menu-close');
+
+menuBtn.addEventListener('click', () => {
+  menu.classList.add('active');
+  body.classList.add('disabled-scroll');
+  window.dispatchEvent(new Event('menu-open'))
+});
+
+menuCloseBtn.addEventListener('click', () => {
+  window.dispatchEvent(new Event('menu-close'));
+  gsap.timeline()
+    .set('.menu', { pointerEvents: 'none' })
+    .fromTo('.menu', { webkitClipPath: 'circle(150% at 100% 0%)' }, { webkitClipPath: 'circle(0% at 100% 0%)', duration: 1, ease: 'power4.out' })
+    .fromTo('.menu .menu-block__link', { y: 0 }, { y: -50, duration: 0.25, stagger: 0.05, ease: 'power4.out' }, '<')
+    .fromTo('.menu-block__header', { y: 0, autoAlpha: 1 }, { y: -50,autoAlpha: 0 }, '<')
+    .fromTo('.menu-block__footer', { y: 0, autoAlpha: 1 }, { y: -50,autoAlpha: 0 }, '<')
+    .add(() => {
+      menu.classList.remove('active');
+      body.classList.remove('disabled-scroll');
+    })
+    .set('.menu', { pointerEvents: '' })
+  });
+
+window.addEventListener('menu-open',function(evt){
+  console.log('menu open');
+  gsap.timeline()
+    .fromTo('.menu', { webkitClipPath: 'circle(0% at 100% 0%)' }, { webkitClipPath: 'circle(150% at 100% 0%)', duration: 2, ease: 'power4.out' })
+    .fromTo('.menu .menu-block__link', { y: -50 }, { y: 0, duration: 1.25, stagger: 0.05, ease: 'power4.out' }, '<')
+    .fromTo('.menu-block__header', { y: -50, autoAlpha: 0 }, { y: 0,autoAlpha: 1 }, '<')
+    .fromTo('.menu-block__footer', { y: -50, autoAlpha: 0 }, { y: 0,autoAlpha: 1 }, '<')
+    
+});

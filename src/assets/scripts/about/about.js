@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger.js';
 import { fadeUpLines, splitToLines } from '../modules/effects/animationHelpers';
+import clipPathEntry from '../modules/effects/clipPathEntry';
 
 const iconsElements = document.querySelectorAll('.js-icons-element');
 iconsElements.forEach(elem => {
@@ -19,6 +20,7 @@ iconsElements.forEach(elem => {
 gsap.registerPlugin(ScrollTrigger);
 splitToLinesAndFadeUp(
   `[data-span-fade-up], 
+  .about__header,
   h3, 
   .about-headers,
   .philosophy__right-text,
@@ -214,3 +216,30 @@ export default function paralax(selector, scroller, amplitude = 35) {
       });
   });
 }
+
+
+clipPathEntry(`
+  .about__main-img, 
+  .philosophy__img, 
+  .advantages-slider__item img,
+  .describe__img_left,
+  .infra__img
+  `, 
+  document.body, 
+  {}, 
+  gsap
+);
+
+
+document.querySelectorAll(`.infra, .about__main-img, .philosophy__img, .describe__img_left, .infra__img, .advantages`).forEach(el => {
+  gsap.from(el, {
+    autoAlpha: 0,
+    y:50,
+    scrollTrigger: {
+      trigger: el,
+      start: '0 bottom',
+      end: '150 bottom',
+      scrub: true,
+    }
+  })
+})
