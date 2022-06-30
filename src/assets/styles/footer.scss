@@ -350,6 +350,14 @@
       height: 45px;
       width: 45px;
     }
+    @include from(1025px){
+      transition: .25s ease-out;
+      transform-origin: center;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
   }
 
   &-top-arrow {
@@ -405,6 +413,12 @@
     @include setFontStyle('Mont', 22px, 400, $table-p-color, 170%, $text-transform: none);
     @include mobile {
       @include setFontStyle('Mont', 16px, 400, $table-p-color, 170%, $text-transform: none);
+    }
+    @include from(1025px){
+      transition: .25s ease-out;
+      &:hover {
+        color: $light-lavander;
+      }
     }
   }
 

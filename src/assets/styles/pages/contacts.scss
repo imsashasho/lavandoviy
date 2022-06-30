@@ -91,7 +91,26 @@
               width: 30px;
             }
           }
-
+          @include from(1025px){
+            span {
+              position: relative;
+            }
+            span:after {
+              content: '';
+              position: absolute;
+              bottom: 0;
+              left: 0;
+              background-color: currentColor;
+              height: 1px;
+              width: 100%;
+              transform-origin: left;
+              transform: scale(0);
+              transition: .25s ease-out;
+            }
+            &:hover span:after {
+              transform: scale(1);
+            }
+          }
           &.contacts {
             &-address {
               &::before {

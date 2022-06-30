@@ -65,6 +65,12 @@
       margin-top: 20px;
       margin-bottom: 20px;
     }
+    @include from(1025px){
+      transition: .25s ease-out;
+      &:hover {
+        background-color: $light-lavander;
+      }
+    }
   }
 }
 

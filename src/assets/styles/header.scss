@@ -146,6 +146,7 @@
   }
 
   &-btn {
+    
     &-call {
       margin-right: var(--header-margin-outer);
       @include tablet {
@@ -164,6 +165,13 @@
           width: 45px;
           height: 45px;
           margin-left: var(--header-margin-inner);
+        }
+      }
+      @include from(1025px){
+        transition: .3s ease-out;
+        &:hover {
+          
+          color: $dark-violet;
         }
       }
       

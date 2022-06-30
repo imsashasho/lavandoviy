@@ -2,6 +2,11 @@
     .call-block 
         .call-block__header 
             button.call-block__close-btn.js-call-close
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="hover" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+                    <circle class="default" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+                    <path d="M41 41L29 29M29 41L41 29L29 41Z" stroke="#F9F8FC" stroke-width="1.5"/>
+                    </svg>
         .call-block__content 
             p.call-block__header-text.headers замовити дзвінок
             form.call-block__form(id="call-form")
@@ -15,11 +20,21 @@
                     input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
                     span.call-block__checkbox-custom
                     label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
-                button.call-block__submit.js-call-submit(type="submit" data-btn-submit) 
+                button.call-block__submit.js-call-submit(type="submit" data-btn-submit)
+                    <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle class="default" cx="55" cy="55" r="55" transform="rotate(90 55 55)" fill="#4A3A5E"/>
+                        <circle class="hover" cx="55" cy="55" r="55" transform="rotate(90 55 55)" fill="#4A3A5E"/>
+                        <path d="M50 46L59.4286 55.4286L50 64.8571" stroke="white" stroke-width="2"/>
+                        </svg>
                     span(data-btn-submit-text)
     .call-thanks-block.hidden 
         .call-thanks-block__header 
             button.call-thanks-block__close-btn.js-call-thanks-close
+                <svg width="70" height="70" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="hover" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+                    <circle class="default" cx="35" cy="35" r="35" fill="#4A3A5E"/>
+                    <path d="M41 41L29 29M29 41L41 29L29 41Z" stroke="#F9F8FC" stroke-width="1.5"/>
+                    </svg>
         .call-thanks-block__content
             p.call-thanks-block__text-header.headers Ваша заявка прийнята!
             p.call-thanks-block__text Дякуємо за звернення. Очікуйте на дзвінок#[br] наших менеджерів. Бажаємо гарного дня :)

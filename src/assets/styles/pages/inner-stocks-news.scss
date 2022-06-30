@@ -138,7 +138,15 @@
       &-btn-play {
         @include baseFlexStyle();
         @include abs-position();
-
+        @include from(1025px){
+          &:before {
+            transition: .25s ease-out;
+            transform-origin: center;
+          }
+          &:hover:before {
+            transform: scale(1.1);
+          }
+        }
         &::before {
           @include after-before-img('../images/stocks-news/inner/play.svg', 110px);
           @include mobile {
