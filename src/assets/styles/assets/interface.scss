@@ -751,6 +751,7 @@
     &-content {
       grid-column: 3 / 23;
       overflow-x: hidden;
+      height: 100%;
 
       &::-webkit-scrollbar {
         display: none;
@@ -768,7 +769,7 @@
       .swiper-gallery {
         &__slide {
           &:not(:first-child) {
-            padding-left: 30px;
+            // margin-left: 30px;
           }
         }
       }
@@ -791,7 +792,9 @@
 
       .slide-img {
         // margin-top: 30px;
-        @include setImgWidth(140px);
+        // @include setImgWidth(140px);
+        width: 100%;
+        object-fit: cover;
         height: 100%;
         cursor: pointer;
 
@@ -809,6 +812,10 @@
       }
       .swiper-slide {
         opacity: 0.75;
+        transition: opacity .5s ease-out;
+        &:hover {
+          opacity: 1;
+        }
       }
       .swiper-slide-thumb-active {
         opacity: 1;
@@ -1121,11 +1128,13 @@
     top: 0;
     left: 0;
     opacity: 1;
-    @include width-heigth(0);
-    @include multiple-transitions(0.5s, ease-in-out, width, height);
-
+    // @include width-heigth(0);
+    @include width-heigth(110px);
+    @include multiple-transitions(0.5s, ease-out, transform, opacity);
+    transform: scale(0);
+    
     &.active {
-      @include width-heigth(110px);
+      transform: scale(1);
       opacity: 1;
     }
 

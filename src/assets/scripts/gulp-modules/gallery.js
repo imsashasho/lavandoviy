@@ -75,11 +75,32 @@ const swiperGalleryBottom = new Swiper('.pop-up-slides', {
   freeMode: true,
   watchSlidesProgress: true,
   spaceBetween: 20,
+  320: {
+    slidesPerView: 1,
+  },
+  // when window width is >= 480px
+  480: {
+    slidesPerView: 1,
+  },
+  // when window width is >= 640px
+  1025: {
+    slidesPerView: 6,
+  },
+  1240: {
+    slidesPerView: 7,
+  },
+  1360: {
+    slidesPerView: 8,
+  },
+  1440: {
+    slidesPerView: 9,
+  }
+  
 });
 const swiperGallery = new Swiper('.swiper-gallery', {
   speed: 400,
   // autoHeight: true,
-  // slidesPerView: 1,
+  slidesPerView: 1,
   // freeMode: true,
   // adaptiveHeight: true,
   // allowTouchMove: true,
@@ -174,8 +195,9 @@ function sideSwitchArrow(opts, arrowArgs, conArgs) {
   }
 
   function desktopNavButtonHandler(evt) {
-    arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
-
+    // arrow.style.transform = `translate(${evt.clientX - 120}px, ${evt.offsetY}px)`;
+    arrow.style.left = `${evt.clientX - 120}px`;
+    arrow.style.top = `${evt.offsetY}px`;
     getCursorSide(evt.clientX);
     handleArrowVisibility(evt);
   }
