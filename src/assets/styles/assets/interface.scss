@@ -763,7 +763,9 @@
 
       .slide-img {
         @include setImgWidth(100%);
-        max-height: 760px;
+        // max-height: 760px;
+        /*Верхний паддинг контейнера, нижний паддинг контейнера, высота нижней панели навигации, отступ основного слайдера от панели навигации*/
+        height: calc(100vh - 50px - 50px - 80px - 30px);
       }
 
       .swiper-gallery {
@@ -806,7 +808,7 @@
       &__content {
         @include baseFlexStyle();
         flex-wrap: nowrap;
-        max-width: 1000px;
+        // max-width: 1000px;
         height: 80px;
         // overflow-x: hidden;
       }

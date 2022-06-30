@@ -71,29 +71,32 @@ function collectImgsInSwiper() {
   };
 }
 const swiperGalleryBottom = new Swiper('.pop-up-slides', {
-  slidesPerView: 6,
+  // slidesPerView: 6,
   freeMode: true,
   watchSlidesProgress: true,
   spaceBetween: 20,
-  320: {
-    slidesPerView: 1,
-  },
-  // when window width is >= 480px
-  480: {
-    slidesPerView: 1,
-  },
-  // when window width is >= 640px
-  1025: {
-    slidesPerView: 6,
-  },
-  1240: {
-    slidesPerView: 7,
-  },
-  1360: {
-    slidesPerView: 8,
-  },
-  1440: {
-    slidesPerView: 9,
+  breakpoints: {
+
+    320: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 480px
+    480: {
+      slidesPerView: 1,
+    },
+    // when window width is >= 640px
+    1025: {
+      slidesPerView: 6,
+    },
+    1240: {
+      slidesPerView: 7,
+    },
+    1360: {
+      slidesPerView: 8,
+    },
+    1440: {
+      slidesPerView: 9,
+    }
   }
   
 });
