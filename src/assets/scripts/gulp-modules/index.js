@@ -23,6 +23,7 @@ btnsCall.forEach(btn => {
 });
 
 function mobilePopupHandler() {
+  if (document.documentElement.clientWidth > 576) return;
   if (window.matchMedia('(min-width: 576px').matches) return;
   const mobPopup = document.querySelector('[data-mobile-callback-popup]');
   const call = document.querySelector('.call');
