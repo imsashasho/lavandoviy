@@ -978,9 +978,17 @@
     var(--top-padding) repeat(4, auto) var(--top-padding),
     var(--lr-paddings) repeat(24, minmax(var(--popular-indent), 1fr)) var(--lr-paddings)
   );
+  
+ 
   overflow-x: hidden;
   @include tabletLarge {
     grid-template: var(--top-padding) repeat(4, auto) var(--top-padding)/var(--lr-paddings) repeat(21, minmax(var(--popular-indent), 1fr)) var(--lr-paddings);
+  }
+  @include to(1360px){
+    @include baseGridStyle(
+      var(--top-padding) repeat(4, auto) var(--top-padding),
+      var(--lr-paddings) repeat(21, 1fr) var(--lr-paddings)
+    );
   }
   @include tablet {
     display: flex;
@@ -1046,15 +1054,45 @@
 
     &__close-btn {
       @include baseFlexStyle();
-
-      &::before {
-        @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
-        @include mobile {
-          height: 45px;
-          width: 45px;
-          background-size: 45px 45px;
-        }
+      width: 70px;
+      height: 70px;
+      cursor: pointer;
+      @include mobile {
+        height: 45px;
+        width: 45px;
       }
+      .hover,
+        .default {
+          transition: .25s ease-out;
+          transform-origin: center;
+          transform-box: fill-box;
+        }
+        .default {
+          transform: scale(1);
+
+        }
+        .hover {
+          transform: scale(0);
+          fill: $lavander;
+        }
+        @include from(1025px){
+          &:hover .hover {
+            transform: scale(1);
+          }
+          &:hover .default {
+            transform: scale(0);
+          }
+      }
+      svg {
+      }
+      // &::before {
+      //   @include after-before-img('../images/footer/close-icon.svg', 70px, 70px);
+      //   @include mobile {
+      //     height: 45px;
+      //     width: 45px;
+      //     background-size: 45px 45px;
+      //   }
+      // }
     }
 
     &__header {
@@ -1069,6 +1107,9 @@
       &-month {
         @include setFontStyle('Cormorant Garamond', 50px, 300, $headers-color, 100%, 0.01em);
         margin-right: 15px;
+        @include notebook {
+          font-size: 36px;
+        }
         @include tablet {
           font-size: 40px;
         }
@@ -1079,6 +1120,9 @@
 
       &-year {
         @include setFontStyle('Nanum', 42px, 400, $headers-color, 100%, 0.01em);
+        @include notebook {
+          font-size: 36px;
+        }
         @include tablet {
           font-size: 40px;
         }
@@ -1182,6 +1226,13 @@
           width: 45px;
           background-size: 45px 45px;
           border: 1px solid rgba(74, 58, 94, 0.15);
+        }
+        @include from(1025px){
+          transition: .3s ease-out;
+          &:hover {
+            background-color: $light-lavander;
+            border-color: $light-lavander;
+          }
         }
       }
 
