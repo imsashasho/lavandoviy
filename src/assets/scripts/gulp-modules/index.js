@@ -12,7 +12,7 @@ footerToTop.addEventListener('click', () => {
 // Вызов колл-пейджа
 const call = document.querySelector('.call');
 const btnsCall = document.querySelectorAll('.js-btn-call');
-
+const body = document.body;
 btnsCall.forEach(btn => {
   if (window.matchMedia('(max-width: 575px').matches) return;
   btn.addEventListener('click', () => {

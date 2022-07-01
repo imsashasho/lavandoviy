@@ -37,7 +37,7 @@
   }
 
   &__cards-wrapper {
-    @include grid-card-content(repeat(3, minmax(420px, 1fr)), repeat(2, 1fr), 420px);
+    @include grid-card-content(auto, repeat(2, 1fr), 420px);
     margin-bottom: 60px;
     @include tablet {
       display: block;

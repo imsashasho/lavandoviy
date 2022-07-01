@@ -179,7 +179,7 @@
 }
 
 @mixin grid-card-content(
-  $rows: repeat(3, minmax(340px, 1fr)),
+  $rows: minmax(340px, 1fr),
   $columns: repeat(3, 1fr),
   $auto-rows: 340px,
   $gap: 60px

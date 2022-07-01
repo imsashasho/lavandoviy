@@ -183,7 +183,7 @@ const swiper2 = new Swiper('.about-text-slider', {
 if (!window.matchMedia('(max-width: 575px)').matches) {
   paralax('.describe__img_right', document.body, 100)
 }
-export default function paralax(selector, scroller, amplitude = 35) {
+function paralax(selector, scroller, amplitude = 35) {
   // gsap.registerPlugin(ScrollTrigger)
   const paralaxImages = document.querySelectorAll(selector);
   paralaxImages.forEach((image) => {
@@ -238,7 +238,7 @@ document.querySelectorAll(`.infra, .about__main-img, .philosophy__img, .describe
     scrollTrigger: {
       trigger: el,
       start: '0 bottom',
-      end: '150 bottom',
+      end: '150px bottom',
       scrub: true,
     }
   })
