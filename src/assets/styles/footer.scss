@@ -387,6 +387,9 @@
       display: block;
       transform: translateY(80px); 
       transition: all ease-in-out 0.3s;
+      @include from(1361px){
+        transform: translateY(120px); 
+      }
       @include tablet {
         transform: translateY(40px); 
       }

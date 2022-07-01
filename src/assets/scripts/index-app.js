@@ -112,8 +112,8 @@ menuCloseBtn.addEventListener('click', () => {
   gsap.timeline()
     .set('.menu', { pointerEvents: 'none' })
     .fromTo('.menu', { webkitClipPath: 'circle(150% at 100% 0%)' }, { webkitClipPath: 'circle(0% at 100% 0%)', duration: 1, ease: 'power4.out' })
-    .fromTo('.menu .menu-block__link', { y: 0 }, { y: -50, duration: 0.25, stagger: 0.05, ease: 'power4.out' }, '<')
-    .fromTo('.menu-block__header', { y: 0, autoAlpha: 1 }, { y: -50,autoAlpha: 0 }, '<')
+    .fromTo('.menu .menu-block__link', { y: 0 }, { y: -50, duration: 0.25, stagger: -0.05, ease: 'power4.out' }, '<')
+    .fromTo('.menu-block__header>*:not(svg)', { y: 0, autoAlpha: 1 }, { y: -50,autoAlpha: 0, stagger: 0.05 }, '<')
     .fromTo('.menu-block__footer', { y: 0, autoAlpha: 1 }, { y: -50,autoAlpha: 0 }, '<')
     .add(() => {
       menu.classList.remove('active');
@@ -126,8 +126,8 @@ window.addEventListener('menu-open',function(evt){
   console.log('menu open');
   gsap.timeline()
     .fromTo('.menu', { webkitClipPath: 'circle(0% at 100% 0%)' }, { webkitClipPath: 'circle(150% at 100% 0%)', duration: 2, ease: 'power4.out' })
-    .fromTo('.menu .menu-block__link', { y: -50 }, { y: 0, duration: 1.25, stagger: 0.05, ease: 'power4.out' }, '<')
-    .fromTo('.menu-block__header', { y: -50, autoAlpha: 0 }, { y: 0,autoAlpha: 1 }, '<')
+    .fromTo('.menu .menu-block__link', { y: -50 }, { y: 0, duration: 1.25, stagger: -0.05, ease: 'power4.out' }, '<')
+    .fromTo('.menu-block__header>*:not(svg)', { y: -50, autoAlpha: 0 }, { y: 0,autoAlpha: 1, stagger: 0.05 }, '<')
     .fromTo('.menu-block__footer', { y: -50, autoAlpha: 0 }, { y: 0,autoAlpha: 1 }, '<')
     
 });

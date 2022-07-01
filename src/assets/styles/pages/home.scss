@@ -17,6 +17,7 @@
 
     .start-section {
       display: grid;
+      position: relative;
       // grid-template-columns: repeat(3, auto);
       grid-template-columns: repeat(2, auto) 375px;
       grid-template-rows: 125px auto;
@@ -727,8 +728,15 @@
       .img {
         &-baby {
           // grid-area: baby;
-          top: 0;
           @include setImgWidth(520px);
+          top: 0;
+          top: 0;
+          @include to(1680px){
+            width: 30vw;
+          }
+          height: auto;
+          object-fit: cover;
+          left: 40%;
           @include tablet {
             right: 0;
             width: 391px;
@@ -781,9 +789,11 @@
           // grid-area: book;
           bottom: 0;
           right: 410px;
-          right: 13vw;
+          right: 17vw;
           @include setImgWidth(520px);
-          width: 31vw;
+          @include to(1680px){
+            width: 31vw;
+          }
           @include notebook {
             width: 35%;
           }
