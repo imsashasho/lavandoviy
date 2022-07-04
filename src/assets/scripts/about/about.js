@@ -218,20 +218,8 @@ function paralax(selector, scroller, amplitude = 35) {
 }
 
 
-clipPathEntry(`
-  .about__main-img, 
-  .philosophy__img, 
-  .advantages-slider__item img,
-  .describe__img_left,
-  .infra__img
-  `, 
-  document.body, 
-  {}, 
-  gsap
-);
-
-
-document.querySelectorAll(`.infra, .about__main-img, .philosophy__img, .describe__img_left, .infra__img, .advantages`).forEach(el => {
+document.querySelectorAll(`.infra, .philosophy__img, .describe__img_left, .infra__img, .advantages`).forEach(el => {
+  console.log(el);
   gsap.from(el, {
     autoAlpha: 0,
     y:50,
@@ -243,3 +231,40 @@ document.querySelectorAll(`.infra, .about__main-img, .philosophy__img, .describe
     }
   })
 })
+
+clipPathEntry(`
+  .philosophy__img, 
+  .advantages-slider__item img,
+  .describe__img_left,
+  .infra__img
+  `, 
+  document.body, 
+  {}, 
+  gsap
+);
+
+
+
+
+
+function infraDropdownHandler() {
+  if (window.matchMedia('(min-width: 576px)').matches) return;
+  const $opener = document.querySelector('[data-infra-dropdown]');
+  const openerHeight = $opener.getBoundingClientRect().height;
+  const $dropdown = document.querySelector('.infra__map-icons-list');
+  const dropdownHeight = $dropdown.getBoundingClientRect().height;
+  let isOpened = true;
+  $dropdown.dataset.opened = isOpened;
+  $opener.addEventListener('click', () => {
+    if (isOpened) {
+      gsap.to($dropdown, { height: openerHeight })
+      isOpened = false;
+      $dropdown.dataset.opened = isOpened;
+      return;
+    }
+    gsap.to($dropdown, { height: dropdownHeight });
+    isOpened = true;
+    $dropdown.dataset.opened = isOpened;
+  })
+}
+infraDropdownHandler();

@@ -607,6 +607,10 @@
       @include mobile {
         width: 100%;
         left: 0;
+        top: auto;
+        overflow: hidden;
+        bottom: 0;
+        transform: none;
       }
     }
 
@@ -629,8 +633,34 @@
           }
         }
       }
+      
+      &--mobile {
+        @include from(576px){
+          display: none;
+        }
+        padding-left: 30px;
+        display: flex;
+        align-items: center;
+        svg {
+          margin-left: 10px;
+          transform-origin: center;
+          transform-box: fill-box;
+        }
+        span::before {
+          display: none;
+        }
+        background-color: $dark-violet;
+        span {
+          color: $white-color;
+        }
+      }
+      
     }
-
+    &-list[data-opened="false"] .infra__map-icons-element--mobile {
+      svg {
+        transform: rotate(180deg);
+      }
+    }
     &-text {
       @include setFontStyle('Gilroy', 18px, 400, $dark-grey, 100%, 0.01em, none);
       @include baseFlexStyle(center);
@@ -641,6 +671,7 @@
         margin-right: 20px;
         transition: background-image 0.3s ease-in-out;
       }
+      
     }
   }
 
