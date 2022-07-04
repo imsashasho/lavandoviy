@@ -227,6 +227,9 @@
             stroke: $white-color;
           }
         }
+        @include to(1024px){
+          display: none;
+        }
       }
     }
 

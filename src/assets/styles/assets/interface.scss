@@ -217,6 +217,9 @@
 .menu {
   position: fixed;
   @include width-heigth(100%);
+  @include to(575px){
+    min-height: -webkit-fill-available;
+  }
   background-color: rgba(0, 0, 0, 0.8);
   top: 0;
   z-index: 20;
@@ -256,7 +259,10 @@
       width: 100%;
       min-height: auto;
       flex: auto;
-      height: 100vh;
+      height: 100%;
+      @include to(575px){
+        min-height: -webkit-fill-available;
+      }
       justify-content: space-between;
     }
     @include mobile {
@@ -423,7 +429,19 @@
           }
       }
     }
-
+    .lang-block {
+      ul {
+        display: flex;
+        gap: 5px;
+        a {
+          color: $dark-grey;
+          
+        }
+        li.active a {
+          font-weight: bold;
+        }
+      }
+    }
     &__footer {
       @include baseFlexStyle(center, space-between);
       @include setFontStyle('Mont', 14px, 400, $dark-grey, 100%, 0.01em);
