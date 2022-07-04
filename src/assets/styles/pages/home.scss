@@ -120,10 +120,16 @@
         }
 
         &__img {
-          @include setImgHeight(680px);
+          @include setImgHeight(650px);
+          @include from(1025px){
+            padding-bottom: 50px;
+          }
           @include tabletLarge {
-            height: auto;
+            // height: auto;
             width: 100%;
+          }
+          @include notebook {
+            padding-bottom: 30px;
           }
           @include tablet {
             width: 100%;

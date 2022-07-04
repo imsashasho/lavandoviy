@@ -308,7 +308,13 @@
         
       }
     }
-
+    &__soc-netw {
+      display: flex;
+      justify-content: space-between;
+      @include tablet {
+        justify-content: flex-start;
+      }
+    }
     &__contacts {
       padding-top: 20px;
       @include tablet {

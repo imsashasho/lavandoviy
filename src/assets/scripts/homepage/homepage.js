@@ -450,7 +450,7 @@ gsap.registerPlugin(ScrollTrigger);
 
   intersectionObserver('.lavanda-park', () => {
 
-    const digits = document.querySelectorAll('.lavanda-park .right-side__header');
+    const digits = document.querySelectorAll('.lavanda-park [data-count]');
     digits.forEach(digitForAnim => {
       const isDigitInteger = Number.isInteger(+digitForAnim.dataset.count);
       gsap.fromTo(digitForAnim, {

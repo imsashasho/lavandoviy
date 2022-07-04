@@ -4,11 +4,14 @@
   --header-height: 170px;
   --header-tb-padding: 50px; // tb - top-bottom
   @include tabletLarge {
-    --header-margin-outer: 20px;
+    --header-margin-outer: 90px;
     --header-margin-inner: 10px;
     --header-height: 120px;
     --header-tb-padding: 25px;
     
+  }
+  @include notebook {
+    --header-margin-outer: 40px;
   }
   @include tablet {
     --header-height: 100px;
