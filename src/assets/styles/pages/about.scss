@@ -179,13 +179,13 @@
   //   repeat(auto-fill, minmax(60px, 1fr))
   // );
   @include baseGridStyle(
-    repeat(2, auto) 150px calc(532px - 150px) 150px auto 200px,
+    repeat(2, auto) 80px calc(532px - 150px) 150px auto 200px,
     repeat(auto-fill, minmax(60px, 1fr))
   );
   background: linear-gradient(0.5deg, #4A3A5E 47%, $light-grey 47%);
   @include tabletLarge {
     @include baseGridStyle(
-      repeat(2, auto) 150px calc(532px - 150px) 120px auto 100px,
+      repeat(2, auto) 80px calc(532px - 150px) 120px auto 100px,
       repeat(auto-fill, minmax(40px, 1fr))
   );
 

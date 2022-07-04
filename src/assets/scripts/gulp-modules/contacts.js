@@ -159,6 +159,7 @@ function func() {
   
     let baseFolder = '/wp-content/themes/lamanche/assets/images/map/';
     if (window.location.href.match(/localhost/)) baseFolder = './assets/images/map/';
+    if (document.documentElement.dataset.base) baseFolder = document.documentElement.dataset.base+'/assets/images/map/';
     // const baseFolder = './assets/images/markers/';
     const defaultMarkerSize = new google.maps.Size(44, 60);
     const buildLogoSize = new google.maps.Size(245, 70);

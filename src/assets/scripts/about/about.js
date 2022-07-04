@@ -103,9 +103,11 @@ const swiper1 = new Swiper('.about-slider', {
       let { slides } = e;
       slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
       document.querySelector('.advantages__all-slides').textContent = slides.length;
+      document.querySelector('.advantages__btn-wrapper-mobile .advantages__all-slides').textContent = slides.length;
     },
     activeIndexChange: (e) => {
       document.querySelector('.advantages__curr-slide').textContent = e.realIndex + 1;
+      document.querySelector('.advantages__btn-wrapper-mobile .advantages__curr-slide').textContent = e.realIndex + 1;
     }
   },
   simulateTouch: true,
@@ -181,7 +183,7 @@ const swiper2 = new Swiper('.about-text-slider', {
 });
 
 if (!window.matchMedia('(max-width: 575px)').matches) {
-  paralax('.describe__img_right', document.body, 100)
+  // paralax('.describe__img_right', document.body, 100)
 }
 function paralax(selector, scroller, amplitude = 35) {
   // gsap.registerPlugin(ScrollTrigger)

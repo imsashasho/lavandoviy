@@ -22,10 +22,10 @@
     // padding-left: 120px;
     // padding: 172px 0 48px 120px;
     @include tabletLarge {
-      padding: 120px 80px;
+      padding: 120px 80px 40px 80px;
     }
     @include notebook {
-      padding: 80px 40px;
+      padding: 80px 40px 40px 40px;
     }
     @include tablet {
       padding: 80px 40px;
@@ -145,10 +145,10 @@
     width: 70%;
     // padding-left: 132px;
     @include tabletLarge {
-      padding: 120px 80px;
+      padding: 120px 80px 40px 80px;
     }
     @include notebook {
-      padding: 80px 40px;
+      padding: 80px 40px 40px 40px;
     }
     @include tablet {
       padding: 80px 40px;
@@ -392,15 +392,23 @@
       width: 78px;
       display: block;
       transform: translateY(80px); 
+      transform: translateY(40px);
       transition: all ease-in-out 0.3s;
+      
       @include from(1361px){
         transform: translateY(120px); 
+        transform: translateY(40px);
+      }
+      @include from(1921px) {
+        transform: translateY(50px);
+
       }
       @include tablet {
         transform: translateY(40px); 
+        
       }
       @include mobile {
-        transform: translateY(80px); 
+        transform: translateY(50px); 
       }
       &:hover {
         transform: translateY(0); 
