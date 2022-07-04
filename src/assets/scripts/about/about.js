@@ -220,30 +220,69 @@ function paralax(selector, scroller, amplitude = 35) {
 }
 
 
-document.querySelectorAll(`.infra, .philosophy__img, .describe__img_left, .infra__img, .advantages`).forEach(el => {
-  console.log(el);
-  gsap.from(el, {
-    autoAlpha: 0,
-    y:50,
-    scrollTrigger: {
-      trigger: el,
-      start: '0 bottom',
-      end: '150px bottom',
-      scrub: true,
-    }
-  })
-})
+// .forEach(el => {
+//   console.log(el);
+//   gsap.from(el, {
+//     autoAlpha: 0,
+//     y:50,
+//     scrollTrigger: {
+//       trigger: el,
+//       start: '0 bottom',
+//       end: '150px bottom',
+//       scrub: true,
+//     }
+//   })
+// })
 
-clipPathEntry(`
-  .philosophy__img, 
-  .advantages-slider__item img,
-  .describe__img_left,
-  .infra__img
-  `, 
-  document.body, 
-  {}, 
-  gsap
-);
+
+
+document.querySelectorAll(`.infra, .philosophy__img, .describe__img_left, .infra__img, .advantages`).forEach(text => {
+  const startClip = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
+  const endClip = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%';
+  let tl = gsap
+      .timeline({
+          // paused: true,
+          scrollTrigger: {
+              trigger: text,
+              scroller: document.body,
+              once: true,
+          },
+      })
+      .fromTo(
+          text,
+          { clipPath: startClip, webkitClipPath: startClip },
+          { 
+              clipPath: endClip, 
+              webkitClipPath: endClip, 
+              duration: 2.25, 
+              delay: 0.5,
+              ease: 'power4.out', 
+              clearProps: 'transform',
+          },
+        )
+      .add(() => {
+        gsap.from(text, {
+          autoAlpha: 0,
+          y:50,
+          scrollTrigger: {
+            trigger: text,
+            start: '0 bottom',
+            end: '150px bottom',
+            scrub: true,
+          }
+        })
+      })
+})
+// clipPathEntry(`
+//   .philosophy__img, 
+//   .advantages-slider__item img,
+//   .describe__img_left,
+//   .infra__img
+//   `, 
+//   document.body, 
+//   {}, 
+//   gsap
+// );
 
 
 

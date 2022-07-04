@@ -1,4 +1,4 @@
-function func() {
+async function func() {
     const script = document.createElement('script');
     let key = 'AIzaSyC5AXf3Yw3tgHbODRCUwOMHJRvpKOLmJ2Q';
     if (window.location.href.match(/localhost/)) key = '';
@@ -31,7 +31,7 @@ function func() {
   });
   
   // eslint-disable-next-line no-unused-vars
-  function initMap() {
+  async function initMap() {
     const gmarkers1 = [];
     const center = {
       lat: 50.47315200396692, lng: 30.517570821411027,
@@ -163,19 +163,16 @@ function func() {
     // const baseFolder = './assets/images/markers/';
     const defaultMarkerSize = new google.maps.Size(44, 60);
     const buildLogoSize = new google.maps.Size(245, 70);
+    //'main', 'school', 'kinder', 'medicine', 'shop', 'cafe', 'leisure', 'sport'
     const markersAdresses = {
       main: `${baseFolder}marker-main.svg`,
-      cinema: `${baseFolder}marker-cinema.svg`,
-      game: `${baseFolder}marker-game.svg`,
-      metro: `${baseFolder}marker-metro.svg`,
-      education: `${baseFolder}marker-education.svg`,
+      school: `${baseFolder}marker-school.svg`,
+      kinder: `${baseFolder}marker-kinder.svg`,
+      medicine: `${baseFolder}marker-medicine.svg`,
       shop: `${baseFolder}marker-shop.svg`,
-      forest: `${baseFolder}marker-forest.svg`,
-      med: `${baseFolder}marker-med.svg`,
-      supermarket: `${baseFolder}marker-supermarket.svg`,
+      cafe: `${baseFolder}marker-cafe.svg`,
+      leisure: `${baseFolder}marker-leisure.svg`,
       sport: `${baseFolder}marker-sport.svg`,
-      bank: `${baseFolder}marker-bank.svg`,
-      museum: `${baseFolder}marker-museum.svg`,
     };
   
     // eslint-disable-next-line no-unused-vars
@@ -198,17 +195,48 @@ function func() {
   
     /* beautify preserve:start */
     const markersData = [
-      {
-        content: {
-          ua: '<div>Офіс продажу</div>',
-          ru: '<div>Офіс продажу</div>',
-          en: '<div>Офіс продажу</div>',
-        },
-        position: { lat: 50.47315200396692, lng: 30.517570821411027 },
-        type: 'main',
-        icon: { url: markersAdresses.main, scaledSize: buildLogoSize },
-      },
+      // {
+      //   content: {
+      //     ua: '<div>Офіс продажу</div>',
+      //     ru: '<div>Офіс продажу</div>',
+      //     en: '<div>Офіс продажу</div>',
+      //   },
+      //   position: { lat: 50.47315200396692, lng: 30.517570821411027 },
+      //   type: 'main',
+      //   icon: { url: markersAdresses.main, scaledSize: buildLogoSize },
+      // },
     ];
+
+
+    const sData = new FormData();
+    sData.append('action', 'infrastructure');
+    if (document.documentElement.dataset.mode !== 'local') {
+      let requestForMarkers = await fetch('/wp-admin/admin-ajax.php', {
+        body: sData,
+        method: 'POST'
+      })
+      requestForMarkers = await requestForMarkers.json();
+      let markerIterator = 0;
+      requestForMarkers.forEach((responseCategory, index) => {
+        if (!responseCategory['list']) return;
+        responseCategory['list'].forEach((resMarker, i) => {
+          markersData.push({
+            content: {
+              ua: `<div>${resMarker['name']}</div>`,
+              ru: `<div>${resMarker['name']}</div>`,
+              en: `<div>${resMarker['name']}</div>`,
+            },
+            id: markerIterator,
+            position: { lat: resMarker.coordinations.latitude, lng: resMarker.coordinations.elevation },
+            type: responseCategory['code'],
+            icon: { url: markersAdresses[responseCategory['code']], scaledSize: buildLogoSize },
+          });
+          markerIterator++;
+        })
+      })
+      console.log(requestForMarkers);
+
+    }
     const markersCategoriesList = new Set();
     markersData.forEach((el) => { markersCategoriesList.add(el.type); });
     // console.log(markersCategoriesList);
@@ -218,7 +246,8 @@ function func() {
       content: '',
       maxWidth: 200,
     });
-    markersData.forEach((marker) => {
+    let initedMarkers = [];
+    markersData.forEach((marker, index) => {
       const category = marker.type;
       const mapMarker = new google.maps.Marker({
         map,
@@ -226,7 +255,9 @@ function func() {
         icon: marker.icon,
         position: new google.maps.LatLng(marker.position.lat, marker.position.lng),
       });
-  
+      if (index === 0) {
+        map.setCenter(new google.maps.LatLng(marker.position.lat, marker.position.lng));
+      }
   
       google.maps.event.addListener(mapMarker, 'click', function () {
         infowindow.setContent(marker.content[currentLang]);
@@ -235,6 +266,15 @@ function func() {
       });
       mapMarker.name = marker.type;
       gmarkers1.push(mapMarker);
+    });
+
+    window.addEventListener('click',function(evt){
+      if (evt.target.closest('[data-marker-id]') === null) return;
+      const clickedId = evt.target.closest('[data-marker-id]').dataset.markerId;
+      const markerPosition = gmarkers1[clickedId].getPosition();
+      map.panTo(markerPosition);
+      infowindow.setContent(markersData[clickedId].content[currentLang]);
+      infowindow.open(map, gmarkers1[clickedId]);
     });
   }
   

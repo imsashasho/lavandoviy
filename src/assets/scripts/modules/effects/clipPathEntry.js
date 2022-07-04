@@ -1,5 +1,5 @@
 
-export default function clipPathEntry(selector, scroller, effectConfig = {}, gsap) {
+export default function clipPathEntry(selector, scroller, effectConfig = {}, gsap, cb = () => {}) {
     const startClip = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
     const endClip = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%';
     document.querySelectorAll(selector).forEach(text => {
@@ -24,6 +24,7 @@ export default function clipPathEntry(selector, scroller, effectConfig = {}, gsa
                 clearProps: 'transform',
                 ...effectConfig
             },
-          );
+          )
+        .add(cb)
       });
 }
