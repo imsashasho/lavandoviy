@@ -166,6 +166,7 @@ async function func() {
     //'main', 'school', 'kinder', 'medicine', 'shop', 'cafe', 'leisure', 'sport'
     const markersAdresses = {
       main: `${baseFolder}marker-main.svg`,
+      sale: `${baseFolder}marker-sale.svg`,
       school: `${baseFolder}marker-school.svg`,
       kinder: `${baseFolder}marker-kinder.svg`,
       medicine: `${baseFolder}marker-medicine.svg`,
