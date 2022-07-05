@@ -16,10 +16,11 @@
                 .form-field.disabled.form-field-input(data-field-input data-field-phone data-status="field--inactive")
                     .input-message(data-input-message)
                     input.call-block__input(type="tel" name="phone" placeholder="Телефон")
-                .call-block__checkbox-wrapper
+                .call-block__checkbox-wrapper(data-field-input data-field-agree data-status="field--inactive")
                     input.call-block__checkbox(checked type="checkbox" id="agree" name="agree") 
                     span.call-block__checkbox-custom
                     label.call-block__checkbox-label(for="agree") Я погоджуюся з умовами обробки персональних даних
+                    .input-message(data-input-message)
                 button.call-block__submit.js-call-submit(type="submit" data-btn-submit)
                     <svg width="110" height="110" viewBox="0 0 110 110" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <circle class="default" cx="55" cy="55" r="55" transform="rotate(90 55 55)" fill="#4A3A5E"/>

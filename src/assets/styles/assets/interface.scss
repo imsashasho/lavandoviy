@@ -642,6 +642,12 @@
     &__checkbox {
       &-wrapper {
         margin-bottom: 60px;
+        position: relative;
+        .input-message {
+          position: absolute;
+          top: calc(100% + 10px);
+          color: red;
+        }
         @include baseFlexStyle(center);
         @include mobile {
           margin-bottom: 30px;

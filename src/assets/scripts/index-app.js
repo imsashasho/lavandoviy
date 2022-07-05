@@ -34,13 +34,13 @@ formsWithTel.forEach(form => {
             valid: false,
             error: [],
           },
-          // phone: {
-          //   inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-phone]') }),
-          //   rule: yup.string().required(i18next.t('required')).trim(),
-          //   defaultMessage: i18next.t('name'),
-          //   valid: false,
-          //   error: [],
-          // },
+          agree: {
+            inputWrapper: new SexyInput({ animation: 'none', $field: $form.querySelector('[data-field-agree]') }),
+            rule: yup.string().nullable().required(i18next.t('required')).trim(),
+            defaultMessage: i18next.t('name'),
+            valid: false,
+            error: [],
+          },
 
           phone: {
             inputWrapper: new SexyInput({
