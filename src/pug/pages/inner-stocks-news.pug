@@ -53,9 +53,10 @@ block content
           p.isn__text Ждем вас на открытии!
         a.isn__btn-link.violet-btn-link(href="#") Обрати квартиру
         .isn__video-wrapper
-          video.isn__video(poster="./assets/images/stocks-news/inner/poster.jpg")
-            source.isn__video-src(src="" type="")
-          button.isn__video-btn-play
+          iframe.isn__video
+          //- video.isn__video(poster="./assets/images/stocks-news/inner/poster.jpg")
+          //-   source.isn__video-src(src="" type="")
+          //- button.isn__video-btn-play
         p.isn__stocks-news-header.headers останні новини та акції
         .isn__cards-wrapper
           +card('./assets/images/stocks-news/1.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!', './inner-stocks-news.html')
