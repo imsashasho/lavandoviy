@@ -933,6 +933,12 @@
   }
 }
 .advantages {
+  @include from(1025px){
+    .swiper-wrapper {
+      transition-timing-function: ease-out;
+    }
+
+  }
   &-slider {
     overflow: hidden;
     margin-right: -35px;
@@ -940,18 +946,18 @@
       margin-right: 0;
     }
     .swiper-slide {
-      transition: all ease-out 1s;
+      transition: all ease-out 1.25s;
     }
     .swiper-slide-active {
       transform: scale(1);
-      transition: all ease-out 1s;
+      transition: all ease-out 1.25s;
     }
     .swiper-slide-duplicate-prev,
     .swiper-slide-duplicate-next,
     .swiper-slide-prev,
     .swiper-slide-next {
       transform: scale(0.85);
-      transition: all ease-out 1s;
+      transition: all ease-out 1.25s;
       transform-origin: 50% 50%;
     }
     img {

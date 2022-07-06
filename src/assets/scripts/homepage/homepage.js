@@ -235,7 +235,7 @@ gsap.registerPlugin(ScrollTrigger);
       // eslint-disable-next-line no-unused-vars
     }
   });
-
+  let prevIndex = 0;
   const swiper1 = new Swiper('.advantages-slider', {
     grabCursor: true,
     loop: true,
@@ -247,7 +247,8 @@ gsap.registerPlugin(ScrollTrigger);
     height: 600,
     centeredSlides: false,
     watchSlidesVisibility: true,
-    speed: 750,
+    allowTouchMove: false,
+    speed: 1250,
     on: {
       init: (e) => {
         let { slides } = e;
@@ -255,7 +256,22 @@ gsap.registerPlugin(ScrollTrigger);
         document.querySelector('.advantages-section .first-column__all-slides').textContent = slides.length;
       },
       beforeTransitionStart: (e) => {
-        console.log(e.realIndex);
+        
+        // console.log(e);
+        // console.log(prevIndex, e.realIndex);
+        // console.log((prevIndex < e.realIndex) ? 'next' : 'prev');
+        
+        // const direction = e.touches.startX > e.touches.currentX ? 'forward' : 'backward';
+        // console.log(direction);
+        // // debugger
+        // const item = document.querySelector('.advantages-slider .swiper-slide-prev img');
+        // item.style.transition = '.1s ease-out';
+        // item.style.opacity = 0;
+        // setTimeout(() => {
+        //   item.style.opacity = 1;
+        // }, 1000);
+        // prevIndex = e.realIndex;
+
       },
       activeIndexChange: (e) => {
         // console.log(e);
@@ -291,7 +307,22 @@ gsap.registerPlugin(ScrollTrigger);
       type: 'progressbar',
     },
   });
-
+  document.querySelector('.advantages-slider-next').addEventListener('click',function(evt){
+    const item = document.querySelector('.advantages-slider .swiper-slide-prev img');
+    item.style.transition = '.1s ease-out';
+    item.style.opacity = 0;
+    setTimeout(() => {
+      item.style.opacity = 1;
+    }, 1000);
+  });
+  // document.querySelector('.advantages-slider-prev').addEventListener('click',function(evt){
+  //   const item = document.querySelector('.advantages-slider .swiper-slide-next img');
+  //   item.style.transition = '.1s ease-out';
+  //   item.style.opacity = 0;
+  //   setTimeout(() => {
+  //     item.style.opacity = 1;
+  //   }, 1000);
+  // });
   const swiper2 = new Swiper('.advantages-text-slider', {
     grabCursor: true,
     loop: true,
