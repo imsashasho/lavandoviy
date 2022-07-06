@@ -75,7 +75,11 @@ body {
     display: none;
   }
 }
-
+.page__inner {
+  @include to(576px){
+    overflow-x: hidden
+  }
+}
 a {
   @include resetLinkStyles;
 }

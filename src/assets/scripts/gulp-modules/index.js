@@ -14,7 +14,7 @@ const call = document.querySelector('.call');
 const btnsCall = document.querySelectorAll('.js-btn-call');
 const body = document.body;
 btnsCall.forEach(btn => {
-  if (window.matchMedia('(max-width: 575px').matches) return;
+  if (document.documentElement.clientWidth < 576) return;
   btn.addEventListener('click', () => {
     call.classList.add('active');
     body.classList.add('disabled-scroll');
