@@ -12,8 +12,8 @@ gsap.registerPlugin(ScrollTrigger);
     document.querySelector('.lavanda-park').scrollIntoView({ behavior: 'smooth' })
   });
   const animationItemSelectors = [
-    '.first-column__header',
-    '.section-text',
+    // '.first-column__header',
+    '.section-text:not(.first-column__text)',
     '.left-side__header',
     '.slider-section__header',
     '.third-column__text'
@@ -312,17 +312,18 @@ gsap.registerPlugin(ScrollTrigger);
     item.style.transition = '.1s ease-out';
     item.style.opacity = 0;
     setTimeout(() => {
-      item.style.opacity = 1;
+      item.style.opacity = '';
     }, 1000);
   });
-  // document.querySelector('.advantages-slider-prev').addEventListener('click',function(evt){
-  //   const item = document.querySelector('.advantages-slider .swiper-slide-next img');
-  //   item.style.transition = '.1s ease-out';
-  //   item.style.opacity = 0;
-  //   setTimeout(() => {
-  //     item.style.opacity = 1;
-  //   }, 1000);
-  // });
+  document.querySelector('.advantages-slider-prev').addEventListener('click',function(evt){
+    const item = document.querySelector('.advantages-slider .swiper-slide-active img');
+    console.log(item);
+    item.style.transition = '.2s ease-out';
+    item.style.opacity = 0;
+    setTimeout(() => {
+      item.style.opacity = '';
+    }, 1000);
+  });
   const swiper2 = new Swiper('.advantages-text-slider', {
     grabCursor: true,
     loop: true,
@@ -514,25 +515,87 @@ gsap.registerPlugin(ScrollTrigger);
   calmPlaceAnimation();
   function calmPlaceAnimation() {
     gsap.set('.calm-place__img', { clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)' });
-    intersectionObserver('.calm-place', () => {
+    intersectionObserver('.calm-place__header', () => {
       setTimeout(() => {
-          gsap.to(
-            '.calm-place__img', 
-            {
-              clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-              duration: 1.5,
-              stagger: 0.15,
-              transformOrigin: 'center',
-              clear: 'all',
-              ease: 'power4.out'
-            }
-          )
+          gsap.timeline()
+            .to(
+              '.calm-place__img', 
+              {
+                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+                duration: 1.8,
+                stagger: 0.15,
+                transformOrigin: 'center',
+                clear: 'all',
+                ease: 'expo.out'
+              }
+            )
+            .fromTo(
+              '.calm-place__img img', 
+              {
+                scale: 1.5
+              },
+              {
+                scale: 1,
+                duration: 2.25,
+                stagger: 0.15,
+                transformOrigin: 'center',
+                clear: 'all',
+                ease: 'expo.out'
+              },
+              '<'
+            )
       }, 750);
     })
   }
 
   
-  clipPathEntry('.second-column__img, .third-column__img, .slider-section img', document.body, {}, gsap);
+  clipPathEntry('.slider-section img', document.body, {}, gsap);
 
+  function screen1Animation() {
+    const startClip = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
+    const endClip = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%';
+    const title = document.querySelector('.first-column__text');
+    const text = document.querySelector('.first-column__header')
+    splitToLines(title);
+    splitToLines(text);
+
+    gsap
+      .set(
+        title.querySelectorAll('span>span'),
+        { yPercent: 100 }
+      )
+    gsap
+      .set(
+        text.querySelectorAll('span>span'),
+        { yPercent: 100 }
+      )
+    gsap.timeline()
+      .add(() => {
+        window.dispatchEvent(new Event('preloader-off'))
+      })
+      .fromTo(
+        '.second-column__img, .third-column__img', 
+        { clipPath: startClip, webkitClipPath: startClip },
+        { 
+          clipPath: endClip, 
+          webkitClipPath: endClip, 
+          duration: 2.25, 
+          delay: 0.5,
+          ease: 'power4.out', 
+          clearProps: 'transform',
+        }
+      )
+      .from('.first-column__btn-link', {
+          autoAlpha: 0,
+          y: 50
+        },
+        '<'
+      )
+      .add(() => {
+        fadeUpLines(title);
+        fadeUpLines(text);
+      }, '<')
+  }
+  screen1Animation();
 }
 

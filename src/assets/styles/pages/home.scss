@@ -695,6 +695,11 @@
       }
       &__img {
         position: absolute;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover
+        }
       }
 
       &__header {
@@ -735,6 +740,7 @@
       }
 
       .img {
+        
         &-baby {
           // grid-area: baby;
           @include setImgWidth(520px);
