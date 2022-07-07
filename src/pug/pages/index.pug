@@ -146,20 +146,25 @@ block content
         p.calm-place__header місце вашого спокою
         a.calm-place__link(href="#") обрати квартиру
     section.stocks-section 
+      .stocks-section_abs-wrapper
+        .stocks-section_abs
+          .stocks-section_abs-inn#scrollingText
+            - let count = 0;
+            while count < 10
+              p.stocks-section__text-wrapper.js-stocks-text-wrapper 
+                span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
+              - count++;
       .stocks-section-slider
-          .stocks-section-slider__wrp.swiper-wrapper
+          .stocks-section-slider__wrp
+            .swiper-slide.stocks-section-slider__item
+              +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
+            .swiper-slide.stocks-section-slider__item
+              +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
             .swiper-slide.stocks-section-slider__item
               +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
             .swiper-slide.stocks-section-slider__item
               +card('./assets/images/home/stocks/card-img.jpg', '23/09/2021', 'Встигніть здійснити бажання про власне житло! Продаж квартир у жк lavanda park відкрито!')
       //- p.stocks-section__text акції#[span.stocks-section__ampersand &]новини
-      .stocks-section_abs
-        .stocks-section_abs-inn#scrollingText
-          - let count = 0;
-          while count < 10
-            p.stocks-section__text-wrapper.js-stocks-text-wrapper 
-              span.stocks-section__text.js-stocks-text акції#[span.stocks-section__ampersand &]новини#[span.stocks-section__ampersand &]
-            - count++;
 block footer
   include ../includes/footer.pug
 

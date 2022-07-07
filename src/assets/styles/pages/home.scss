@@ -8,7 +8,11 @@
     --section-padding-bottom: 60px;
   }
 }
-
+.home .page__inner {
+  @include to(1024px){
+    overflow-x: visible;
+  }
+}
 .main {
   &-home {
     section {
@@ -865,15 +869,15 @@
     }
 
     .stocks-section {
-      padding: 150px 0 0;
-      overflow: hidden;
-      @include baseFlexStyle(center, center);
+      padding: 0 0 0;
+      // overflow: hidden;
+      // @include baseFlexStyle(center, center);
       position: relative;
       @include tablet {
-        padding: 290px 124px 0px 124px;
+        padding: 0px 124px 0px 124px;
        }
       @include mobile {
-       padding: 168px 15px 0px 15px;
+       padding: 0px 15px 0px 15px;
       }
 
       & >.card-link {
@@ -886,20 +890,57 @@
            }
         }
       }
-
+      &-slider  {
+        overflow: initial !important;
+      }
+      &-slider__wrp {
+        width: 100%;
+      }
+      &-slider__item {
+        width: 30%;
+        height: 100vh;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        @include to(1024px){
+          width: 100%;
+        }
+        &:first-child {
+          margin-top: -100vh;
+        }
+      }
       &_abs {
-        position: absolute;        
+        // position: absolute;     
+        position: relative;   
         left: -100%;
         // top: 50%;
         // transform: translateY(-50%);
         width: 100%;
         // overflow: hidden;
         // white-space: nowrap;
+        &-wrapper {
+          position: sticky;
+          top: 0vh;
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          height: 100vh;
+          @include to(1024px){
+            align-items: flex-start;
+          }
+          // margin-bottom: 10vw;
+        }
         @include tablet {
-          top: 120px;
+          // top: 120px;
          }
         @include mobile {
-          top: 60px;
+          // top: 60px;
         }
       }
 
@@ -988,7 +1029,7 @@
 }
 .stocks-section-slider {
   overflow: hidden;
-  width: 30%; 
+  // width: 30%; 
   @include tablet {
     width: 100%; 
   }
@@ -1000,8 +1041,8 @@
   }
   .swiper-slide {
     @include tablet {
-      height: auto !important;
-      margin-bottom: 50px;
+      // height: auto !important;
+      // margin-bottom: 50px;
     }
     @include mobile {
       margin-bottom: 30px;

@@ -431,48 +431,48 @@ gsap.registerPlugin(ScrollTrigger);
     let desktop = window.matchMedia('(min-width: 1025px)');
 
     // Enable (for mobile)
-    if (desktop.matches) {
-      if (!init) {
-        init = true;
-        swiper3 = new Swiper('.stocks-section-slider', {
-          grabCursor: true,
-          loop: true,
-          keyboard: true,
-          spaceBetween: 50,
-          direction: 'vertical',
-          mousewheel: true,
-          // initialSlide: 0,
-          preloadImages: false,
-          lazy: true,
-          height: 620,
-          centeredSlides: false,
-          watchSlidesVisibility: true,
-          speed: 300,
-          breakpoints: {
-            1024: {
-              autoHeight: true,
-              slidesPerView: 1,
-            },
-            768: {
-              initialSlide: 1,
-              slidesPerView: 2,
-              loop: false,
-              autoHeight: false,
-            },
-            360: {
-              spaceBetween: 0,
-              slidesPerView: 2,
-              centeredSlides: false,
-              spaceBetween: 50,
-              loop: false,
-              autoHeight: false,
-            },
-          },
-          simulateTouch: true,
-        });
-      }
-      return;
-    }
+    // if (desktop.matches) {
+    //   if (!init) {
+    //     init = true;
+    //     swiper3 = new Swiper('.stocks-section-slider', {
+    //       grabCursor: true,
+    //       loop: true,
+    //       keyboard: true,
+    //       spaceBetween: 50,
+    //       direction: 'vertical',
+    //       mousewheel: true,
+    //       // initialSlide: 0,
+    //       preloadImages: false,
+    //       lazy: true,
+    //       height: 620,
+    //       centeredSlides: false,
+    //       watchSlidesVisibility: true,
+    //       speed: 300,
+    //       breakpoints: {
+    //         1024: {
+    //           autoHeight: true,
+    //           slidesPerView: 1,
+    //         },
+    //         768: {
+    //           initialSlide: 1,
+    //           slidesPerView: 2,
+    //           loop: false,
+    //           autoHeight: false,
+    //         },
+    //         360: {
+    //           spaceBetween: 0,
+    //           slidesPerView: 2,
+    //           centeredSlides: false,
+    //           spaceBetween: 50,
+    //           loop: false,
+    //           autoHeight: false,
+    //         },
+    //       },
+    //       simulateTouch: true,
+    //     });
+    //   }
+    //   return;
+    // }
 
     // Disable (for tablet)
     if (tablet.matches) {
