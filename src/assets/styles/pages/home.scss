@@ -649,6 +649,7 @@
       &__slide {
         // height: 708px;
         @include setImgHeight(708px);
+        object-fit: contain;
         @include tablet {
           height: 351px;
         }
@@ -892,12 +893,43 @@
       }
       &-slider  {
         overflow: initial !important;
+        margin-top: -100vh;
+        
       }
       &-slider__wrp {
-        width: 100%;
+        @include from(1025px){
+          width: 30%;
+        height: 100vh;
+        overflow-y: auto;
+        margin-left: auto;
+        margin-right: auto;
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+        position: relative;
+        }
+        @include to(1024px){
+          width: 100%;
+        }
+        &::-webkit-scrollbar {
+          width: 0px;
+        }
+        
+        /* Track */
+        &::-webkit-scrollbar-track {
+          // -webkit-box-shadow: inset 0 0 6px #e2e3e4;
+          //-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Handle */
+        &::-webkit-scrollbar-thumb {
+        }
+        
+        &::-webkit-scrollbar-thumb:window-inactive {
+          // background: #c1c1c1;
+        }
       }
       &-slider__item {
-        width: 30%;
+        width: 100%;
         height: 100vh;
         margin-left: auto;
         margin-right: auto;
