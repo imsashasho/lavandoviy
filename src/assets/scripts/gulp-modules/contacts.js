@@ -52,84 +52,103 @@ async function func() {
       language: 'en',
       styles: [
         {
-          featureType: 'administrative',
-          elementType: 'labels.text.fill',
-          stylers: [
-            {
-              color: '#444444',
-            },
-          ],
+            "featureType": "road",
+            "stylers": [
+                {
+                    "hue": "#5e00ff"
+                },
+                {
+                    "saturation": -79
+                }
+            ]
         },
         {
-          featureType: 'landscape',
-          elementType: 'all',
-          stylers: [
-            {
-              color: '#f2f2f2',
-            },
-          ],
+            "featureType": "poi",
+            "stylers": [
+                {
+                    "saturation": -78
+                },
+                {
+                    "hue": "#6600ff"
+                },
+                {
+                    "lightness": -47
+                },
+                {
+                    "visibility": "off"
+                }
+            ]
         },
         {
-          featureType: 'poi',
-          elementType: 'all',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
+            "featureType": "road.local",
+            "stylers": [
+                {
+                    "lightness": 22
+                }
+            ]
         },
         {
-          featureType: 'road',
-          elementType: 'all',
-          stylers: [
-            {
-              saturation: -100,
-            },
-            {
-              lightness: 45,
-            },
-          ],
+            "featureType": "landscape",
+            "stylers": [
+                {
+                    "hue": "#6600ff"
+                },
+                {
+                    "saturation": -11
+                }
+            ]
+        },
+        {},
+        {},
+        {
+            "featureType": "water",
+            "stylers": [
+                {
+                    "saturation": -65
+                },
+                {
+                    "hue": "#1900ff"
+                },
+                {
+                    "lightness": 8
+                }
+            ]
         },
         {
-          featureType: 'road.highway',
-          elementType: 'all',
-          stylers: [
-            {
-              visibility: 'simplified',
-            },
-          ],
+            "featureType": "road.local",
+            "stylers": [
+                {
+                    "weight": 1.3
+                },
+                {
+                    "lightness": 30
+                }
+            ]
         },
         {
-          featureType: 'road.arterial',
-          elementType: 'labels.icon',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
+            "featureType": "transit",
+            "stylers": [
+                {
+                    "visibility": "simplified"
+                },
+                {
+                    "hue": "#5e00ff"
+                },
+                {
+                    "saturation": -16
+                }
+            ]
         },
         {
-          featureType: 'transit',
-          elementType: 'all',
-          stylers: [
-            {
-              visibility: 'off',
-            },
-          ],
+            "featureType": "transit.line",
+            "stylers": [
+                {
+                    "saturation": -72
+                }
+            ]
         },
-        {
-          featureType: 'water',
-          elementType: 'all',
-          stylers: [
-            {
-              color: '#a6b6bc',
-            },
-            {
-              visibility: 'on',
-            },
-          ],
-        },
-      ],
+        {}
+    ],
   
     });
     const filterMarkers = function (category, categoriesArray) {

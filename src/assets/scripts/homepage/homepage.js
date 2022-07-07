@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
     '.section-text:not(.first-column__text)',
     '.left-side__header',
     '.slider-section__header',
-    '.third-column__text'
+    // '.third-column__text'
   ];
 
   animationItemSelectors.forEach(selector => {

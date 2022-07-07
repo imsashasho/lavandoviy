@@ -26,6 +26,9 @@
 
   &-home {
     --top-padding: 0px;
+    @include to(575px){
+      padding-bottom: 0;
+    }
   }
 }
 

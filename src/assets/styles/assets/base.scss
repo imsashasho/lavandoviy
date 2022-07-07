@@ -123,3 +123,14 @@ img {
     -webkit-clip-path: polygon(0 100%, 100% 100%, 100% 0, 0 0);
   }
 }
+
+.desktop-hide {
+  @include from(576px){
+    display: none;
+  }
+}
+.hide-on-mobile {
+  @include to(575px){
+    display: none !important;
+  }
+}

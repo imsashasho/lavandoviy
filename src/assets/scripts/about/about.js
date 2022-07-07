@@ -104,7 +104,7 @@ const swiper1 = new Swiper('.about-slider', {
       let { slides } = e;
       slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
       document.querySelector('.advantages__all-slides').textContent = slides.length;
-      document.querySelector('.advantages__btn-wrapper-mobile .advantages__all-slides').textContent = slides.length;
+      document.querySelector('.advantages__btn-wrapper-mobile .advantages__all-slides').textContent = document.querySelector('[data-count]').dataset.count;
     },
     activeIndexChange: (e) => {
       document.querySelector('.advantages__curr-slide').textContent = e.realIndex + 1;
