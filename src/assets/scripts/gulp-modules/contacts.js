@@ -1,6 +1,6 @@
 async function func() {
     const script = document.createElement('script');
-    let key = 'AIzaSyC5AXf3Yw3tgHbODRCUwOMHJRvpKOLmJ2Q';
+    let key = '';
     if (window.location.href.match(/localhost/)) key = '';
     // const key = '';
     script.src = `https://maps.googleapis.com/maps/api/js?key=${key}&callback=initMap`;
