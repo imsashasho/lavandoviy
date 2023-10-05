@@ -19,6 +19,14 @@ block scripts
   script(defer src='./assets/scripts/header.js')
   script(defer src='./assets/scripts/homepage.bundle.js')
 block content
+  .front-screen-modal(data-front-screen-popup)
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="front-screen-modal-close" data-front-screen-popup-close>
+      <circle cx="12" cy="12" r="12" fill="#F9F8FC"/>
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M7.29291 7.29289C7.68343 6.90237 8.3166 6.90237 8.70712 7.29289L12 10.5858L15.2929 7.29289C15.6834 6.90237 16.3166 6.90237 16.7071 7.29289C17.0976 7.68342 17.0976 8.31658 16.7071 8.70711L13.4142 12L16.7071 15.2929C17.0976 15.6834 17.0976 16.3166 16.7071 16.7071C16.3166 17.0976 15.6834 17.0976 15.2929 16.7071L12 13.4142L8.70712 16.7071C8.3166 17.0976 7.68343 17.0976 7.29291 16.7071C6.90238 16.3166 6.90238 15.6834 7.29291 15.2929L10.5858 12L7.29291 8.70711C6.90238 8.31658 6.90238 7.68342 7.29291 7.29289Z" fill="#4A3A5E"/>
+      </svg>
+
+    .front-screen-modal-backdrop
+    .front-screen-modal-content
   main.main.main-home 
     section.start-section
       .first-column
@@ -26,7 +34,8 @@ block content
         p.first-column__text.section-text Всім з дитинства знайоме почуття, коли хочеться усамітнитися, створити свій милий серцю куточок
         a.first-column__btn-link(href="#") обрати квартиру
       .second-column 
-        img(src="./assets/images/home/start-sec-1.jpg", alt="Interiere").second-column__img
+        video( data-front-screen-popup-call poster="./assets/images/Header/logo.svg" src='https://lavanda-park.vn.ua/wp-content/themes/lavanda/assets/front-video.mp4' muted autoplay looped playsinline).second-column__img
+        //- img(src="./assets/images/home/start-sec-1.jpg", alt="Interiere").second-column__img
         .second-column__link-wrapper
           a.second-column__link(href="#" data-text="Facebook") Facebook
           a.second-column__link(href="#" data-text="instagram") instagram

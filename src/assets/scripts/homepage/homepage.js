@@ -599,3 +599,37 @@ gsap.registerPlugin(ScrollTrigger);
   screen1Animation();
 }
 
+function frontScreenModalHandler() {
+  let isInited = false;
+  const popup = document.querySelector('[data-front-screen-popup]');
+  const videoToCopy = document.querySelector('.start-section .second-column__img');
+
+  videoToCopy.addEventListener('play', () => {
+    videoToCopy.style.objectFit = 'cover';
+  });
+
+  document.body.addEventListener('click',function(evt){
+    const target = evt.target.closest('[data-front-screen-popup-call]');
+    if (!target) return;
+    if (!isInited) {
+      const node = videoToCopy.cloneNode(true);
+      node.setAttribute('controls', true);
+      popup.querySelector('.front-screen-modal-content').insertAdjacentElement('afterbegin', node);
+      isInited = true;
+    }
+    if (isInited) popup.querySelectorAll('.front-screen-modal-content video').forEach(el => el.play());
+
+    videoToCopy.pause();
+    popup.classList.add('active');
+  });
+  document.body.addEventListener('click',function(evt){
+    const target = evt.target.closest('[data-front-screen-popup-close]');
+    if (!target) return;
+    popup.classList.remove('active');
+    videoToCopy.play();
+    popup.querySelectorAll('.front-screen-modal-content video').forEach(el => el.pause());
+  });
+}
+
+
+frontScreenModalHandler();
