@@ -585,10 +585,14 @@ gsap.registerPlugin(ScrollTrigger);
           clearProps: 'transform',
         }
       )
-      .from('.first-column__btn-link', {
+      .fromTo('.first-column__btn-link', {
           autoAlpha: 0,
           y: 50
         },
+        {
+          autoAlpha: 1,
+          y: 0
+        },  
         '<'
       )
       .add(() => {
