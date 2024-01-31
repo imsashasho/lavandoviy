@@ -7,9 +7,8 @@ import clipPathEntry from '../modules/effects/clipPathEntry';
 gsap.registerPlugin(ScrollTrigger);
 
 {
-
-  document.querySelector('[data-scroll-down]').addEventListener('click',function(evt){
-    document.querySelector('.lavanda-park').scrollIntoView({ behavior: 'smooth' })
+  document.querySelector('[data-scroll-down]').addEventListener('click', function(evt) {
+    document.querySelector('.lavanda-park').scrollIntoView({ behavior: 'smooth' });
   });
   const animationItemSelectors = [
     // '.first-column__header',
@@ -116,14 +115,16 @@ gsap.registerPlugin(ScrollTrigger);
         prevEl: '.slider-section-prev',
       },
       on: {
-        init: (e) => {
+        init: e => {
           let { slides } = e;
           slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
-          document.querySelector('.slider-section .slider-section__all-slides').textContent = slides.length;
+          document.querySelector('.slider-section .slider-section__all-slides').textContent =
+            slides.length;
         },
-        activeIndexChange: (e) => {
-          document.querySelector('.slider-section .slider-section__curr-slide').textContent = e.realIndex + 1;
-        }
+        activeIndexChange: e => {
+          document.querySelector('.slider-section .slider-section__curr-slide').textContent =
+            e.realIndex + 1;
+        },
       },
       breakpoints: {
         360: {
@@ -250,17 +251,16 @@ gsap.registerPlugin(ScrollTrigger);
     allowTouchMove: false,
     speed: 1250,
     on: {
-      init: (e) => {
+      init: e => {
         let { slides } = e;
         slides = slides.filter(el => !el.classList.contains('swiper-slide-duplicate'));
-        document.querySelector('.advantages-section .first-column__all-slides').textContent = slides.length;
+        document.querySelector('.advantages-section .first-column__all-slides').textContent =
+          slides.length;
       },
-      beforeTransitionStart: (e) => {
-        
+      beforeTransitionStart: e => {
         // console.log(e);
         // console.log(prevIndex, e.realIndex);
         // console.log((prevIndex < e.realIndex) ? 'next' : 'prev');
-        
         // const direction = e.touches.startX > e.touches.currentX ? 'forward' : 'backward';
         // console.log(direction);
         // // debugger
@@ -271,12 +271,12 @@ gsap.registerPlugin(ScrollTrigger);
         //   item.style.opacity = 1;
         // }, 1000);
         // prevIndex = e.realIndex;
-
       },
-      activeIndexChange: (e) => {
+      activeIndexChange: e => {
         // console.log(e);
-        document.querySelector('.advantages-section .first-column__curr-slide').textContent = e.realIndex + 1;
-      }
+        document.querySelector('.advantages-section .first-column__curr-slide').textContent =
+          e.realIndex + 1;
+      },
     },
     breakpoints: {
       1400: {
@@ -307,7 +307,7 @@ gsap.registerPlugin(ScrollTrigger);
       type: 'progressbar',
     },
   });
-  document.querySelector('.advantages-slider-next').addEventListener('click',function(evt){
+  document.querySelector('.advantages-slider-next').addEventListener('click', function(evt) {
     const item = document.querySelector('.advantages-slider .swiper-slide-prev img');
     item.style.transition = '.1s ease-out';
     item.style.opacity = 0;
@@ -315,7 +315,7 @@ gsap.registerPlugin(ScrollTrigger);
       item.style.opacity = '';
     }, 1000);
   });
-  document.querySelector('.advantages-slider-prev').addEventListener('click',function(evt){
+  document.querySelector('.advantages-slider-prev').addEventListener('click', function(evt) {
     const item = document.querySelector('.advantages-slider .swiper-slide-active img');
     console.log(item);
     item.style.transition = '.2s ease-out';
@@ -338,7 +338,7 @@ gsap.registerPlugin(ScrollTrigger);
     speed: 750,
     effect: 'fade',
     fadeEffect: {
-      crossFade: true
+      crossFade: true,
     },
     breakpoints: {
       1400: {
@@ -367,29 +367,31 @@ gsap.registerPlugin(ScrollTrigger);
       prevEl: '.advantages-slider-prev',
     },
     on: {
-      init: (e) => {
+      init: e => {
         e.slidesForAnimation = [];
         e.titlesForAnimation = [];
-        document.querySelectorAll('.advantages-section .first-column__text.section-text').forEach(text => {
-          splitToLines(text);
-          e.slidesForAnimation.push(text);
-          console.log(e);
-        })
+        document
+          .querySelectorAll('.advantages-section .first-column__text.section-text')
+          .forEach(text => {
+            splitToLines(text);
+            e.slidesForAnimation.push(text);
+            console.log(e);
+          });
         document.querySelectorAll('.advantages-section .first-column__header').forEach(text => {
           splitToLines(text);
           e.titlesForAnimation.push(text);
           console.log(e);
-        })
+        });
       },
-      activeIndexChange: (e) => {
+      activeIndexChange: e => {
         if (!e.slidesForAnimation) return;
         const currentText = e.slidesForAnimation[e.activeIndex];
         const currentTitle = e.titlesForAnimation[e.activeIndex];
         if (!currentText) return;
         fadeUpLines(currentText);
         fadeUpLines(currentTitle);
-      }
-    }
+      },
+    },
   });
   // function fadeUpLines(element) {
   //   gsap
@@ -418,9 +420,6 @@ gsap.registerPlugin(ScrollTrigger);
   //     display: 'inline-block',
   //   });
   // }
-
-
-
 
   var init = false;
 
@@ -481,25 +480,28 @@ gsap.registerPlugin(ScrollTrigger);
   }
 
   intersectionObserver('.lavanda-park', () => {
-
     const digits = document.querySelectorAll('.lavanda-park [data-count]');
     digits.forEach(digitForAnim => {
       const isDigitInteger = Number.isInteger(+digitForAnim.dataset.count);
-      gsap.fromTo(digitForAnim, {
-        textContent: 0,
-      },{
-        textContent: (e, target) => {
-          console.log(target);
-          return target.dataset.count;
+      gsap.fromTo(
+        digitForAnim,
+        {
+          textContent: 0,
         },
-        duration: 4,
-        ease: 'power1.out',
-        snap: { textContent: isDigitInteger ? 1 : 0.1 },
-        stagger: 0,
-        // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
-      });
-    })
-    })
+        {
+          textContent: (e, target) => {
+            console.log(target);
+            return target.dataset.count;
+          },
+          duration: 4,
+          ease: 'power1.out',
+          snap: { textContent: isDigitInteger ? 1 : 0.1 },
+          stagger: 0,
+          // onUpdate: textContent.replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+        },
+      );
+    });
+  });
   /* On Load
    **************************************************************/
   window.addEventListener('load', function() {
@@ -517,88 +519,80 @@ gsap.registerPlugin(ScrollTrigger);
     gsap.set('.calm-place__img', { clipPath: 'polygon(50% 50%, 50% 50%, 50% 50%, 50% 50%)' });
     intersectionObserver('.calm-place__header', () => {
       setTimeout(() => {
-          gsap.timeline()
-            .to(
-              '.calm-place__img', 
-              {
-                clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
-                duration: 1.8,
-                stagger: 0.15,
-                transformOrigin: 'center',
-                clear: 'all',
-                ease: 'expo.out'
-              }
-            )
-            .fromTo(
-              '.calm-place__img img', 
-              {
-                scale: 1.5
-              },
-              {
-                scale: 1,
-                duration: 2.25,
-                stagger: 0.15,
-                transformOrigin: 'center',
-                clear: 'all',
-                ease: 'expo.out'
-              },
-              '<'
-            )
+        gsap
+          .timeline()
+          .to('.calm-place__img', {
+            clipPath: 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            duration: 1.8,
+            stagger: 0.15,
+            transformOrigin: 'center',
+            clear: 'all',
+            ease: 'expo.out',
+          })
+          .fromTo(
+            '.calm-place__img img',
+            {
+              scale: 1.5,
+            },
+            {
+              scale: 1,
+              duration: 2.25,
+              stagger: 0.15,
+              transformOrigin: 'center',
+              clear: 'all',
+              ease: 'expo.out',
+            },
+            '<',
+          );
       }, 750);
-    })
+    });
   }
 
-  
   clipPathEntry('.slider-section img', document.body, {}, gsap);
 
   function screen1Animation() {
     const startClip = 'polygon(0% 100%, 100% 100%, 100% 100%, 0% 100%)';
     const endClip = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%';
     const title = document.querySelector('.first-column__text');
-    const text = document.querySelector('.first-column__header')
+    const text = document.querySelector('.first-column__header');
     splitToLines(title);
     splitToLines(text);
 
+    gsap.set(title.querySelectorAll('span>span'), { yPercent: 100 });
+    gsap.set(text.querySelectorAll('span>span'), { yPercent: 100 });
     gsap
-      .set(
-        title.querySelectorAll('span>span'),
-        { yPercent: 100 }
-      )
-    gsap
-      .set(
-        text.querySelectorAll('span>span'),
-        { yPercent: 100 }
-      )
-    gsap.timeline()
+      .timeline()
       .add(() => {
-        window.dispatchEvent(new Event('preloader-off'))
+        window.dispatchEvent(new Event('preloader-off'));
       })
       .fromTo(
-        '.second-column__img, .third-column__img', 
+        '.second-column__img, .third-column__img',
         { clipPath: startClip, webkitClipPath: startClip },
-        { 
-          clipPath: endClip, 
-          webkitClipPath: endClip, 
-          duration: 2.25, 
+        {
+          clipPath: endClip,
+          webkitClipPath: endClip,
+          duration: 2.25,
           delay: 0.5,
-          ease: 'power4.out', 
+          ease: 'power4.out',
           clearProps: 'transform',
-        }
+        },
       )
-      .fromTo('.first-column__btn-link', {
+      .fromTo(
+        '.first-column__btn-link',
+        {
           autoAlpha: 0,
-          y: 50
+          y: 50,
         },
         {
           autoAlpha: 1,
-          y: 0
-        },  
-        '<'
+          y: 0,
+        },
+        '<',
       )
       .add(() => {
         fadeUpLines(title);
         fadeUpLines(text);
-      }, '<')
+      }, '<');
   }
   screen1Animation();
 }
@@ -612,7 +606,7 @@ function frontScreenModalHandler() {
     videoToCopy.style.objectFit = 'cover';
   });
 
-  document.body.addEventListener('click',function(evt){
+  document.body.addEventListener('click', function(evt) {
     const target = evt.target.closest('[data-front-screen-popup-call]');
     if (!target) return;
     if (!isInited) {
@@ -621,12 +615,13 @@ function frontScreenModalHandler() {
       popup.querySelector('.front-screen-modal-content').insertAdjacentElement('afterbegin', node);
       isInited = true;
     }
-    if (isInited) popup.querySelectorAll('.front-screen-modal-content video').forEach(el => el.play());
+    if (isInited)
+      popup.querySelectorAll('.front-screen-modal-content video').forEach(el => el.play());
 
     videoToCopy.pause();
     popup.classList.add('active');
   });
-  document.body.addEventListener('click',function(evt){
+  document.body.addEventListener('click', function(evt) {
     const target = evt.target.closest('[data-front-screen-popup-close]');
     if (!target) return;
     popup.classList.remove('active');
@@ -634,6 +629,5 @@ function frontScreenModalHandler() {
     popup.querySelectorAll('.front-screen-modal-content video').forEach(el => el.pause());
   });
 }
-
 
 frontScreenModalHandler();
