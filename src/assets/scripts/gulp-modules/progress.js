@@ -100,7 +100,7 @@ function buildProgressDataHandler() {
   const getCards = async () => {
     const sendData = new FormData();
     sendData.append('action', 'constructions');
-    return fetch('https://lavanda-wp.smarto.com.ua/wp-admin/admin-ajax.php', {
+    return fetch('/wp-admin/admin-ajax.php', {
       method: 'POST',
       body:sendData
     })
@@ -109,7 +109,7 @@ function buildProgressDataHandler() {
     const sendData = new FormData();
     sendData.append('action', 'construction');
     sendData.append('id', id);
-    return fetch('https://lavanda-wp.smarto.com.ua/wp-admin/admin-ajax.php', {
+    return fetch('/wp-admin/admin-ajax.php', {
       method: 'POST',
       body:sendData
     })
@@ -190,9 +190,15 @@ function buildProgressDataHandler() {
     const base = document.documentElement.dataset.base;
     const imagesCount = data.data.gallery.filter(img => img.match(/\.(jpg|png|svg|jpeg|webp)/)).length;
     const videosCount = data.data.gallery.filter(img => !img.match(/\.(jpg|png|svg|jpeg|webp)/)).length;
+    const imgSrc = data.data.gallery[0];
+    const imgSrcMobile = data.data.screensaver_mobile_version !== null && data.data.screensaver_mobile_version !== false
+    ? data.data.screensaver_mobile_version
+    : data.data.gallery[0];
+    const isMobile = window.innerWidth <= 1024;
     return `
     <div class="progress-card" data-card-id="${data.id}"> 
-      <figure class="progress-card-top"> <img class="progress-card__img" src="${data.data.gallery[0]}" alt="Card photo"/>
+      <figure class="progress-card-top"> 
+      <img class="progress-card__img" src="${isMobile ? imgSrcMobile : imgSrc}" alt="Card photo"/>
       <img class="progress-card__img-plus" src="${base}/assets/images/progress/plus.svg" alt="Plus"/></figure>
       <div class="progress-card-bottom"> 
         <span class="progress-card__date">${data.data.nameMonth} ${data.data.year}</span>
