@@ -192,6 +192,7 @@ export default class FormMonster {
 
           if (error === 0) {
             this.watchedState.status = 'successSand';
+            window.dispatchEvent(new Event('succesFormSend'));
             return true;
           }
           /* eslint-disable-next-line */
